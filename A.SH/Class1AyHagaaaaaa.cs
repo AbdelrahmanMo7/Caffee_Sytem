@@ -8,5 +8,6 @@ namespace Cafffe_Sytem.A.SH
 {
     class Class1AyHagaaaaaa
     {
+        public int MyProperty { get; set; }
     }
 }
