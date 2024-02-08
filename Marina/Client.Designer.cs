@@ -1,7 +1,7 @@
 ﻿
-namespace Cafffe_Sytem.A.M.A
+namespace Cafffe_Sytem.Marina
 {
-    partial class Report_Page
+    partial class Client
     {
         /// <summary>
         /// Required designer variable.
@@ -30,110 +30,45 @@ namespace Cafffe_Sytem.A.M.A
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.sidebar_layout = new System.Windows.Forms.FlowLayoutPanel();
-            this.sPanel1 = new Sipaa.Framework.SPanel();
-            this.sPanel2 = new Sipaa.Framework.SPanel();
-            this.sPanel3 = new Sipaa.Framework.SPanel();
             this.sPanel4 = new Sipaa.Framework.SPanel();
-            this.sPanel6 = new Sipaa.Framework.SPanel();
-            this.sPanel7 = new Sipaa.Framework.SPanel();
-            this.sPanel8 = new Sipaa.Framework.SPanel();
-            this.sPanel9 = new Sipaa.Framework.SPanel();
-            this.sPanel10 = new Sipaa.Framework.SPanel();
-            this.sPanel11 = new Sipaa.Framework.SPanel();
-            this.sPanel12 = new Sipaa.Framework.SPanel();
-            this.sPanel13 = new Sipaa.Framework.SPanel();
-            this.SideBar_timer = new System.Windows.Forms.Timer(this.components);
             this.SideBar_btn = new Sipaa.Framework.SButton();
+            this.sPanel11 = new Sipaa.Framework.SPanel();
             this.sButton10 = new Sipaa.Framework.SButton();
+            this.sPanel10 = new Sipaa.Framework.SPanel();
             this.sButton9 = new Sipaa.Framework.SButton();
+            this.sPanel13 = new Sipaa.Framework.SPanel();
             this.sButton3 = new Sipaa.Framework.SButton();
             this.sButton12 = new Sipaa.Framework.SButton();
+            this.sPanel12 = new Sipaa.Framework.SPanel();
             this.sButton11 = new Sipaa.Framework.SButton();
+            this.sPanel7 = new Sipaa.Framework.SPanel();
             this.sButton6 = new Sipaa.Framework.SButton();
+            this.sPanel6 = new Sipaa.Framework.SPanel();
             this.sButton5 = new Sipaa.Framework.SButton();
+            this.sPanel9 = new Sipaa.Framework.SPanel();
             this.sButton8 = new Sipaa.Framework.SButton();
+            this.sPanel8 = new Sipaa.Framework.SPanel();
             this.sButton7 = new Sipaa.Framework.SButton();
+            this.sPanel3 = new Sipaa.Framework.SPanel();
             this.sButton2 = new Sipaa.Framework.SButton();
+            this.sPanel1 = new Sipaa.Framework.SPanel();
             this.sButton1 = new Sipaa.Framework.SButton();
-            this.sidebar_layout.SuspendLayout();
-            this.sPanel1.SuspendLayout();
-            this.sPanel3.SuspendLayout();
+            this.sPanel2 = new Sipaa.Framework.SPanel();
+            this.SideBar_timer = new System.Windows.Forms.Timer(this.components);
+            this.sidebar_layout = new System.Windows.Forms.FlowLayoutPanel();
             this.sPanel4.SuspendLayout();
-            this.sPanel6.SuspendLayout();
-            this.sPanel7.SuspendLayout();
-            this.sPanel8.SuspendLayout();
-            this.sPanel9.SuspendLayout();
-            this.sPanel10.SuspendLayout();
             this.sPanel11.SuspendLayout();
-            this.sPanel12.SuspendLayout();
+            this.sPanel10.SuspendLayout();
             this.sPanel13.SuspendLayout();
+            this.sPanel12.SuspendLayout();
+            this.sPanel7.SuspendLayout();
+            this.sPanel6.SuspendLayout();
+            this.sPanel9.SuspendLayout();
+            this.sPanel8.SuspendLayout();
+            this.sPanel3.SuspendLayout();
+            this.sPanel1.SuspendLayout();
+            this.sidebar_layout.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // sidebar_layout
-            // 
-            this.sidebar_layout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(36)))));
-            this.sidebar_layout.Controls.Add(this.sPanel4);
-            this.sidebar_layout.Controls.Add(this.sPanel11);
-            this.sidebar_layout.Controls.Add(this.sPanel10);
-            this.sidebar_layout.Controls.Add(this.sPanel13);
-            this.sidebar_layout.Controls.Add(this.sPanel12);
-            this.sidebar_layout.Controls.Add(this.sPanel7);
-            this.sidebar_layout.Controls.Add(this.sPanel6);
-            this.sidebar_layout.Controls.Add(this.sPanel9);
-            this.sidebar_layout.Controls.Add(this.sPanel8);
-            this.sidebar_layout.Controls.Add(this.sPanel3);
-            this.sidebar_layout.Controls.Add(this.sPanel1);
-            this.sidebar_layout.Controls.Add(this.sPanel2);
-            this.sidebar_layout.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebar_layout.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_layout.MaximumSize = new System.Drawing.Size(215, 564);
-            this.sidebar_layout.MinimumSize = new System.Drawing.Size(55, 564);
-            this.sidebar_layout.Name = "sidebar_layout";
-            this.sidebar_layout.Padding = new System.Windows.Forms.Padding(5);
-            this.sidebar_layout.Size = new System.Drawing.Size(215, 564);
-            this.sidebar_layout.TabIndex = 0;
-            this.sidebar_layout.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
-            // 
-            // sPanel1
-            // 
-            this.sPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel1.BorderRadius = 6;
-            this.sPanel1.BorderSize = 0;
-            this.sPanel1.Controls.Add(this.sButton1);
-            this.sPanel1.ForeColor = System.Drawing.Color.White;
-            this.sPanel1.Location = new System.Drawing.Point(8, 448);
-            this.sPanel1.Name = "sPanel1";
-            this.sPanel1.Size = new System.Drawing.Size(186, 33);
-            this.sPanel1.TabIndex = 2;
-            // 
-            // sPanel2
-            // 
-            this.sPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel2.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel2.BorderRadius = 6;
-            this.sPanel2.BorderSize = 0;
-            this.sPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sPanel2.ForeColor = System.Drawing.Color.White;
-            this.sPanel2.Location = new System.Drawing.Point(8, 487);
-            this.sPanel2.Name = "sPanel2";
-            this.sPanel2.Size = new System.Drawing.Size(185, 53);
-            this.sPanel2.TabIndex = 3;
-            this.sPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.sPanel2_Paint);
-            // 
-            // sPanel3
-            // 
-            this.sPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel3.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel3.BorderRadius = 6;
-            this.sPanel3.BorderSize = 0;
-            this.sPanel3.Controls.Add(this.sButton2);
-            this.sPanel3.ForeColor = System.Drawing.Color.White;
-            this.sPanel3.Location = new System.Drawing.Point(8, 409);
-            this.sPanel3.Name = "sPanel3";
-            this.sPanel3.Size = new System.Drawing.Size(186, 33);
-            this.sPanel3.TabIndex = 4;
             // 
             // sPanel4
             // 
@@ -147,117 +82,6 @@ namespace Cafffe_Sytem.A.M.A
             this.sPanel4.Name = "sPanel4";
             this.sPanel4.Size = new System.Drawing.Size(186, 83);
             this.sPanel4.TabIndex = 2;
-            // 
-            // sPanel6
-            // 
-            this.sPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel6.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel6.BorderRadius = 6;
-            this.sPanel6.BorderSize = 0;
-            this.sPanel6.Controls.Add(this.sButton5);
-            this.sPanel6.ForeColor = System.Drawing.Color.White;
-            this.sPanel6.Location = new System.Drawing.Point(8, 292);
-            this.sPanel6.Name = "sPanel6";
-            this.sPanel6.Size = new System.Drawing.Size(186, 33);
-            this.sPanel6.TabIndex = 2;
-            // 
-            // sPanel7
-            // 
-            this.sPanel7.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel7.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel7.BorderRadius = 6;
-            this.sPanel7.BorderSize = 0;
-            this.sPanel7.Controls.Add(this.sButton6);
-            this.sPanel7.ForeColor = System.Drawing.Color.White;
-            this.sPanel7.Location = new System.Drawing.Point(8, 253);
-            this.sPanel7.Name = "sPanel7";
-            this.sPanel7.Size = new System.Drawing.Size(186, 33);
-            this.sPanel7.TabIndex = 4;
-            // 
-            // sPanel8
-            // 
-            this.sPanel8.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel8.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel8.BorderRadius = 6;
-            this.sPanel8.BorderSize = 0;
-            this.sPanel8.Controls.Add(this.sButton7);
-            this.sPanel8.ForeColor = System.Drawing.Color.White;
-            this.sPanel8.Location = new System.Drawing.Point(8, 370);
-            this.sPanel8.Name = "sPanel8";
-            this.sPanel8.Size = new System.Drawing.Size(186, 33);
-            this.sPanel8.TabIndex = 2;
-            // 
-            // sPanel9
-            // 
-            this.sPanel9.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel9.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel9.BorderRadius = 6;
-            this.sPanel9.BorderSize = 0;
-            this.sPanel9.Controls.Add(this.sButton8);
-            this.sPanel9.ForeColor = System.Drawing.Color.White;
-            this.sPanel9.Location = new System.Drawing.Point(8, 331);
-            this.sPanel9.Name = "sPanel9";
-            this.sPanel9.Size = new System.Drawing.Size(186, 33);
-            this.sPanel9.TabIndex = 4;
-            // 
-            // sPanel10
-            // 
-            this.sPanel10.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel10.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel10.BorderRadius = 6;
-            this.sPanel10.BorderSize = 0;
-            this.sPanel10.Controls.Add(this.sButton9);
-            this.sPanel10.ForeColor = System.Drawing.Color.White;
-            this.sPanel10.Location = new System.Drawing.Point(8, 136);
-            this.sPanel10.Name = "sPanel10";
-            this.sPanel10.Size = new System.Drawing.Size(186, 33);
-            this.sPanel10.TabIndex = 2;
-            // 
-            // sPanel11
-            // 
-            this.sPanel11.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel11.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel11.BorderRadius = 6;
-            this.sPanel11.BorderSize = 0;
-            this.sPanel11.Controls.Add(this.sButton10);
-            this.sPanel11.ForeColor = System.Drawing.Color.White;
-            this.sPanel11.Location = new System.Drawing.Point(8, 97);
-            this.sPanel11.Name = "sPanel11";
-            this.sPanel11.Size = new System.Drawing.Size(186, 33);
-            this.sPanel11.TabIndex = 4;
-            // 
-            // sPanel12
-            // 
-            this.sPanel12.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel12.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel12.BorderRadius = 6;
-            this.sPanel12.BorderSize = 0;
-            this.sPanel12.Controls.Add(this.sButton11);
-            this.sPanel12.ForeColor = System.Drawing.Color.White;
-            this.sPanel12.Location = new System.Drawing.Point(8, 214);
-            this.sPanel12.Name = "sPanel12";
-            this.sPanel12.Size = new System.Drawing.Size(186, 33);
-            this.sPanel12.TabIndex = 2;
-            // 
-            // sPanel13
-            // 
-            this.sPanel13.BackColor = System.Drawing.Color.Transparent;
-            this.sPanel13.BorderColor = System.Drawing.Color.Transparent;
-            this.sPanel13.BorderRadius = 6;
-            this.sPanel13.BorderSize = 0;
-            this.sPanel13.Controls.Add(this.sButton3);
-            this.sPanel13.Controls.Add(this.sButton12);
-            this.sPanel13.ForeColor = System.Drawing.Color.White;
-            this.sPanel13.Location = new System.Drawing.Point(8, 175);
-            this.sPanel13.Name = "sPanel13";
-            this.sPanel13.Size = new System.Drawing.Size(186, 33);
-            this.sPanel13.TabIndex = 4;
-            // 
-            // SideBar_timer
-            // 
-            this.SideBar_timer.Enabled = true;
-            this.SideBar_timer.Interval = 1;
-            this.SideBar_timer.Tick += new System.EventHandler(this.SideBar_timer_Tick);
             // 
             // SideBar_btn
             // 
@@ -281,6 +105,19 @@ namespace Cafffe_Sytem.A.M.A
             this.SideBar_btn.Text = "Menu";
             this.SideBar_btn.UseVisualStyleBackColor = false;
             this.SideBar_btn.Click += new System.EventHandler(this.SideBar_btn_Click);
+            // 
+            // sPanel11
+            // 
+            this.sPanel11.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel11.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel11.BorderRadius = 6;
+            this.sPanel11.BorderSize = 0;
+            this.sPanel11.Controls.Add(this.sButton10);
+            this.sPanel11.ForeColor = System.Drawing.Color.White;
+            this.sPanel11.Location = new System.Drawing.Point(8, 97);
+            this.sPanel11.Name = "sPanel11";
+            this.sPanel11.Size = new System.Drawing.Size(186, 33);
+            this.sPanel11.TabIndex = 4;
             // 
             // sButton10
             // 
@@ -306,6 +143,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton10.UseVisualStyleBackColor = false;
             // 
+            // sPanel10
+            // 
+            this.sPanel10.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel10.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel10.BorderRadius = 6;
+            this.sPanel10.BorderSize = 0;
+            this.sPanel10.Controls.Add(this.sButton9);
+            this.sPanel10.ForeColor = System.Drawing.Color.White;
+            this.sPanel10.Location = new System.Drawing.Point(8, 136);
+            this.sPanel10.Name = "sPanel10";
+            this.sPanel10.Size = new System.Drawing.Size(186, 33);
+            this.sPanel10.TabIndex = 2;
+            // 
             // sButton9
             // 
             this.sButton9.BackColor = System.Drawing.Color.Transparent;
@@ -328,7 +178,20 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton9.Text = "              Items";
             this.sButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton9.UseVisualStyleBackColor = false;
-            this.sButton9.Click += new System.EventHandler(this.sButton1_Click);
+            // 
+            // sPanel13
+            // 
+            this.sPanel13.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel13.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel13.BorderRadius = 6;
+            this.sPanel13.BorderSize = 0;
+            this.sPanel13.Controls.Add(this.sButton3);
+            this.sPanel13.Controls.Add(this.sButton12);
+            this.sPanel13.ForeColor = System.Drawing.Color.White;
+            this.sPanel13.Location = new System.Drawing.Point(8, 175);
+            this.sPanel13.Name = "sPanel13";
+            this.sPanel13.Size = new System.Drawing.Size(186, 33);
+            this.sPanel13.TabIndex = 4;
             // 
             // sButton3
             // 
@@ -376,6 +239,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton12.UseVisualStyleBackColor = false;
             // 
+            // sPanel12
+            // 
+            this.sPanel12.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel12.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel12.BorderRadius = 6;
+            this.sPanel12.BorderSize = 0;
+            this.sPanel12.Controls.Add(this.sButton11);
+            this.sPanel12.ForeColor = System.Drawing.Color.White;
+            this.sPanel12.Location = new System.Drawing.Point(8, 214);
+            this.sPanel12.Name = "sPanel12";
+            this.sPanel12.Size = new System.Drawing.Size(186, 33);
+            this.sPanel12.TabIndex = 2;
+            // 
             // sButton11
             // 
             this.sButton11.BackColor = System.Drawing.Color.Transparent;
@@ -398,7 +274,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton11.Text = "              Offers";
             this.sButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton11.UseVisualStyleBackColor = false;
-            this.sButton11.Click += new System.EventHandler(this.sButton1_Click);
+            // 
+            // sPanel7
+            // 
+            this.sPanel7.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel7.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel7.BorderRadius = 6;
+            this.sPanel7.BorderSize = 0;
+            this.sPanel7.Controls.Add(this.sButton6);
+            this.sPanel7.ForeColor = System.Drawing.Color.White;
+            this.sPanel7.Location = new System.Drawing.Point(8, 253);
+            this.sPanel7.Name = "sPanel7";
+            this.sPanel7.Size = new System.Drawing.Size(186, 33);
+            this.sPanel7.TabIndex = 4;
             // 
             // sButton6
             // 
@@ -423,6 +311,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton6.UseVisualStyleBackColor = false;
             // 
+            // sPanel6
+            // 
+            this.sPanel6.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel6.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel6.BorderRadius = 6;
+            this.sPanel6.BorderSize = 0;
+            this.sPanel6.Controls.Add(this.sButton5);
+            this.sPanel6.ForeColor = System.Drawing.Color.White;
+            this.sPanel6.Location = new System.Drawing.Point(8, 292);
+            this.sPanel6.Name = "sPanel6";
+            this.sPanel6.Size = new System.Drawing.Size(186, 33);
+            this.sPanel6.TabIndex = 2;
+            // 
             // sButton5
             // 
             this.sButton5.BackColor = System.Drawing.Color.Transparent;
@@ -445,7 +346,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton5.Text = "              Employees";
             this.sButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton5.UseVisualStyleBackColor = false;
-            this.sButton5.Click += new System.EventHandler(this.sButton1_Click);
+            // 
+            // sPanel9
+            // 
+            this.sPanel9.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel9.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel9.BorderRadius = 6;
+            this.sPanel9.BorderSize = 0;
+            this.sPanel9.Controls.Add(this.sButton8);
+            this.sPanel9.ForeColor = System.Drawing.Color.White;
+            this.sPanel9.Location = new System.Drawing.Point(8, 331);
+            this.sPanel9.Name = "sPanel9";
+            this.sPanel9.Size = new System.Drawing.Size(186, 33);
+            this.sPanel9.TabIndex = 4;
             // 
             // sButton8
             // 
@@ -470,6 +383,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton8.UseVisualStyleBackColor = false;
             // 
+            // sPanel8
+            // 
+            this.sPanel8.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel8.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel8.BorderRadius = 6;
+            this.sPanel8.BorderSize = 0;
+            this.sPanel8.Controls.Add(this.sButton7);
+            this.sPanel8.ForeColor = System.Drawing.Color.White;
+            this.sPanel8.Location = new System.Drawing.Point(8, 370);
+            this.sPanel8.Name = "sPanel8";
+            this.sPanel8.Size = new System.Drawing.Size(186, 33);
+            this.sPanel8.TabIndex = 2;
+            // 
             // sButton7
             // 
             this.sButton7.BackColor = System.Drawing.Color.Transparent;
@@ -492,7 +418,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton7.Text = "              Bills";
             this.sButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton7.UseVisualStyleBackColor = false;
-            this.sButton7.Click += new System.EventHandler(this.sButton1_Click);
+            // 
+            // sPanel3
+            // 
+            this.sPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel3.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel3.BorderRadius = 6;
+            this.sPanel3.BorderSize = 0;
+            this.sPanel3.Controls.Add(this.sButton2);
+            this.sPanel3.ForeColor = System.Drawing.Color.White;
+            this.sPanel3.Location = new System.Drawing.Point(8, 409);
+            this.sPanel3.Name = "sPanel3";
+            this.sPanel3.Size = new System.Drawing.Size(186, 33);
+            this.sPanel3.TabIndex = 4;
             // 
             // sButton2
             // 
@@ -517,6 +455,19 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton2.UseVisualStyleBackColor = false;
             // 
+            // sPanel1
+            // 
+            this.sPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel1.BorderRadius = 6;
+            this.sPanel1.BorderSize = 0;
+            this.sPanel1.Controls.Add(this.sButton1);
+            this.sPanel1.ForeColor = System.Drawing.Color.White;
+            this.sPanel1.Location = new System.Drawing.Point(8, 448);
+            this.sPanel1.Name = "sPanel1";
+            this.sPanel1.Size = new System.Drawing.Size(186, 33);
+            this.sPanel1.TabIndex = 2;
+            // 
             // sButton1
             // 
             this.sButton1.BackColor = System.Drawing.Color.Transparent;
@@ -539,63 +490,104 @@ namespace Cafffe_Sytem.A.M.A
             this.sButton1.Text = "              Management";
             this.sButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton1.UseVisualStyleBackColor = false;
-            this.sButton1.Click += new System.EventHandler(this.sButton1_Click);
             // 
-            // Report_Page
+            // sPanel2
+            // 
+            this.sPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.sPanel2.BorderColor = System.Drawing.Color.Transparent;
+            this.sPanel2.BorderRadius = 6;
+            this.sPanel2.BorderSize = 0;
+            this.sPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sPanel2.ForeColor = System.Drawing.Color.White;
+            this.sPanel2.Location = new System.Drawing.Point(8, 487);
+            this.sPanel2.Name = "sPanel2";
+            this.sPanel2.Size = new System.Drawing.Size(185, 53);
+            this.sPanel2.TabIndex = 3;
+            // 
+            // SideBar_timer
+            // 
+            this.SideBar_timer.Enabled = true;
+            this.SideBar_timer.Interval = 1;
+            this.SideBar_timer.Tick += new System.EventHandler(this.SideBar_timer_Tick);
+            // 
+            // sidebar_layout
+            // 
+            this.sidebar_layout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(21)))), ((int)(((byte)(36)))));
+            this.sidebar_layout.Controls.Add(this.sPanel4);
+            this.sidebar_layout.Controls.Add(this.sPanel11);
+            this.sidebar_layout.Controls.Add(this.sPanel10);
+            this.sidebar_layout.Controls.Add(this.sPanel13);
+            this.sidebar_layout.Controls.Add(this.sPanel12);
+            this.sidebar_layout.Controls.Add(this.sPanel7);
+            this.sidebar_layout.Controls.Add(this.sPanel6);
+            this.sidebar_layout.Controls.Add(this.sPanel9);
+            this.sidebar_layout.Controls.Add(this.sPanel8);
+            this.sidebar_layout.Controls.Add(this.sPanel3);
+            this.sidebar_layout.Controls.Add(this.sPanel1);
+            this.sidebar_layout.Controls.Add(this.sPanel2);
+            this.sidebar_layout.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebar_layout.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_layout.MaximumSize = new System.Drawing.Size(215, 770);
+            this.sidebar_layout.MinimumSize = new System.Drawing.Size(55, 770);
+            this.sidebar_layout.Name = "sidebar_layout";
+            this.sidebar_layout.Padding = new System.Windows.Forms.Padding(5);
+            this.sidebar_layout.Size = new System.Drawing.Size(215, 770);
+            this.sidebar_layout.TabIndex = 1;
+            // 
+            // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 564);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.sidebar_layout);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MinimumSize = new System.Drawing.Size(1010, 603);
-            this.Name = "Report_Page";
+            this.Name = "Client";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Report_Page";
-            this.Load += new System.EventHandler(this.Report_Page_Load);
-            this.sidebar_layout.ResumeLayout(false);
-            this.sPanel1.ResumeLayout(false);
-            this.sPanel3.ResumeLayout(false);
+            this.Text = "Client";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Client_Load);
             this.sPanel4.ResumeLayout(false);
-            this.sPanel6.ResumeLayout(false);
-            this.sPanel7.ResumeLayout(false);
-            this.sPanel8.ResumeLayout(false);
-            this.sPanel9.ResumeLayout(false);
-            this.sPanel10.ResumeLayout(false);
             this.sPanel11.ResumeLayout(false);
-            this.sPanel12.ResumeLayout(false);
+            this.sPanel10.ResumeLayout(false);
             this.sPanel13.ResumeLayout(false);
+            this.sPanel12.ResumeLayout(false);
+            this.sPanel7.ResumeLayout(false);
+            this.sPanel6.ResumeLayout(false);
+            this.sPanel9.ResumeLayout(false);
+            this.sPanel8.ResumeLayout(false);
+            this.sPanel3.ResumeLayout(false);
+            this.sPanel1.ResumeLayout(false);
+            this.sidebar_layout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel sidebar_layout;
-        private Sipaa.Framework.SPanel sPanel2;
-        private Sipaa.Framework.SPanel sPanel1;
         private Sipaa.Framework.SButton sButton1;
+        private Sipaa.Framework.SButton sButton7;
+        private Sipaa.Framework.SButton sButton8;
+        private Sipaa.Framework.SButton sButton5;
         private Sipaa.Framework.SPanel sPanel4;
+        private Sipaa.Framework.SButton SideBar_btn;
+        private Sipaa.Framework.SButton sButton6;
+        private Sipaa.Framework.SButton sButton11;
+        private Sipaa.Framework.SButton sButton3;
+        private Sipaa.Framework.SButton sButton12;
         private Sipaa.Framework.SPanel sPanel11;
         private Sipaa.Framework.SButton sButton10;
         private Sipaa.Framework.SPanel sPanel10;
         private Sipaa.Framework.SButton sButton9;
         private Sipaa.Framework.SPanel sPanel13;
-        private Sipaa.Framework.SButton sButton12;
-        private Sipaa.Framework.SPanel sPanel12;
-        private Sipaa.Framework.SButton sButton11;
-        private Sipaa.Framework.SPanel sPanel7;
-        private Sipaa.Framework.SButton sButton6;
-        private Sipaa.Framework.SPanel sPanel6;
-        private Sipaa.Framework.SButton sButton5;
-        private Sipaa.Framework.SPanel sPanel9;
-        private Sipaa.Framework.SButton sButton8;
-        private Sipaa.Framework.SPanel sPanel8;
-        private Sipaa.Framework.SButton sButton7;
-        private Sipaa.Framework.SPanel sPanel3;
         private Sipaa.Framework.SButton sButton2;
-        private Sipaa.Framework.SButton SideBar_btn;
-        private Sipaa.Framework.SButton sButton3;
+        private Sipaa.Framework.SPanel sPanel12;
+        private Sipaa.Framework.SPanel sPanel7;
+        private Sipaa.Framework.SPanel sPanel6;
+        private Sipaa.Framework.SPanel sPanel9;
+        private Sipaa.Framework.SPanel sPanel8;
+        private Sipaa.Framework.SPanel sPanel3;
+        private Sipaa.Framework.SPanel sPanel1;
+        private Sipaa.Framework.SPanel sPanel2;
         private System.Windows.Forms.Timer SideBar_timer;
+        private System.Windows.Forms.FlowLayoutPanel sidebar_layout;
     }
 }
