@@ -93,11 +93,12 @@ namespace Cafffe_Sytem
             this.sidebar_layout.Controls.Add(this.sPanel2);
             this.sidebar_layout.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar_layout.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_layout.MaximumSize = new System.Drawing.Size(215, 770);
-            this.sidebar_layout.MinimumSize = new System.Drawing.Size(55, 770);
+            this.sidebar_layout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sidebar_layout.MaximumSize = new System.Drawing.Size(287, 948);
+            this.sidebar_layout.MinimumSize = new System.Drawing.Size(73, 948);
             this.sidebar_layout.Name = "sidebar_layout";
-            this.sidebar_layout.Padding = new System.Windows.Forms.Padding(5);
-            this.sidebar_layout.Size = new System.Drawing.Size(215, 770);
+            this.sidebar_layout.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.sidebar_layout.Size = new System.Drawing.Size(287, 948);
             this.sidebar_layout.TabIndex = 2;
             // 
             // sPanel4
@@ -108,9 +109,10 @@ namespace Cafffe_Sytem
             this.sPanel4.BorderSize = 0;
             this.sPanel4.Controls.Add(this.SideBar_btn);
             this.sPanel4.ForeColor = System.Drawing.Color.White;
-            this.sPanel4.Location = new System.Drawing.Point(8, 8);
+            this.sPanel4.Location = new System.Drawing.Point(11, 10);
+            this.sPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel4.Name = "sPanel4";
-            this.sPanel4.Size = new System.Drawing.Size(186, 83);
+            this.sPanel4.Size = new System.Drawing.Size(248, 102);
             this.sPanel4.TabIndex = 2;
             // 
             // SideBar_btn
@@ -127,10 +129,11 @@ namespace Cafffe_Sytem
             this.SideBar_btn.ForeColor = System.Drawing.Color.Transparent;
             this.SideBar_btn.Image = global::Cafffe_Sytem.Properties.Resources.icons8_activity_feed_33;
             this.SideBar_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SideBar_btn.Location = new System.Drawing.Point(-8, -8);
+            this.SideBar_btn.Location = new System.Drawing.Point(-11, -10);
+            this.SideBar_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SideBar_btn.Name = "SideBar_btn";
-            this.SideBar_btn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
-            this.SideBar_btn.Size = new System.Drawing.Size(209, 100);
+            this.SideBar_btn.Padding = new System.Windows.Forms.Padding(7, 0, 0, 2);
+            this.SideBar_btn.Size = new System.Drawing.Size(279, 123);
             this.SideBar_btn.TabIndex = 5;
             this.SideBar_btn.Text = "Menu";
             this.SideBar_btn.UseVisualStyleBackColor = false;
@@ -144,9 +147,10 @@ namespace Cafffe_Sytem
             this.sPanel11.BorderSize = 0;
             this.sPanel11.Controls.Add(this.sButton10);
             this.sPanel11.ForeColor = System.Drawing.Color.White;
-            this.sPanel11.Location = new System.Drawing.Point(8, 97);
+            this.sPanel11.Location = new System.Drawing.Point(11, 120);
+            this.sPanel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel11.Name = "sPanel11";
-            this.sPanel11.Size = new System.Drawing.Size(186, 33);
+            this.sPanel11.Size = new System.Drawing.Size(248, 41);
             this.sPanel11.TabIndex = 4;
             // 
             // sButton10
@@ -163,11 +167,12 @@ namespace Cafffe_Sytem
             this.sButton10.ForeColor = System.Drawing.Color.Transparent;
             this.sButton10.Image = global::Cafffe_Sytem.Properties.Resources.icons8_restaurant_building_27;
             this.sButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton10.Location = new System.Drawing.Point(-11, -3);
-            this.sButton10.MaximumSize = new System.Drawing.Size(212, 40);
+            this.sButton10.Location = new System.Drawing.Point(-15, -4);
+            this.sButton10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sButton10.MaximumSize = new System.Drawing.Size(283, 49);
             this.sButton10.Name = "sButton10";
-            this.sButton10.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton10.Size = new System.Drawing.Size(209, 40);
+            this.sButton10.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton10.Size = new System.Drawing.Size(279, 49);
             this.sButton10.TabIndex = 3;
             this.sButton10.Text = "              Home ";
             this.sButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,9 +186,10 @@ namespace Cafffe_Sytem
             this.sPanel10.BorderSize = 0;
             this.sPanel10.Controls.Add(this.sButton9);
             this.sPanel10.ForeColor = System.Drawing.Color.White;
-            this.sPanel10.Location = new System.Drawing.Point(8, 136);
+            this.sPanel10.Location = new System.Drawing.Point(11, 169);
+            this.sPanel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel10.Name = "sPanel10";
-            this.sPanel10.Size = new System.Drawing.Size(186, 33);
+            this.sPanel10.Size = new System.Drawing.Size(248, 41);
             this.sPanel10.TabIndex = 2;
             // 
             // sButton9
@@ -200,10 +206,11 @@ namespace Cafffe_Sytem
             this.sButton9.ForeColor = System.Drawing.Color.Transparent;
             this.sButton9.Image = global::Cafffe_Sytem.Properties.Resources.icons8_ingredients_26;
             this.sButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton9.Location = new System.Drawing.Point(-11, -3);
+            this.sButton9.Location = new System.Drawing.Point(-15, -4);
+            this.sButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton9.Name = "sButton9";
-            this.sButton9.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton9.Size = new System.Drawing.Size(209, 40);
+            this.sButton9.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton9.Size = new System.Drawing.Size(279, 49);
             this.sButton9.TabIndex = 3;
             this.sButton9.Text = "              Items";
             this.sButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -218,9 +225,10 @@ namespace Cafffe_Sytem
             this.sPanel13.Controls.Add(this.sButton3);
             this.sPanel13.Controls.Add(this.sButton12);
             this.sPanel13.ForeColor = System.Drawing.Color.White;
-            this.sPanel13.Location = new System.Drawing.Point(8, 175);
+            this.sPanel13.Location = new System.Drawing.Point(11, 218);
+            this.sPanel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel13.Name = "sPanel13";
-            this.sPanel13.Size = new System.Drawing.Size(186, 33);
+            this.sPanel13.Size = new System.Drawing.Size(248, 41);
             this.sPanel13.TabIndex = 4;
             // 
             // sButton3
@@ -237,10 +245,11 @@ namespace Cafffe_Sytem
             this.sButton3.ForeColor = System.Drawing.Color.Transparent;
             this.sButton3.Image = global::Cafffe_Sytem.Properties.Resources.icons8_category_26;
             this.sButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton3.Location = new System.Drawing.Point(-11, -4);
+            this.sButton3.Location = new System.Drawing.Point(-15, -5);
+            this.sButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton3.Name = "sButton3";
-            this.sButton3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton3.Size = new System.Drawing.Size(209, 40);
+            this.sButton3.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton3.Size = new System.Drawing.Size(279, 49);
             this.sButton3.TabIndex = 4;
             this.sButton3.Text = "              Category";
             this.sButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -260,10 +269,11 @@ namespace Cafffe_Sytem
             this.sButton12.ForeColor = System.Drawing.Color.Transparent;
             this.sButton12.Image = global::Cafffe_Sytem.Properties.Resources.icons8_category_26;
             this.sButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton12.Location = new System.Drawing.Point(-11, -3);
+            this.sButton12.Location = new System.Drawing.Point(-15, -4);
+            this.sButton12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton12.Name = "sButton12";
-            this.sButton12.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton12.Size = new System.Drawing.Size(209, 40);
+            this.sButton12.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton12.Size = new System.Drawing.Size(279, 49);
             this.sButton12.TabIndex = 3;
             this.sButton12.Text = "              Category";
             this.sButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -277,9 +287,10 @@ namespace Cafffe_Sytem
             this.sPanel12.BorderSize = 0;
             this.sPanel12.Controls.Add(this.sButton11);
             this.sPanel12.ForeColor = System.Drawing.Color.White;
-            this.sPanel12.Location = new System.Drawing.Point(8, 214);
+            this.sPanel12.Location = new System.Drawing.Point(11, 267);
+            this.sPanel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel12.Name = "sPanel12";
-            this.sPanel12.Size = new System.Drawing.Size(186, 33);
+            this.sPanel12.Size = new System.Drawing.Size(248, 41);
             this.sPanel12.TabIndex = 2;
             // 
             // sButton11
@@ -296,10 +307,11 @@ namespace Cafffe_Sytem
             this.sButton11.ForeColor = System.Drawing.Color.Transparent;
             this.sButton11.Image = global::Cafffe_Sytem.Properties.Resources.icons8_offer_26;
             this.sButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton11.Location = new System.Drawing.Point(-11, -3);
+            this.sButton11.Location = new System.Drawing.Point(-15, -4);
+            this.sButton11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton11.Name = "sButton11";
-            this.sButton11.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton11.Size = new System.Drawing.Size(209, 40);
+            this.sButton11.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton11.Size = new System.Drawing.Size(279, 49);
             this.sButton11.TabIndex = 3;
             this.sButton11.Text = "              Offers";
             this.sButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -313,9 +325,10 @@ namespace Cafffe_Sytem
             this.sPanel7.BorderSize = 0;
             this.sPanel7.Controls.Add(this.sButton6);
             this.sPanel7.ForeColor = System.Drawing.Color.White;
-            this.sPanel7.Location = new System.Drawing.Point(8, 253);
+            this.sPanel7.Location = new System.Drawing.Point(11, 316);
+            this.sPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel7.Name = "sPanel7";
-            this.sPanel7.Size = new System.Drawing.Size(186, 33);
+            this.sPanel7.Size = new System.Drawing.Size(248, 41);
             this.sPanel7.TabIndex = 4;
             // 
             // sButton6
@@ -332,10 +345,11 @@ namespace Cafffe_Sytem
             this.sButton6.ForeColor = System.Drawing.Color.Transparent;
             this.sButton6.Image = global::Cafffe_Sytem.Properties.Resources.icons8_cashier_26__1_;
             this.sButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton6.Location = new System.Drawing.Point(-11, -3);
+            this.sButton6.Location = new System.Drawing.Point(-15, -4);
+            this.sButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton6.Name = "sButton6";
-            this.sButton6.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton6.Size = new System.Drawing.Size(209, 40);
+            this.sButton6.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton6.Size = new System.Drawing.Size(279, 49);
             this.sButton6.TabIndex = 3;
             this.sButton6.Text = "              Cashiers";
             this.sButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -349,9 +363,10 @@ namespace Cafffe_Sytem
             this.sPanel6.BorderSize = 0;
             this.sPanel6.Controls.Add(this.sButton5);
             this.sPanel6.ForeColor = System.Drawing.Color.White;
-            this.sPanel6.Location = new System.Drawing.Point(8, 292);
+            this.sPanel6.Location = new System.Drawing.Point(11, 365);
+            this.sPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel6.Name = "sPanel6";
-            this.sPanel6.Size = new System.Drawing.Size(186, 33);
+            this.sPanel6.Size = new System.Drawing.Size(248, 41);
             this.sPanel6.TabIndex = 2;
             // 
             // sButton5
@@ -368,10 +383,11 @@ namespace Cafffe_Sytem
             this.sButton5.ForeColor = System.Drawing.Color.Transparent;
             this.sButton5.Image = global::Cafffe_Sytem.Properties.Resources.icons8_employees_26;
             this.sButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton5.Location = new System.Drawing.Point(-11, -3);
+            this.sButton5.Location = new System.Drawing.Point(-15, -4);
+            this.sButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton5.Name = "sButton5";
-            this.sButton5.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton5.Size = new System.Drawing.Size(209, 40);
+            this.sButton5.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton5.Size = new System.Drawing.Size(279, 49);
             this.sButton5.TabIndex = 3;
             this.sButton5.Text = "              Employees";
             this.sButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -385,9 +401,10 @@ namespace Cafffe_Sytem
             this.sPanel9.BorderSize = 0;
             this.sPanel9.Controls.Add(this.sButton8);
             this.sPanel9.ForeColor = System.Drawing.Color.White;
-            this.sPanel9.Location = new System.Drawing.Point(8, 331);
+            this.sPanel9.Location = new System.Drawing.Point(11, 414);
+            this.sPanel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel9.Name = "sPanel9";
-            this.sPanel9.Size = new System.Drawing.Size(186, 33);
+            this.sPanel9.Size = new System.Drawing.Size(248, 41);
             this.sPanel9.TabIndex = 4;
             // 
             // sButton8
@@ -404,10 +421,11 @@ namespace Cafffe_Sytem
             this.sButton8.ForeColor = System.Drawing.Color.Transparent;
             this.sButton8.Image = global::Cafffe_Sytem.Properties.Resources.icons8_client_26;
             this.sButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton8.Location = new System.Drawing.Point(-11, -3);
+            this.sButton8.Location = new System.Drawing.Point(-15, -4);
+            this.sButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton8.Name = "sButton8";
-            this.sButton8.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton8.Size = new System.Drawing.Size(209, 40);
+            this.sButton8.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton8.Size = new System.Drawing.Size(279, 49);
             this.sButton8.TabIndex = 3;
             this.sButton8.Text = "              Clients";
             this.sButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -421,9 +439,10 @@ namespace Cafffe_Sytem
             this.sPanel8.BorderSize = 0;
             this.sPanel8.Controls.Add(this.sButton7);
             this.sPanel8.ForeColor = System.Drawing.Color.White;
-            this.sPanel8.Location = new System.Drawing.Point(8, 370);
+            this.sPanel8.Location = new System.Drawing.Point(11, 463);
+            this.sPanel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel8.Name = "sPanel8";
-            this.sPanel8.Size = new System.Drawing.Size(186, 33);
+            this.sPanel8.Size = new System.Drawing.Size(248, 41);
             this.sPanel8.TabIndex = 2;
             // 
             // sButton7
@@ -440,10 +459,11 @@ namespace Cafffe_Sytem
             this.sButton7.ForeColor = System.Drawing.Color.Transparent;
             this.sButton7.Image = global::Cafffe_Sytem.Properties.Resources.icons8_receipt_26;
             this.sButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton7.Location = new System.Drawing.Point(-11, -3);
+            this.sButton7.Location = new System.Drawing.Point(-15, -4);
+            this.sButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton7.Name = "sButton7";
-            this.sButton7.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton7.Size = new System.Drawing.Size(209, 40);
+            this.sButton7.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton7.Size = new System.Drawing.Size(279, 49);
             this.sButton7.TabIndex = 3;
             this.sButton7.Text = "              Bills";
             this.sButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -457,9 +477,10 @@ namespace Cafffe_Sytem
             this.sPanel3.BorderSize = 0;
             this.sPanel3.Controls.Add(this.sButton2);
             this.sPanel3.ForeColor = System.Drawing.Color.White;
-            this.sPanel3.Location = new System.Drawing.Point(8, 409);
+            this.sPanel3.Location = new System.Drawing.Point(11, 512);
+            this.sPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel3.Name = "sPanel3";
-            this.sPanel3.Size = new System.Drawing.Size(186, 33);
+            this.sPanel3.Size = new System.Drawing.Size(248, 41);
             this.sPanel3.TabIndex = 4;
             // 
             // sButton2
@@ -476,10 +497,11 @@ namespace Cafffe_Sytem
             this.sButton2.ForeColor = System.Drawing.Color.Transparent;
             this.sButton2.Image = global::Cafffe_Sytem.Properties.Resources.icons8_business_goal_26;
             this.sButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton2.Location = new System.Drawing.Point(-11, -3);
+            this.sButton2.Location = new System.Drawing.Point(-15, -4);
+            this.sButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton2.Name = "sButton2";
-            this.sButton2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton2.Size = new System.Drawing.Size(209, 40);
+            this.sButton2.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton2.Size = new System.Drawing.Size(279, 49);
             this.sButton2.TabIndex = 3;
             this.sButton2.Text = "              Reports";
             this.sButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -493,9 +515,10 @@ namespace Cafffe_Sytem
             this.sPanel1.BorderSize = 0;
             this.sPanel1.Controls.Add(this.sButton1);
             this.sPanel1.ForeColor = System.Drawing.Color.White;
-            this.sPanel1.Location = new System.Drawing.Point(8, 448);
+            this.sPanel1.Location = new System.Drawing.Point(11, 561);
+            this.sPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel1.Name = "sPanel1";
-            this.sPanel1.Size = new System.Drawing.Size(186, 33);
+            this.sPanel1.Size = new System.Drawing.Size(248, 41);
             this.sPanel1.TabIndex = 2;
             // 
             // sButton1
@@ -512,10 +535,11 @@ namespace Cafffe_Sytem
             this.sButton1.ForeColor = System.Drawing.Color.Transparent;
             this.sButton1.Image = global::Cafffe_Sytem.Properties.Resources.icons8_settings_26;
             this.sButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton1.Location = new System.Drawing.Point(-11, -3);
+            this.sButton1.Location = new System.Drawing.Point(-15, -4);
+            this.sButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sButton1.Name = "sButton1";
-            this.sButton1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton1.Size = new System.Drawing.Size(209, 40);
+            this.sButton1.Padding = new System.Windows.Forms.Padding(16, 0, 0, 2);
+            this.sButton1.Size = new System.Drawing.Size(279, 49);
             this.sButton1.TabIndex = 3;
             this.sButton1.Text = "              Management";
             this.sButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -529,9 +553,10 @@ namespace Cafffe_Sytem
             this.sPanel2.BorderSize = 0;
             this.sPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.sPanel2.ForeColor = System.Drawing.Color.White;
-            this.sPanel2.Location = new System.Drawing.Point(8, 487);
+            this.sPanel2.Location = new System.Drawing.Point(11, 610);
+            this.sPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sPanel2.Name = "sPanel2";
-            this.sPanel2.Size = new System.Drawing.Size(185, 53);
+            this.sPanel2.Size = new System.Drawing.Size(247, 65);
             this.sPanel2.TabIndex = 3;
             // 
             // SideBar_timer
@@ -546,9 +571,10 @@ namespace Cafffe_Sytem
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(215, 0);
+            this.panel1.Location = new System.Drawing.Point(287, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1155, 756);
+            this.panel1.Size = new System.Drawing.Size(1540, 931);
             this.panel1.TabIndex = 3;
             // 
             // panel2
@@ -560,17 +586,19 @@ namespace Cafffe_Sytem
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.Page_Name);
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1171, 100);
+            this.panel2.Size = new System.Drawing.Size(1561, 123);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Cafffe_Sytem.Properties.Resources.icons8_restaurant_building_70;
-            this.pictureBox1.Location = new System.Drawing.Point(115, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(153, 33);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(83, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -580,9 +608,10 @@ namespace Cafffe_Sytem
             this.Page_Name.AutoSize = true;
             this.Page_Name.Font = new System.Drawing.Font("Monotype Corsiva", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Page_Name.ForeColor = System.Drawing.Color.White;
-            this.Page_Name.Location = new System.Drawing.Point(183, 38);
+            this.Page_Name.Location = new System.Drawing.Point(244, 47);
+            this.Page_Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Page_Name.Name = "Page_Name";
-            this.Page_Name.Size = new System.Drawing.Size(153, 39);
+            this.Page_Name.Size = new System.Drawing.Size(193, 49);
             this.Page_Name.TabIndex = 2;
             this.Page_Name.Text = "Page Name";
             // 
@@ -593,9 +622,10 @@ namespace Cafffe_Sytem
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(206)))), ((int)(((byte)(176)))));
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(0, 97);
+            this.panel3.Location = new System.Drawing.Point(0, 119);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1171, 656);
+            this.panel3.Size = new System.Drawing.Size(1561, 808);
             this.panel3.TabIndex = 1;
             // 
             // panel4
@@ -604,18 +634,20 @@ namespace Cafffe_Sytem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.AutoSize = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(233)))));
-            this.panel4.Location = new System.Drawing.Point(0, 199);
+            this.panel4.Location = new System.Drawing.Point(0, 245);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1171, 454);
+            this.panel4.Size = new System.Drawing.Size(1561, 559);
             this.panel4.TabIndex = 2;
             // 
             // Templete
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1827, 922);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sidebar_layout);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Templete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Templete";
