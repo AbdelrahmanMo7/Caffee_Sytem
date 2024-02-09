@@ -214,12 +214,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="M.A.N\employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="M.A.N\employee.Designer.cs">
-      <DependentUpon>employee.cs</DependentUpon>
-    </Compile>
     <Compile Include="Marina\bill.cs">
       <SubType>Form</SubType>
     </Compile>
