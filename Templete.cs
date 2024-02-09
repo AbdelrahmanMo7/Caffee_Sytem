@@ -18,9 +18,9 @@ namespace Cafffe_Sytem
         }
 
         #region SideBar
-        bool isexpend;
+        protected bool isexpend;
 
-        private void SideBar_timer_Tick(object sender, EventArgs e)
+        protected void SideBar_timer_Tick(object sender, EventArgs e)
         {
             if (isexpend)
             {
@@ -42,7 +42,7 @@ namespace Cafffe_Sytem
             }
         }
 
-        private void SideBar_btn_Click(object sender, EventArgs e)
+        protected void SideBar_btn_Click(object sender, EventArgs e)
         {
             SideBar_timer.Start();
             if (isexpend)
