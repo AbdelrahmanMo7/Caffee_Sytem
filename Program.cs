@@ -16,7 +16,7 @@ namespace Cafffe_Sytem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Templete());
+            Application.Run(new A.M.A.Reports_Page());
         }
     }
 }

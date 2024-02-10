@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cafffe_Sytem.Marina
+namespace Cafffe_Sytem.A.M.A
 {
-    public partial class Client : Templete
+    public partial class Reports_Page : Templete
     {
-        public Client()
+        public Reports_Page()
         {
             InitializeComponent();
+        }
+
+        private void Selling_Reports_Tab_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

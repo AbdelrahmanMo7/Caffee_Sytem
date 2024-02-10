@@ -53,12 +53,11 @@ namespace Cafffe_Sytem
             this.sPanel2 = new Sipaa.Framework.SPanel();
             this.SideBar_timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Page_Name = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.sidebar_layout.SuspendLayout();
             this.sPanel4.SuspendLayout();
             this.sPanel11.SuspendLayout();
@@ -74,7 +73,6 @@ namespace Cafffe_Sytem
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_layout
@@ -97,7 +95,7 @@ namespace Cafffe_Sytem
             this.sidebar_layout.MaximumSize = new System.Drawing.Size(215, 770);
             this.sidebar_layout.MinimumSize = new System.Drawing.Size(55, 770);
             this.sidebar_layout.Name = "sidebar_layout";
-            this.sidebar_layout.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.sidebar_layout.Padding = new System.Windows.Forms.Padding(5);
             this.sidebar_layout.Size = new System.Drawing.Size(215, 770);
             this.sidebar_layout.TabIndex = 2;
             // 
@@ -551,8 +549,22 @@ namespace Cafffe_Sytem
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(215, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1155, 611);
+            this.panel1.Size = new System.Drawing.Size(1155, 731);
             this.panel1.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.AutoScroll = true;
+            this.panel4.AutoSize = true;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(233)))));
+            this.panel4.Location = new System.Drawing.Point(0, 247);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1156, 487);
+            this.panel4.TabIndex = 2;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel2
             // 
@@ -600,37 +612,12 @@ namespace Cafffe_Sytem
             this.panel3.Size = new System.Drawing.Size(1156, 150);
             this.panel3.TabIndex = 1;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(1080, 476);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.AutoScroll = true;
-            this.panel4.AutoSize = true;
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(233)))));
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Location = new System.Drawing.Point(0, 247);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1156, 502);
-            this.panel4.TabIndex = 2;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
             // Templete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1370, 611);
+            this.ClientSize = new System.Drawing.Size(1370, 731);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sidebar_layout);
             this.Name = "Templete";
@@ -654,7 +641,6 @@ namespace Cafffe_Sytem
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -695,6 +681,5 @@ namespace Cafffe_Sytem
         protected System.Windows.Forms.Label Page_Name;
         private System.ComponentModel.IContainer components;
         protected System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
     }
 }
