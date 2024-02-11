@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="FontsInstaller.Cmd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\FontsInstaller.Cmd.1.0.0\lib\FontsInstaller.Cmd.exe</HintPath>
     </Reference>
@@ -61,6 +67,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
@@ -153,6 +160,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
@@ -196,11 +205,67 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="A.M.A\Bill.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Bill_has_Products.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Category.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Client.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Coffee_Context.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Coffee_Context.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Coffee_Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Coffee_Context.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Coffee_Context.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Employee.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Make_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="A.M.A\Make_Bill.Designer.cs">
+      <DependentUpon>Make_Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Offer.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Posistion.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Product.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="A.M.A\Reports_Page.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="A.M.A\Reports_Page.Designer.cs">
       <DependentUpon>Reports_Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Sys_Info.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\User.cs">
+      <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Coffee_SystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -216,6 +281,9 @@
     <Compile Include="Templete.Designer.cs">
       <DependentUpon>Templete.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="A.M.A\Make_Bill.resx">
+      <DependentUpon>Make_Bill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="A.M.A\Reports_Page.resx">
       <DependentUpon>Reports_Page.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +303,24 @@
     <EmbeddedResource Include="Templete.resx">
       <DependentUpon>Templete.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="A.M.A\Coffee_Context.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Coffee_Context.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="A.M.A\Coffee_Context.edmx.diagram">
+      <DependentUpon>Coffee_Context.edmx</DependentUpon>
+    </None>
+    <None Include="Coffee_SystemDataSet.xsc">
+      <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Coffee_SystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Coffee_SystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Coffee_SystemDataSet.xss">
+      <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -344,6 +430,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-restaurant-building-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="A.M.A\Coffee_Context.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Coffee_Context.edmx</DependentUpon>
+      <LastGenOutput>Coffee_Context.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="A.M.A\Coffee_Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Coffee_Context.edmx</DependentUpon>
+      <LastGenOutput>Coffee_Context.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
