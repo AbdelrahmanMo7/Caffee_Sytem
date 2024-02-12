@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69e5ab85f8a949c7ab32c47b462d90f2" Name="Diagram1">
+        <EntityTypeShape EntityType="Coffee_SystemModel.Bill_has_Products" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Bill" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Category" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Employee" Width="1.5" PointX="8" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Offer" Width="1.5" PointX="1.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Posistion" Width="1.5" PointX="5.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Product" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.Sys_Info" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Coffee_SystemModel.User" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Bill_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Product_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Bill_Client_ClID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Bill_Creation_UID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Bill_Removing_UID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Category_Offers_OfID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Product_Category_CatID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Employee_Position_PosID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Product_Offer_OfID" ManuallyRouted="false" />
+        <AssociationConnector Association="Coffee_SystemModel.FK_Sys_Info_User_UID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
