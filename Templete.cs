@@ -24,7 +24,7 @@ namespace Cafffe_Sytem
         {
             if (isexpend)
             {
-                sidebar_layout.Width -= 10;
+                sidebar_layout.Width -= 40;
                 if (sidebar_layout.Width == sidebar_layout.MinimumSize.Width)
                 {
                     isexpend = false;
@@ -33,7 +33,7 @@ namespace Cafffe_Sytem
             }
             else
             {
-                sidebar_layout.Width += 10;
+                sidebar_layout.Width += 40;
                 if (sidebar_layout.Width == sidebar_layout.MaximumSize.Width)
                 {
                     isexpend = true;

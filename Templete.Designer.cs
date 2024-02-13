@@ -28,36 +28,36 @@ namespace Cafffe_Sytem
             this.components = new System.ComponentModel.Container();
             this.sidebar_layout = new System.Windows.Forms.FlowLayoutPanel();
             this.sPanel4 = new Sipaa.Framework.SPanel();
+            this.SideBar_btn = new Sipaa.Framework.SButton();
             this.sPanel11 = new Sipaa.Framework.SPanel();
+            this.sButton10 = new Sipaa.Framework.SButton();
             this.sPanel10 = new Sipaa.Framework.SPanel();
+            this.sButton9 = new Sipaa.Framework.SButton();
             this.sPanel13 = new Sipaa.Framework.SPanel();
+            this.sButton3 = new Sipaa.Framework.SButton();
+            this.sButton12 = new Sipaa.Framework.SButton();
             this.sPanel12 = new Sipaa.Framework.SPanel();
+            this.sButton11 = new Sipaa.Framework.SButton();
             this.sPanel7 = new Sipaa.Framework.SPanel();
+            this.sButton6 = new Sipaa.Framework.SButton();
             this.sPanel6 = new Sipaa.Framework.SPanel();
+            this.sButton5 = new Sipaa.Framework.SButton();
             this.sPanel9 = new Sipaa.Framework.SPanel();
+            this.sButton8 = new Sipaa.Framework.SButton();
             this.sPanel8 = new Sipaa.Framework.SPanel();
+            this.sButton7 = new Sipaa.Framework.SButton();
             this.sPanel3 = new Sipaa.Framework.SPanel();
+            this.sButton2 = new Sipaa.Framework.SButton();
             this.sPanel1 = new Sipaa.Framework.SPanel();
+            this.sButton1 = new Sipaa.Framework.SButton();
             this.sPanel2 = new Sipaa.Framework.SPanel();
             this.SideBar_timer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Page_Name = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.SideBar_btn = new Sipaa.Framework.SButton();
-            this.sButton10 = new Sipaa.Framework.SButton();
-            this.sButton9 = new Sipaa.Framework.SButton();
-            this.sButton3 = new Sipaa.Framework.SButton();
-            this.sButton12 = new Sipaa.Framework.SButton();
-            this.sButton11 = new Sipaa.Framework.SButton();
-            this.sButton6 = new Sipaa.Framework.SButton();
-            this.sButton5 = new Sipaa.Framework.SButton();
-            this.sButton8 = new Sipaa.Framework.SButton();
-            this.sButton7 = new Sipaa.Framework.SButton();
-            this.sButton2 = new Sipaa.Framework.SButton();
-            this.sButton1 = new Sipaa.Framework.SButton();
             this.sidebar_layout.SuspendLayout();
             this.sPanel4.SuspendLayout();
             this.sPanel11.SuspendLayout();
@@ -112,6 +112,29 @@ namespace Cafffe_Sytem
             this.sPanel4.Size = new System.Drawing.Size(186, 83);
             this.sPanel4.TabIndex = 2;
             // 
+            // SideBar_btn
+            // 
+            this.SideBar_btn.BackColor = System.Drawing.Color.Transparent;
+            this.SideBar_btn.BorderColor = System.Drawing.Color.Transparent;
+            this.SideBar_btn.BorderRadius = 6;
+            this.SideBar_btn.BorderSize = 0;
+            this.SideBar_btn.FlatAppearance.BorderSize = 0;
+            this.SideBar_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.SideBar_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.SideBar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SideBar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SideBar_btn.ForeColor = System.Drawing.Color.Transparent;
+            this.SideBar_btn.Image = global::Cafffe_Sytem.Properties.Resources.icons8_activity_feed_33;
+            this.SideBar_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SideBar_btn.Location = new System.Drawing.Point(-8, -8);
+            this.SideBar_btn.Name = "SideBar_btn";
+            this.SideBar_btn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
+            this.SideBar_btn.Size = new System.Drawing.Size(209, 100);
+            this.SideBar_btn.TabIndex = 5;
+            this.SideBar_btn.Text = "Menu";
+            this.SideBar_btn.UseVisualStyleBackColor = false;
+            this.SideBar_btn.Click += new System.EventHandler(this.SideBar_btn_Click);
+            // 
             // sPanel11
             // 
             this.sPanel11.BackColor = System.Drawing.Color.Transparent;
@@ -125,6 +148,30 @@ namespace Cafffe_Sytem
             this.sPanel11.Size = new System.Drawing.Size(186, 33);
             this.sPanel11.TabIndex = 4;
             // 
+            // sButton10
+            // 
+            this.sButton10.BackColor = System.Drawing.Color.Transparent;
+            this.sButton10.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton10.BorderRadius = 6;
+            this.sButton10.BorderSize = 0;
+            this.sButton10.FlatAppearance.BorderSize = 0;
+            this.sButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton10.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton10.Image = global::Cafffe_Sytem.Properties.Resources.icons8_restaurant_building_27;
+            this.sButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton10.Location = new System.Drawing.Point(-11, -3);
+            this.sButton10.MaximumSize = new System.Drawing.Size(212, 40);
+            this.sButton10.Name = "sButton10";
+            this.sButton10.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton10.Size = new System.Drawing.Size(209, 40);
+            this.sButton10.TabIndex = 3;
+            this.sButton10.Text = "              Home ";
+            this.sButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton10.UseVisualStyleBackColor = false;
+            // 
             // sPanel10
             // 
             this.sPanel10.BackColor = System.Drawing.Color.Transparent;
@@ -137,6 +184,29 @@ namespace Cafffe_Sytem
             this.sPanel10.Name = "sPanel10";
             this.sPanel10.Size = new System.Drawing.Size(186, 33);
             this.sPanel10.TabIndex = 2;
+            // 
+            // sButton9
+            // 
+            this.sButton9.BackColor = System.Drawing.Color.Transparent;
+            this.sButton9.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton9.BorderRadius = 6;
+            this.sButton9.BorderSize = 0;
+            this.sButton9.FlatAppearance.BorderSize = 0;
+            this.sButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton9.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton9.Image = global::Cafffe_Sytem.Properties.Resources.icons8_ingredients_26;
+            this.sButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton9.Location = new System.Drawing.Point(-11, -3);
+            this.sButton9.Name = "sButton9";
+            this.sButton9.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton9.Size = new System.Drawing.Size(209, 40);
+            this.sButton9.TabIndex = 3;
+            this.sButton9.Text = "              Items";
+            this.sButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton9.UseVisualStyleBackColor = false;
             // 
             // sPanel13
             // 
@@ -152,6 +222,52 @@ namespace Cafffe_Sytem
             this.sPanel13.Size = new System.Drawing.Size(186, 33);
             this.sPanel13.TabIndex = 4;
             // 
+            // sButton3
+            // 
+            this.sButton3.BackColor = System.Drawing.Color.Transparent;
+            this.sButton3.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton3.BorderRadius = 6;
+            this.sButton3.BorderSize = 0;
+            this.sButton3.FlatAppearance.BorderSize = 0;
+            this.sButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton3.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton3.Image = global::Cafffe_Sytem.Properties.Resources.icons8_category_26;
+            this.sButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton3.Location = new System.Drawing.Point(-11, -4);
+            this.sButton3.Name = "sButton3";
+            this.sButton3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton3.Size = new System.Drawing.Size(209, 40);
+            this.sButton3.TabIndex = 4;
+            this.sButton3.Text = "              Category";
+            this.sButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton3.UseVisualStyleBackColor = false;
+            // 
+            // sButton12
+            // 
+            this.sButton12.BackColor = System.Drawing.Color.Transparent;
+            this.sButton12.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton12.BorderRadius = 6;
+            this.sButton12.BorderSize = 0;
+            this.sButton12.FlatAppearance.BorderSize = 0;
+            this.sButton12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton12.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton12.Image = global::Cafffe_Sytem.Properties.Resources.icons8_category_26;
+            this.sButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton12.Location = new System.Drawing.Point(-11, -3);
+            this.sButton12.Name = "sButton12";
+            this.sButton12.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton12.Size = new System.Drawing.Size(209, 40);
+            this.sButton12.TabIndex = 3;
+            this.sButton12.Text = "              Category";
+            this.sButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton12.UseVisualStyleBackColor = false;
+            // 
             // sPanel12
             // 
             this.sPanel12.BackColor = System.Drawing.Color.Transparent;
@@ -164,6 +280,29 @@ namespace Cafffe_Sytem
             this.sPanel12.Name = "sPanel12";
             this.sPanel12.Size = new System.Drawing.Size(186, 33);
             this.sPanel12.TabIndex = 2;
+            // 
+            // sButton11
+            // 
+            this.sButton11.BackColor = System.Drawing.Color.Transparent;
+            this.sButton11.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton11.BorderRadius = 6;
+            this.sButton11.BorderSize = 0;
+            this.sButton11.FlatAppearance.BorderSize = 0;
+            this.sButton11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton11.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton11.Image = global::Cafffe_Sytem.Properties.Resources.icons8_offer_26;
+            this.sButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton11.Location = new System.Drawing.Point(-11, -3);
+            this.sButton11.Name = "sButton11";
+            this.sButton11.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton11.Size = new System.Drawing.Size(209, 40);
+            this.sButton11.TabIndex = 3;
+            this.sButton11.Text = "              Offers";
+            this.sButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton11.UseVisualStyleBackColor = false;
             // 
             // sPanel7
             // 
@@ -178,6 +317,29 @@ namespace Cafffe_Sytem
             this.sPanel7.Size = new System.Drawing.Size(186, 33);
             this.sPanel7.TabIndex = 4;
             // 
+            // sButton6
+            // 
+            this.sButton6.BackColor = System.Drawing.Color.Transparent;
+            this.sButton6.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton6.BorderRadius = 6;
+            this.sButton6.BorderSize = 0;
+            this.sButton6.FlatAppearance.BorderSize = 0;
+            this.sButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton6.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton6.Image = global::Cafffe_Sytem.Properties.Resources.icons8_cashier_26__1_;
+            this.sButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton6.Location = new System.Drawing.Point(-11, -3);
+            this.sButton6.Name = "sButton6";
+            this.sButton6.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton6.Size = new System.Drawing.Size(209, 40);
+            this.sButton6.TabIndex = 3;
+            this.sButton6.Text = "              Cashiers";
+            this.sButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton6.UseVisualStyleBackColor = false;
+            // 
             // sPanel6
             // 
             this.sPanel6.BackColor = System.Drawing.Color.Transparent;
@@ -190,6 +352,29 @@ namespace Cafffe_Sytem
             this.sPanel6.Name = "sPanel6";
             this.sPanel6.Size = new System.Drawing.Size(186, 33);
             this.sPanel6.TabIndex = 2;
+            // 
+            // sButton5
+            // 
+            this.sButton5.BackColor = System.Drawing.Color.Transparent;
+            this.sButton5.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton5.BorderRadius = 6;
+            this.sButton5.BorderSize = 0;
+            this.sButton5.FlatAppearance.BorderSize = 0;
+            this.sButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton5.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton5.Image = global::Cafffe_Sytem.Properties.Resources.icons8_employees_26;
+            this.sButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton5.Location = new System.Drawing.Point(-11, -3);
+            this.sButton5.Name = "sButton5";
+            this.sButton5.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton5.Size = new System.Drawing.Size(209, 40);
+            this.sButton5.TabIndex = 3;
+            this.sButton5.Text = "              Employees";
+            this.sButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton5.UseVisualStyleBackColor = false;
             // 
             // sPanel9
             // 
@@ -204,6 +389,29 @@ namespace Cafffe_Sytem
             this.sPanel9.Size = new System.Drawing.Size(186, 33);
             this.sPanel9.TabIndex = 4;
             // 
+            // sButton8
+            // 
+            this.sButton8.BackColor = System.Drawing.Color.Transparent;
+            this.sButton8.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton8.BorderRadius = 6;
+            this.sButton8.BorderSize = 0;
+            this.sButton8.FlatAppearance.BorderSize = 0;
+            this.sButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton8.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton8.Image = global::Cafffe_Sytem.Properties.Resources.icons8_client_26;
+            this.sButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton8.Location = new System.Drawing.Point(-11, -3);
+            this.sButton8.Name = "sButton8";
+            this.sButton8.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton8.Size = new System.Drawing.Size(209, 40);
+            this.sButton8.TabIndex = 3;
+            this.sButton8.Text = "              Clients";
+            this.sButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton8.UseVisualStyleBackColor = false;
+            // 
             // sPanel8
             // 
             this.sPanel8.BackColor = System.Drawing.Color.Transparent;
@@ -216,6 +424,29 @@ namespace Cafffe_Sytem
             this.sPanel8.Name = "sPanel8";
             this.sPanel8.Size = new System.Drawing.Size(186, 33);
             this.sPanel8.TabIndex = 2;
+            // 
+            // sButton7
+            // 
+            this.sButton7.BackColor = System.Drawing.Color.Transparent;
+            this.sButton7.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton7.BorderRadius = 6;
+            this.sButton7.BorderSize = 0;
+            this.sButton7.FlatAppearance.BorderSize = 0;
+            this.sButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton7.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton7.Image = global::Cafffe_Sytem.Properties.Resources.icons8_receipt_26;
+            this.sButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton7.Location = new System.Drawing.Point(-11, -3);
+            this.sButton7.Name = "sButton7";
+            this.sButton7.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton7.Size = new System.Drawing.Size(209, 40);
+            this.sButton7.TabIndex = 3;
+            this.sButton7.Text = "              Bills";
+            this.sButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton7.UseVisualStyleBackColor = false;
             // 
             // sPanel3
             // 
@@ -230,6 +461,29 @@ namespace Cafffe_Sytem
             this.sPanel3.Size = new System.Drawing.Size(186, 33);
             this.sPanel3.TabIndex = 4;
             // 
+            // sButton2
+            // 
+            this.sButton2.BackColor = System.Drawing.Color.Transparent;
+            this.sButton2.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton2.BorderRadius = 6;
+            this.sButton2.BorderSize = 0;
+            this.sButton2.FlatAppearance.BorderSize = 0;
+            this.sButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton2.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton2.Image = global::Cafffe_Sytem.Properties.Resources.icons8_business_goal_26;
+            this.sButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton2.Location = new System.Drawing.Point(-11, -3);
+            this.sButton2.Name = "sButton2";
+            this.sButton2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton2.Size = new System.Drawing.Size(209, 40);
+            this.sButton2.TabIndex = 3;
+            this.sButton2.Text = "              Reports";
+            this.sButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton2.UseVisualStyleBackColor = false;
+            // 
             // sPanel1
             // 
             this.sPanel1.BackColor = System.Drawing.Color.Transparent;
@@ -242,6 +496,29 @@ namespace Cafffe_Sytem
             this.sPanel1.Name = "sPanel1";
             this.sPanel1.Size = new System.Drawing.Size(186, 33);
             this.sPanel1.TabIndex = 2;
+            // 
+            // sButton1
+            // 
+            this.sButton1.BackColor = System.Drawing.Color.Transparent;
+            this.sButton1.BorderColor = System.Drawing.Color.Transparent;
+            this.sButton1.BorderRadius = 6;
+            this.sButton1.BorderSize = 0;
+            this.sButton1.FlatAppearance.BorderSize = 0;
+            this.sButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.sButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.sButton1.Image = global::Cafffe_Sytem.Properties.Resources.icons8_settings_26;
+            this.sButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton1.Location = new System.Drawing.Point(-11, -3);
+            this.sButton1.Name = "sButton1";
+            this.sButton1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
+            this.sButton1.Size = new System.Drawing.Size(209, 40);
+            this.sButton1.TabIndex = 3;
+            this.sButton1.Text = "              Management";
+            this.sButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.sButton1.UseVisualStyleBackColor = false;
             // 
             // sPanel2
             // 
@@ -302,6 +579,17 @@ namespace Cafffe_Sytem
             this.panel2.Size = new System.Drawing.Size(1156, 250);
             this.panel2.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Cafffe_Sytem.Properties.Resources.icons8_restaurant_building_70;
+            this.pictureBox1.Location = new System.Drawing.Point(115, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(62, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // Page_Name
             // 
             this.Page_Name.AutoSize = true;
@@ -323,294 +611,6 @@ namespace Cafffe_Sytem
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1156, 150);
             this.panel3.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Cafffe_Sytem.Properties.Resources.icons8_restaurant_building_70;
-            this.pictureBox1.Location = new System.Drawing.Point(115, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // SideBar_btn
-            // 
-            this.SideBar_btn.BackColor = System.Drawing.Color.Transparent;
-            this.SideBar_btn.BorderColor = System.Drawing.Color.Transparent;
-            this.SideBar_btn.BorderRadius = 6;
-            this.SideBar_btn.BorderSize = 0;
-            this.SideBar_btn.FlatAppearance.BorderSize = 0;
-            this.SideBar_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.SideBar_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.SideBar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SideBar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SideBar_btn.ForeColor = System.Drawing.Color.Transparent;
-            this.SideBar_btn.Image = global::Cafffe_Sytem.Properties.Resources.icons8_activity_feed_33;
-            this.SideBar_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SideBar_btn.Location = new System.Drawing.Point(-8, -8);
-            this.SideBar_btn.Name = "SideBar_btn";
-            this.SideBar_btn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
-            this.SideBar_btn.Size = new System.Drawing.Size(209, 100);
-            this.SideBar_btn.TabIndex = 5;
-            this.SideBar_btn.Text = "Menu";
-            this.SideBar_btn.UseVisualStyleBackColor = false;
-            this.SideBar_btn.Click += new System.EventHandler(this.SideBar_btn_Click);
-            // 
-            // sButton10
-            // 
-            this.sButton10.BackColor = System.Drawing.Color.Transparent;
-            this.sButton10.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton10.BorderRadius = 6;
-            this.sButton10.BorderSize = 0;
-            this.sButton10.FlatAppearance.BorderSize = 0;
-            this.sButton10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton10.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton10.Image = global::Cafffe_Sytem.Properties.Resources.icons8_restaurant_building_27;
-            this.sButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton10.Location = new System.Drawing.Point(-11, -3);
-            this.sButton10.MaximumSize = new System.Drawing.Size(212, 40);
-            this.sButton10.Name = "sButton10";
-            this.sButton10.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton10.Size = new System.Drawing.Size(209, 40);
-            this.sButton10.TabIndex = 3;
-            this.sButton10.Text = "              Home ";
-            this.sButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton10.UseVisualStyleBackColor = false;
-            // 
-            // sButton9
-            // 
-            this.sButton9.BackColor = System.Drawing.Color.Transparent;
-            this.sButton9.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton9.BorderRadius = 6;
-            this.sButton9.BorderSize = 0;
-            this.sButton9.FlatAppearance.BorderSize = 0;
-            this.sButton9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton9.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton9.Image = global::Cafffe_Sytem.Properties.Resources.icons8_ingredients_26;
-            this.sButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton9.Location = new System.Drawing.Point(-11, -3);
-            this.sButton9.Name = "sButton9";
-            this.sButton9.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton9.Size = new System.Drawing.Size(209, 40);
-            this.sButton9.TabIndex = 3;
-            this.sButton9.Text = "              Items";
-            this.sButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton9.UseVisualStyleBackColor = false;
-            // 
-            // sButton3
-            // 
-            this.sButton3.BackColor = System.Drawing.Color.Transparent;
-            this.sButton3.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton3.BorderRadius = 6;
-            this.sButton3.BorderSize = 0;
-            this.sButton3.FlatAppearance.BorderSize = 0;
-            this.sButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton3.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton3.Image = global::Cafffe_Sytem.Properties.Resources.icons8_category_26;
-            this.sButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton3.Location = new System.Drawing.Point(-11, -4);
-            this.sButton3.Name = "sButton3";
-            this.sButton3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton3.Size = new System.Drawing.Size(209, 40);
-            this.sButton3.TabIndex = 4;
-            this.sButton3.Text = "              Category";
-            this.sButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton3.UseVisualStyleBackColor = false;
-            // 
-            // sButton12
-            // 
-            this.sButton12.BackColor = System.Drawing.Color.Transparent;
-            this.sButton12.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton12.BorderRadius = 6;
-            this.sButton12.BorderSize = 0;
-            this.sButton12.FlatAppearance.BorderSize = 0;
-            this.sButton12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton12.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton12.Image = global::Cafffe_Sytem.Properties.Resources.icons8_category_26;
-            this.sButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton12.Location = new System.Drawing.Point(-11, -3);
-            this.sButton12.Name = "sButton12";
-            this.sButton12.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton12.Size = new System.Drawing.Size(209, 40);
-            this.sButton12.TabIndex = 3;
-            this.sButton12.Text = "              Category";
-            this.sButton12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton12.UseVisualStyleBackColor = false;
-            // 
-            // sButton11
-            // 
-            this.sButton11.BackColor = System.Drawing.Color.Transparent;
-            this.sButton11.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton11.BorderRadius = 6;
-            this.sButton11.BorderSize = 0;
-            this.sButton11.FlatAppearance.BorderSize = 0;
-            this.sButton11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton11.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton11.Image = global::Cafffe_Sytem.Properties.Resources.icons8_offer_26;
-            this.sButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton11.Location = new System.Drawing.Point(-11, -3);
-            this.sButton11.Name = "sButton11";
-            this.sButton11.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton11.Size = new System.Drawing.Size(209, 40);
-            this.sButton11.TabIndex = 3;
-            this.sButton11.Text = "              Offers";
-            this.sButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton11.UseVisualStyleBackColor = false;
-            // 
-            // sButton6
-            // 
-            this.sButton6.BackColor = System.Drawing.Color.Transparent;
-            this.sButton6.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton6.BorderRadius = 6;
-            this.sButton6.BorderSize = 0;
-            this.sButton6.FlatAppearance.BorderSize = 0;
-            this.sButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton6.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton6.Image = global::Cafffe_Sytem.Properties.Resources.icons8_cashier_26__1_;
-            this.sButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton6.Location = new System.Drawing.Point(-11, -3);
-            this.sButton6.Name = "sButton6";
-            this.sButton6.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton6.Size = new System.Drawing.Size(209, 40);
-            this.sButton6.TabIndex = 3;
-            this.sButton6.Text = "              Cashiers";
-            this.sButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton6.UseVisualStyleBackColor = false;
-            // 
-            // sButton5
-            // 
-            this.sButton5.BackColor = System.Drawing.Color.Transparent;
-            this.sButton5.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton5.BorderRadius = 6;
-            this.sButton5.BorderSize = 0;
-            this.sButton5.FlatAppearance.BorderSize = 0;
-            this.sButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton5.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton5.Image = global::Cafffe_Sytem.Properties.Resources.icons8_employees_26;
-            this.sButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton5.Location = new System.Drawing.Point(-11, -3);
-            this.sButton5.Name = "sButton5";
-            this.sButton5.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton5.Size = new System.Drawing.Size(209, 40);
-            this.sButton5.TabIndex = 3;
-            this.sButton5.Text = "              Employees";
-            this.sButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton5.UseVisualStyleBackColor = false;
-            // 
-            // sButton8
-            // 
-            this.sButton8.BackColor = System.Drawing.Color.Transparent;
-            this.sButton8.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton8.BorderRadius = 6;
-            this.sButton8.BorderSize = 0;
-            this.sButton8.FlatAppearance.BorderSize = 0;
-            this.sButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton8.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton8.Image = global::Cafffe_Sytem.Properties.Resources.icons8_client_26;
-            this.sButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton8.Location = new System.Drawing.Point(-11, -3);
-            this.sButton8.Name = "sButton8";
-            this.sButton8.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton8.Size = new System.Drawing.Size(209, 40);
-            this.sButton8.TabIndex = 3;
-            this.sButton8.Text = "              Clients";
-            this.sButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton8.UseVisualStyleBackColor = false;
-            // 
-            // sButton7
-            // 
-            this.sButton7.BackColor = System.Drawing.Color.Transparent;
-            this.sButton7.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton7.BorderRadius = 6;
-            this.sButton7.BorderSize = 0;
-            this.sButton7.FlatAppearance.BorderSize = 0;
-            this.sButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton7.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton7.Image = global::Cafffe_Sytem.Properties.Resources.icons8_receipt_26;
-            this.sButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton7.Location = new System.Drawing.Point(-11, -3);
-            this.sButton7.Name = "sButton7";
-            this.sButton7.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton7.Size = new System.Drawing.Size(209, 40);
-            this.sButton7.TabIndex = 3;
-            this.sButton7.Text = "              Bills";
-            this.sButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton7.UseVisualStyleBackColor = false;
-            // 
-            // sButton2
-            // 
-            this.sButton2.BackColor = System.Drawing.Color.Transparent;
-            this.sButton2.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton2.BorderRadius = 6;
-            this.sButton2.BorderSize = 0;
-            this.sButton2.FlatAppearance.BorderSize = 0;
-            this.sButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton2.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton2.Image = global::Cafffe_Sytem.Properties.Resources.icons8_business_goal_26;
-            this.sButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton2.Location = new System.Drawing.Point(-11, -3);
-            this.sButton2.Name = "sButton2";
-            this.sButton2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton2.Size = new System.Drawing.Size(209, 40);
-            this.sButton2.TabIndex = 3;
-            this.sButton2.Text = "              Reports";
-            this.sButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton2.UseVisualStyleBackColor = false;
-            // 
-            // sButton1
-            // 
-            this.sButton1.BackColor = System.Drawing.Color.Transparent;
-            this.sButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.sButton1.BorderRadius = 6;
-            this.sButton1.BorderSize = 0;
-            this.sButton1.FlatAppearance.BorderSize = 0;
-            this.sButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
-            this.sButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sButton1.ForeColor = System.Drawing.Color.Transparent;
-            this.sButton1.Image = global::Cafffe_Sytem.Properties.Resources.icons8_settings_26;
-            this.sButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton1.Location = new System.Drawing.Point(-11, -3);
-            this.sButton1.Name = "sButton1";
-            this.sButton1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 2);
-            this.sButton1.Size = new System.Drawing.Size(209, 40);
-            this.sButton1.TabIndex = 3;
-            this.sButton1.Text = "              Management";
-            this.sButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sButton1.UseVisualStyleBackColor = false;
             // 
             // Templete
             // 

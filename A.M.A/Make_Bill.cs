@@ -13,20 +13,38 @@ namespace Cafffe_Sytem.A.M.A
   
     public partial class Make_Bill : Form
     {
+        class bill_list
+        {
+            public Product Item { get; set; }
+            public  int Count { get; set; }
+            public double Total { get; set; }
+            public bill_list(Product Item , int count, double total)
+            {
+                this.Item = Item;
+                this.Count = count;
+                this.Total = total;
+            }
+
+
+
+
+        }
         User sys_user;
         Coffee_SystemEntities context ;
         Product selected_Item;
-       
+        List<bill_list> bill_Item_list;
 
-        public Make_Bill( User user )
+
+        public Make_Bill(  )
         {
-            this.sys_user = user;
+           // this.sys_user = user;
             InitializeComponent();
+            bill_Item_list = new List<bill_list>();
             context = new Coffee_SystemEntities();
             All_Cat_comboBox1.DataSource = context.Categories.Select(c => c.Cat_Name).ToList();
-
-            var p1 = context.Products.Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
+           var p1 = context.Products.Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
             Show_Products_dataGridView1.DataSource = p1;
+
         }
 
 
@@ -65,11 +83,23 @@ namespace Cafffe_Sytem.A.M.A
             Veiw_ItemPrice_Txt.Text = selected_Item.P_Price.ToString();
             Veiw_ItemCategory_Txt.Text = selected_Item.Category.Cat_Name;
             Veiw_ItemOffer_Txt.Text = selected_Item.Offer.Off_Name;
+            Veiw_Item_TotalPrice_Txt.Text = ((selected_Item.P_Price) * ((int)ItemAmoun_numericUpDown1.Value)).ToString();
         }
 
-        private void Show_Bills_dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+       
 
+        private void Add_Item_ToBill_Btn_Click(object sender, EventArgs e)
+        {
+            bill_Item_list.Add(new bill_list( selected_Item, ((int)ItemAmoun_numericUpDown1.Value) , ((selected_Item.P_Price) * ((int)ItemAmoun_numericUpDown1.Value))));
+
+            var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
+            Show_Bills_Items_dataGridView1.DataSource = show_list;
+
+            //if (System.Text.RegularExpressions.Regex.IsMatch(ValueTxt.Text, "[^0-9]"))
+            //{
+            //    MessageBox.Show("Please enter only numbers.");
+            //    ValueTxt.Text = ValueTxt.Text.Remove(ValueTxt.Text.Length - 1);
+            //}
         }
     }
 }

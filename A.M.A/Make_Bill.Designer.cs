@@ -30,6 +30,7 @@ namespace Cafffe_Sytem.A.M.A
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Show_Bills_Items_dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Show_Bills_dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -42,6 +43,7 @@ namespace Cafffe_Sytem.A.M.A
             this.ClientPhone_Txt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.Add_Item_ToBill_Btn = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.ApplyOffer_checkBox1 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,6 +70,8 @@ namespace Cafffe_Sytem.A.M.A
             this.panel6 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Show_Bills_Items_dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Show_Bills_dataGridView2)).BeginInit();
@@ -83,11 +87,26 @@ namespace Cafffe_Sytem.A.M.A
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Snow;
+            this.panel2.Controls.Add(this.Show_Bills_Items_dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(976, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(383, 655);
             this.panel2.TabIndex = 1;
+            // 
+            // Show_Bills_Items_dataGridView1
+            // 
+            this.Show_Bills_Items_dataGridView1.AllowUserToAddRows = false;
+            this.Show_Bills_Items_dataGridView1.AllowUserToDeleteRows = false;
+            this.Show_Bills_Items_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Show_Bills_Items_dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
+            this.Show_Bills_Items_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Show_Bills_Items_dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Show_Bills_Items_dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.Show_Bills_Items_dataGridView1.Name = "Show_Bills_Items_dataGridView1";
+            this.Show_Bills_Items_dataGridView1.ReadOnly = true;
+            this.Show_Bills_Items_dataGridView1.Size = new System.Drawing.Size(383, 655);
+            this.Show_Bills_Items_dataGridView1.TabIndex = 0;
             // 
             // panel4
             // 
@@ -125,7 +144,6 @@ namespace Cafffe_Sytem.A.M.A
             this.Show_Bills_dataGridView2.ReadOnly = true;
             this.Show_Bills_dataGridView2.Size = new System.Drawing.Size(452, 484);
             this.Show_Bills_dataGridView2.TabIndex = 1;
-            this.Show_Bills_dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Show_Bills_dataGridView2_CellContentClick);
             // 
             // Show_Products_dataGridView1
             // 
@@ -238,6 +256,7 @@ namespace Cafffe_Sytem.A.M.A
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Controls.Add(this.Add_Item_ToBill_Btn);
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Controls.Add(this.ApplyOffer_checkBox1);
             this.panel9.Controls.Add(this.label8);
@@ -256,6 +275,20 @@ namespace Cafffe_Sytem.A.M.A
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(761, 96);
             this.panel9.TabIndex = 7;
+            // 
+            // Add_Item_ToBill_Btn
+            // 
+            this.Add_Item_ToBill_Btn.BackColor = System.Drawing.Color.Green;
+            this.Add_Item_ToBill_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Add_Item_ToBill_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_Item_ToBill_Btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Add_Item_ToBill_Btn.Location = new System.Drawing.Point(673, 20);
+            this.Add_Item_ToBill_Btn.Name = "Add_Item_ToBill_Btn";
+            this.Add_Item_ToBill_Btn.Size = new System.Drawing.Size(75, 62);
+            this.Add_Item_ToBill_Btn.TabIndex = 21;
+            this.Add_Item_ToBill_Btn.Text = "Add Item";
+            this.Add_Item_ToBill_Btn.UseVisualStyleBackColor = false;
+            this.Add_Item_ToBill_Btn.Click += new System.EventHandler(this.Add_Item_ToBill_Btn_Click);
             // 
             // panel10
             // 
@@ -282,7 +315,7 @@ namespace Cafffe_Sytem.A.M.A
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(253, 62);
+            this.label8.Location = new System.Drawing.Point(248, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 20);
             this.label8.TabIndex = 18;
@@ -291,10 +324,10 @@ namespace Cafffe_Sytem.A.M.A
             // Veiw_ItemOffer_Txt
             // 
             this.Veiw_ItemOffer_Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Veiw_ItemOffer_Txt.Location = new System.Drawing.Point(313, 59);
+            this.Veiw_ItemOffer_Txt.Location = new System.Drawing.Point(308, 59);
             this.Veiw_ItemOffer_Txt.Name = "Veiw_ItemOffer_Txt";
             this.Veiw_ItemOffer_Txt.ReadOnly = true;
-            this.Veiw_ItemOffer_Txt.Size = new System.Drawing.Size(126, 26);
+            this.Veiw_ItemOffer_Txt.Size = new System.Drawing.Size(138, 26);
             this.Veiw_ItemOffer_Txt.TabIndex = 17;
             this.Veiw_ItemOffer_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -322,7 +355,12 @@ namespace Cafffe_Sytem.A.M.A
             // ItemAmoun_numericUpDown1
             // 
             this.ItemAmoun_numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemAmoun_numericUpDown1.Location = new System.Drawing.Point(440, 19);
+            this.ItemAmoun_numericUpDown1.Location = new System.Drawing.Point(446, 19);
+            this.ItemAmoun_numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.ItemAmoun_numericUpDown1.Name = "ItemAmoun_numericUpDown1";
             this.ItemAmoun_numericUpDown1.Size = new System.Drawing.Size(47, 26);
             this.ItemAmoun_numericUpDown1.TabIndex = 14;
@@ -338,7 +376,7 @@ namespace Cafffe_Sytem.A.M.A
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(367, 23);
+            this.label6.Location = new System.Drawing.Point(373, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 20);
             this.label6.TabIndex = 13;
@@ -347,7 +385,7 @@ namespace Cafffe_Sytem.A.M.A
             // Veiw_Item_TotalPrice_Txt
             // 
             this.Veiw_Item_TotalPrice_Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Veiw_Item_TotalPrice_Txt.Location = new System.Drawing.Point(589, 20);
+            this.Veiw_Item_TotalPrice_Txt.Location = new System.Drawing.Point(595, 20);
             this.Veiw_Item_TotalPrice_Txt.Name = "Veiw_Item_TotalPrice_Txt";
             this.Veiw_Item_TotalPrice_Txt.ReadOnly = true;
             this.Veiw_Item_TotalPrice_Txt.Size = new System.Drawing.Size(53, 26);
@@ -359,7 +397,7 @@ namespace Cafffe_Sytem.A.M.A
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(499, 23);
+            this.label5.Location = new System.Drawing.Point(505, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 20);
             this.label5.TabIndex = 11;
@@ -370,7 +408,7 @@ namespace Cafffe_Sytem.A.M.A
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(247, 23);
+            this.label4.Location = new System.Drawing.Point(249, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 20);
             this.label4.TabIndex = 9;
@@ -379,7 +417,7 @@ namespace Cafffe_Sytem.A.M.A
             // Veiw_ItemPrice_Txt
             // 
             this.Veiw_ItemPrice_Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Veiw_ItemPrice_Txt.Location = new System.Drawing.Point(302, 20);
+            this.Veiw_ItemPrice_Txt.Location = new System.Drawing.Point(308, 20);
             this.Veiw_ItemPrice_Txt.Name = "Veiw_ItemPrice_Txt";
             this.Veiw_ItemPrice_Txt.ReadOnly = true;
             this.Veiw_ItemPrice_Txt.Size = new System.Drawing.Size(60, 26);
@@ -561,6 +599,8 @@ namespace Cafffe_Sytem.A.M.A
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Make Bill";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Show_Bills_Items_dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Show_Bills_dataGridView2)).EndInit();
@@ -619,5 +659,7 @@ namespace Cafffe_Sytem.A.M.A
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Add_Item_ToBill_Btn;
+        private System.Windows.Forms.DataGridView Show_Bills_Items_dataGridView1;
     }
 }
