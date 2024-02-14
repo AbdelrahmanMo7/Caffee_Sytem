@@ -1,6 +1,6 @@
 ﻿namespace Cafffe_Sytem.ASH
 {
-    partial class Products
+    partial class AddProductPage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Products";
+            this.Text = "AddProductPage";
         }
 
         #endregion

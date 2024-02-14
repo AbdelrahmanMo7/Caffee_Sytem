@@ -262,11 +262,17 @@
     <Compile Include="A.M.A\User.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ASH\Products.cs">
+    <Compile Include="ASH\AddProductPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ASH\Products.Designer.cs">
-      <DependentUpon>Products.cs</DependentUpon>
+    <Compile Include="ASH\AddProductPage.Designer.cs">
+      <DependentUpon>AddProductPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ASH\ProductsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ASH\ProductsPage.Designer.cs">
+      <DependentUpon>ProductsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Coffee_SystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="A.M.A\Reports_Page.resx">
       <DependentUpon>Reports_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ASH\ProductsPage.resx">
+      <DependentUpon>ProductsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

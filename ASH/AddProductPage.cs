@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cafffe_Sytem.ASH
 {
-    public partial class Products : Form
+    public partial class AddProductPage : Form
     {
-        public Products()
+        public AddProductPage()
         {
             InitializeComponent();
         }
