@@ -27,5 +27,15 @@ namespace Cafffe_Sytem.A.M.A
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill> Bills { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Client)
+            {
+                Client p = obj as Client;
+                return this.C_Phone_Number == p.C_Phone_Number;
+            }
+            return false;
+        }
     }
 }
