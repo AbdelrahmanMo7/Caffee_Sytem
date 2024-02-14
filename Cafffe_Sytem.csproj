@@ -262,6 +262,12 @@
     <Compile Include="A.M.A\User.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="ASH\Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ASH\Products.Designer.cs">
+      <DependentUpon>Products.cs</DependentUpon>
+    </Compile>
     <Compile Include="Coffee_SystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
