@@ -336,7 +336,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="A.M.A\NewFolder1\" />
     <Folder Include="dina\" />
     <Folder Include="Marina\" />
     <Folder Include="stiven\" />
