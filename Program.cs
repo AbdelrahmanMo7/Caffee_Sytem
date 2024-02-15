@@ -16,7 +16,7 @@ namespace Cafffe_Sytem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new A.M.A.Make_Bill());
+            Application.Run(new ASH.ProductsPage());
         }
     }
 }
