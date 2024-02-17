@@ -30,11 +30,11 @@ namespace Cafffe_Sytem.A.M.A
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sPanel2 = new Sipaa.Framework.SPanel();
             this.Show_Bills_Items_dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -138,26 +138,28 @@ namespace Cafffe_Sytem.A.M.A
             // 
             this.Show_Bills_Items_dataGridView1.AllowUserToAddRows = false;
             this.Show_Bills_Items_dataGridView1.AllowUserToDeleteRows = false;
+            this.Show_Bills_Items_dataGridView1.AllowUserToResizeColumns = false;
+            this.Show_Bills_Items_dataGridView1.AllowUserToResizeRows = false;
             this.Show_Bills_Items_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Show_Bills_Items_dataGridView1.BackgroundColor = System.Drawing.Color.Snow;
             this.Show_Bills_Items_dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Show_Bills_Items_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Show_Bills_Items_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Show_Bills_Items_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Show_Bills_Items_dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Show_Bills_Items_dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Show_Bills_Items_dataGridView1.Location = new System.Drawing.Point(7, 10);
             this.Show_Bills_Items_dataGridView1.MultiSelect = false;
             this.Show_Bills_Items_dataGridView1.Name = "Show_Bills_Items_dataGridView1";
@@ -165,7 +167,9 @@ namespace Cafffe_Sytem.A.M.A
             this.Show_Bills_Items_dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Show_Bills_Items_dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Show_Bills_Items_dataGridView1.Size = new System.Drawing.Size(352, 418);
+            this.Show_Bills_Items_dataGridView1.StandardTab = true;
             this.Show_Bills_Items_dataGridView1.TabIndex = 2;
+            this.Show_Bills_Items_dataGridView1.VirtualMode = true;
             this.Show_Bills_Items_dataGridView1.DataSourceChanged += new System.EventHandler(this.Show_Bills_Items_dataGridView1_DataSourceChanged);
             this.Show_Bills_Items_dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Show_Bills_Items_dataGridView1_CellMouseClick);
             this.Show_Bills_Items_dataGridView1.SelectionChanged += new System.EventHandler(this.Show_Bills_Items_dataGridView1_SelectionChanged);
@@ -201,11 +205,12 @@ namespace Cafffe_Sytem.A.M.A
             this.Bill_TotalAmount_label15.AutoSize = true;
             this.Bill_TotalAmount_label15.BackColor = System.Drawing.Color.White;
             this.Bill_TotalAmount_label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bill_TotalAmount_label15.Location = new System.Drawing.Point(200, 16);
+            this.Bill_TotalAmount_label15.Location = new System.Drawing.Point(209, 16);
             this.Bill_TotalAmount_label15.Name = "Bill_TotalAmount_label15";
-            this.Bill_TotalAmount_label15.Size = new System.Drawing.Size(71, 20);
+            this.Bill_TotalAmount_label15.Size = new System.Drawing.Size(45, 20);
             this.Bill_TotalAmount_label15.TabIndex = 31;
-            this.Bill_TotalAmount_label15.Text = "Amount";
+            this.Bill_TotalAmount_label15.Text = "------";
+            this.Bill_TotalAmount_label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label16
             // 
@@ -234,12 +239,14 @@ namespace Cafffe_Sytem.A.M.A
             this.panel13.Controls.Add(this.PrintBill_Btn);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.MinimumSize = new System.Drawing.Size(379, 111);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(379, 111);
             this.panel13.TabIndex = 1;
             // 
             // Delete_Bill_Item_Btn
             // 
+            this.Delete_Bill_Item_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Delete_Bill_Item_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.Delete_Bill_Item_Btn.Enabled = false;
             this.Delete_Bill_Item_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -255,6 +262,7 @@ namespace Cafffe_Sytem.A.M.A
             // 
             // Edit_Bill_Item_Btn
             // 
+            this.Edit_Bill_Item_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Edit_Bill_Item_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(96)))), ((int)(((byte)(176)))));
             this.Edit_Bill_Item_Btn.Enabled = false;
             this.Edit_Bill_Item_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -349,9 +357,10 @@ namespace Cafffe_Sytem.A.M.A
             // 
             // PrintBill_Btn
             // 
+            this.PrintBill_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PrintBill_Btn.BackColor = System.Drawing.Color.Green;
             this.PrintBill_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PrintBill_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrintBill_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrintBill_Btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.PrintBill_Btn.Location = new System.Drawing.Point(226, 3);
             this.PrintBill_Btn.Name = "PrintBill_Btn";
@@ -359,6 +368,7 @@ namespace Cafffe_Sytem.A.M.A
             this.PrintBill_Btn.TabIndex = 22;
             this.PrintBill_Btn.Text = "Print Bill";
             this.PrintBill_Btn.UseVisualStyleBackColor = false;
+            this.PrintBill_Btn.Click += new System.EventHandler(this.PrintBill_Btn_Click);
             // 
             // panel4
             // 
@@ -370,7 +380,7 @@ namespace Cafffe_Sytem.A.M.A
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 66);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(5, 0, 3, 5);
+            this.panel4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 5);
             this.panel4.Size = new System.Drawing.Size(976, 641);
             this.panel4.TabIndex = 3;
             // 
@@ -392,25 +402,27 @@ namespace Cafffe_Sytem.A.M.A
             this.Show_Bills_dataGridView2.AllowUserToAddRows = false;
             this.Show_Bills_dataGridView2.AllowUserToDeleteRows = false;
             this.Show_Bills_dataGridView2.AllowUserToOrderColumns = true;
+            this.Show_Bills_dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Show_Bills_dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Show_Bills_dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Show_Bills_dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Show_Bills_dataGridView2.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Show_Bills_dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Show_Bills_dataGridView2.Location = new System.Drawing.Point(529, 5);
-            this.Show_Bills_dataGridView2.MinimumSize = new System.Drawing.Size(442, 460);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Show_Bills_dataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Show_Bills_dataGridView2.Location = new System.Drawing.Point(533, 6);
+            this.Show_Bills_dataGridView2.MinimumSize = new System.Drawing.Size(434, 458);
             this.Show_Bills_dataGridView2.MultiSelect = false;
             this.Show_Bills_dataGridView2.Name = "Show_Bills_dataGridView2";
             this.Show_Bills_dataGridView2.ReadOnly = true;
             this.Show_Bills_dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Show_Bills_dataGridView2.Size = new System.Drawing.Size(442, 460);
+            this.Show_Bills_dataGridView2.Size = new System.Drawing.Size(434, 459);
             this.Show_Bills_dataGridView2.TabIndex = 1;
             // 
             // Show_Products_dataGridView1
@@ -419,23 +431,23 @@ namespace Cafffe_Sytem.A.M.A
             this.Show_Products_dataGridView1.AllowUserToDeleteRows = false;
             this.Show_Products_dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Show_Products_dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(233)))));
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Show_Products_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Show_Products_dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Show_Products_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Show_Products_dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Show_Products_dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.Show_Products_dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.Show_Products_dataGridView1.Location = new System.Drawing.Point(5, 5);
             this.Show_Products_dataGridView1.MultiSelect = false;
@@ -461,12 +473,12 @@ namespace Cafffe_Sytem.A.M.A
             this.Add_panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.Add_panel5.ForeColor = System.Drawing.Color.Black;
             this.Add_panel5.Location = new System.Drawing.Point(5, 0);
-            this.Add_panel5.Margin = new System.Windows.Forms.Padding(15, 6, 6, 6);
-            this.Add_panel5.MaximumSize = new System.Drawing.Size(976, 171);
-            this.Add_panel5.MinimumSize = new System.Drawing.Size(976, 171);
+            this.Add_panel5.Margin = new System.Windows.Forms.Padding(15, 6, 9, 6);
+            this.Add_panel5.MaximumSize = new System.Drawing.Size(967, 171);
+            this.Add_panel5.MinimumSize = new System.Drawing.Size(967, 171);
             this.Add_panel5.Name = "Add_panel5";
-            this.Add_panel5.Padding = new System.Windows.Forms.Padding(7, 6, 7, 5);
-            this.Add_panel5.Size = new System.Drawing.Size(976, 171);
+            this.Add_panel5.Padding = new System.Windows.Forms.Padding(7, 6, 5, 5);
+            this.Add_panel5.Size = new System.Drawing.Size(967, 171);
             this.Add_panel5.TabIndex = 3;
             // 
             // groupBox3
@@ -490,7 +502,7 @@ namespace Cafffe_Sytem.A.M.A
             this.groupBox3.Location = new System.Drawing.Point(205, 6);
             this.groupBox3.MinimumSize = new System.Drawing.Size(753, 83);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(762, 83);
+            this.groupBox3.Size = new System.Drawing.Size(755, 83);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Add Item to Bill";
@@ -500,7 +512,7 @@ namespace Cafffe_Sytem.A.M.A
             this.Add_Item_ToBill_Btn.BackColor = System.Drawing.Color.Green;
             this.Add_Item_ToBill_Btn.Enabled = false;
             this.Add_Item_ToBill_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Add_Item_ToBill_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_Item_ToBill_Btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_Item_ToBill_Btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Add_Item_ToBill_Btn.Location = new System.Drawing.Point(676, 15);
             this.Add_Item_ToBill_Btn.Name = "Add_Item_ToBill_Btn";
@@ -673,7 +685,7 @@ namespace Cafffe_Sytem.A.M.A
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(205, 95);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 69);
+            this.groupBox1.Size = new System.Drawing.Size(755, 69);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add New Client";
@@ -877,7 +889,6 @@ namespace Cafffe_Sytem.A.M.A
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "Make_Bill";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
