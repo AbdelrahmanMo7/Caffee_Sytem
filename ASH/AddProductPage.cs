@@ -77,7 +77,7 @@ namespace Cafffe_Sytem.ASH
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (Coffee_SystemEntities Context = new Coffee_SystemEntities())
+            using (Coffee_SystemEntities Context = DBConnection.Context)
             {
                 if (AddBtn.Text == "Add")
                 {

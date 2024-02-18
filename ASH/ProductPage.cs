@@ -14,7 +14,7 @@ namespace Cafffe_Sytem.ASH
     public partial class ProductPage : Templete
     {
 
-        private Coffee_SystemEntities Context = new Coffee_SystemEntities();
+       
         //private Coffee_Context Context = new Coffee_Context();
         public ProductPage()
         {
@@ -25,7 +25,7 @@ namespace Cafffe_Sytem.ASH
 
         public void LoadData()
         {
-            var query = (from e in Context.Products
+            var query = (from e in DBConnection.Context.Products
                          select new
                          {
                              Id = e.P_ID,
@@ -87,11 +87,11 @@ namespace Cafffe_Sytem.ASH
                     if (result == DialogResult.Yes)
                     {
                         // Find the product by ID and remove it
-                        var productToDelete = Context.Products.Find(deletedProduct.Id);
+                        var productToDelete = DBConnection.Context.Products.Find(deletedProduct.Id);
                         if (productToDelete != null)
                         {
-                            Context.Products.Remove(productToDelete);
-                            Context.SaveChanges();
+                            DBConnection.Context.Products.Remove(productToDelete);
+                            DBConnection.Context.SaveChanges();
                             LoadData(); // Refresh DataGridView after deleting the product
                         }
                     }
@@ -115,7 +115,7 @@ namespace Cafffe_Sytem.ASH
         {
             List<string> Q2 = new List<string>();
             Q2.Add("All");
-            Q2.AddRange((from e in Context.Categories
+            Q2.AddRange((from e in DBConnection.Context.Categories
                          select e.Cat_Name).ToList());
 
 
@@ -127,7 +127,7 @@ namespace Cafffe_Sytem.ASH
         {
             List<string> Q3 = new List<string>();
             Q3.Add("All");
-            Q3.AddRange((from e in Context.Offers
+            Q3.AddRange((from e in DBConnection.Context.Offers
                          select e.Off_Name).ToList());
 
 
@@ -144,7 +144,7 @@ namespace Cafffe_Sytem.ASH
             if (!string.IsNullOrWhiteSpace(selectedCategory) && selectedCategory != "All")
             {
                 // Filter the data based on the selected category
-                var filteredData = (from product in Context.Products
+                var filteredData = (from product in DBConnection.Context.Products
                                     where product.Category.Cat_Name == selectedCategory
                                     select new
                                     {
@@ -176,7 +176,7 @@ namespace Cafffe_Sytem.ASH
             if (!string.IsNullOrWhiteSpace(selectedOffer) && selectedOffer != "All")
             {
                 // Filter the data based on the selected category
-                var filteredData = (from product in Context.Products
+                var filteredData = (from product in DBConnection.Context.Products
                                     where product.Offer.Off_Name == selectedOffer
                                     select new
                                     {
@@ -241,8 +241,8 @@ namespace Cafffe_Sytem.ASH
             // Check if a search keyword is provided
             if (!string.IsNullOrWhiteSpace(searchKeyword))
             {
-                // Filter the data based on the product name
-                var filteredData = (from product in Context.Products
+                // Filter the data based on the product name 
+                var filteredData = (from product in DBConnection.Context.Products
                                     where product.P_Name.ToLower().Contains(searchKeyword)
                                     select new
                                     {
