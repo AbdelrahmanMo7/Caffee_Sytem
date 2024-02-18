@@ -545,7 +545,6 @@ namespace Cafffe_Sytem
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(215, 0);
             this.panel1.Name = "panel1";
@@ -562,7 +561,7 @@ namespace Cafffe_Sytem
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(233)))));
             this.panel4.Location = new System.Drawing.Point(0, 247);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1156, 487);
+            this.panel4.Size = new System.Drawing.Size(1156, 611);
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -574,9 +573,10 @@ namespace Cafffe_Sytem
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(133)))), ((int)(((byte)(127)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.Page_Name);
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1156, 100);
+            this.panel2.Size = new System.Drawing.Size(1156, 250);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -607,7 +607,7 @@ namespace Cafffe_Sytem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(206)))), ((int)(((byte)(176)))));
-            this.panel3.Location = new System.Drawing.Point(0, 98);
+            this.panel3.Location = new System.Drawing.Point(0, 97);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1156, 150);
             this.panel3.TabIndex = 1;

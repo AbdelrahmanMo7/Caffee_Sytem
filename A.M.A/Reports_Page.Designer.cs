@@ -48,41 +48,41 @@ namespace Cafffe_Sytem.A.M.A
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accounting_Report_Tab = new System.Windows.Forms.TabPage();
+            this.Net_Profit_Txt = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TotalSales_Txt = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TotalExpenses_Txt = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Salaries_Txt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.PettyCash_Txt = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.Subscriptions_Txt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Maintenance_Txt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Material_Txt = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PettyCash_Txt = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Salaries_Txt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TotalExpenses_Txt = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.TotalSales_Txt = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.Net_Profit_Txt = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,12 +92,12 @@ namespace Cafffe_Sytem.A.M.A
             this.Selling_Reports_Tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Reports_conteinar_dataGridView1)).BeginInit();
             this.Accounting_Report_Tab.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel12.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,7 +108,6 @@ namespace Cafffe_Sytem.A.M.A
             // panel3
             // 
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(0, 97);
             this.panel3.Size = new System.Drawing.Size(1156, 70);
             // 
             // Page_Name
@@ -307,6 +306,184 @@ namespace Cafffe_Sytem.A.M.A
             this.Accounting_Report_Tab.TabIndex = 1;
             this.Accounting_Report_Tab.Text = "Accounting Report";
             // 
+            // Net_Profit_Txt
+            // 
+            this.Net_Profit_Txt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Net_Profit_Txt.Location = new System.Drawing.Point(801, 376);
+            this.Net_Profit_Txt.Name = "Net_Profit_Txt";
+            this.Net_Profit_Txt.ReadOnly = true;
+            this.Net_Profit_Txt.Size = new System.Drawing.Size(200, 34);
+            this.Net_Profit_Txt.TabIndex = 35;
+            this.Net_Profit_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(564, 379);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(119, 26);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "Net Profit  :";
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.Black;
+            this.panel18.Location = new System.Drawing.Point(779, 323);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(240, 2);
+            this.panel18.TabIndex = 33;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Black;
+            this.panel17.Location = new System.Drawing.Point(779, 317);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(240, 2);
+            this.panel17.TabIndex = 32;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.Black;
+            this.panel16.Location = new System.Drawing.Point(562, 323);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(140, 2);
+            this.panel16.TabIndex = 31;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Black;
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Location = new System.Drawing.Point(562, 317);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(140, 2);
+            this.panel7.TabIndex = 16;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Black;
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(140, 2);
+            this.panel8.TabIndex = 17;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Black;
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Location = new System.Drawing.Point(-2, 6);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(140, 2);
+            this.panel10.TabIndex = 19;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Black;
+            this.panel11.Location = new System.Drawing.Point(0, 12);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(140, 2);
+            this.panel11.TabIndex = 18;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Black;
+            this.panel9.Location = new System.Drawing.Point(0, 12);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(140, 2);
+            this.panel9.TabIndex = 18;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Tai Le", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(880, 191);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(34, 45);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "-";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Tai Le", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(585, 194);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 45);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "-";
+            // 
+            // TotalSales_Txt
+            // 
+            this.TotalSales_Txt.Location = new System.Drawing.Point(801, 138);
+            this.TotalSales_Txt.Name = "TotalSales_Txt";
+            this.TotalSales_Txt.ReadOnly = true;
+            this.TotalSales_Txt.Size = new System.Drawing.Size(200, 34);
+            this.TotalSales_Txt.TabIndex = 28;
+            this.TotalSales_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(564, 141);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(128, 26);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Total Sales  :";
+            // 
+            // TotalExpenses_Txt
+            // 
+            this.TotalExpenses_Txt.Location = new System.Drawing.Point(801, 252);
+            this.TotalExpenses_Txt.Name = "TotalExpenses_Txt";
+            this.TotalExpenses_Txt.ReadOnly = true;
+            this.TotalExpenses_Txt.Size = new System.Drawing.Size(200, 34);
+            this.TotalExpenses_Txt.TabIndex = 26;
+            this.TotalExpenses_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(564, 255);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(160, 26);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Total Expenses :";
+            // 
+            // Salaries_Txt
+            // 
+            this.Salaries_Txt.Location = new System.Drawing.Point(290, 133);
+            this.Salaries_Txt.Name = "Salaries_Txt";
+            this.Salaries_Txt.ReadOnly = true;
+            this.Salaries_Txt.Size = new System.Drawing.Size(200, 34);
+            this.Salaries_Txt.TabIndex = 24;
+            this.Salaries_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(53, 136);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 26);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Salaries  :";
+            // 
+            // PettyCash_Txt
+            // 
+            this.PettyCash_Txt.Location = new System.Drawing.Point(290, 381);
+            this.PettyCash_Txt.Name = "PettyCash_Txt";
+            this.PettyCash_Txt.Size = new System.Drawing.Size(200, 34);
+            this.PettyCash_Txt.TabIndex = 22;
+            this.PettyCash_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(47, 384);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 26);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Petty cash  :";
+            // 
             // Subscriptions_Txt
             // 
             this.Subscriptions_Txt.Location = new System.Drawing.Point(290, 317);
@@ -358,6 +535,40 @@ namespace Cafffe_Sytem.A.M.A
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(2, 350);
             this.panel6.TabIndex = 15;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel13.Controls.Add(this.panel14);
+            this.panel13.Location = new System.Drawing.Point(22, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(2, 350);
+            this.panel13.TabIndex = 17;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(2, 350);
+            this.panel14.TabIndex = 16;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel12.Controls.Add(this.panel15);
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(2, 350);
+            this.panel12.TabIndex = 16;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(2, 350);
+            this.panel15.TabIndex = 17;
             // 
             // label6
             // 
@@ -412,218 +623,6 @@ namespace Cafffe_Sytem.A.M.A
             this.label1.TabIndex = 0;
             this.label1.Text = "Report Name";
             // 
-            // PettyCash_Txt
-            // 
-            this.PettyCash_Txt.Location = new System.Drawing.Point(290, 381);
-            this.PettyCash_Txt.Name = "PettyCash_Txt";
-            this.PettyCash_Txt.Size = new System.Drawing.Size(200, 34);
-            this.PettyCash_Txt.TabIndex = 22;
-            this.PettyCash_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(47, 384);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 26);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Petty cash  :";
-            // 
-            // Salaries_Txt
-            // 
-            this.Salaries_Txt.Location = new System.Drawing.Point(290, 133);
-            this.Salaries_Txt.Name = "Salaries_Txt";
-            this.Salaries_Txt.ReadOnly = true;
-            this.Salaries_Txt.Size = new System.Drawing.Size(200, 34);
-            this.Salaries_Txt.TabIndex = 24;
-            this.Salaries_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(53, 136);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 26);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Salaries  :";
-            // 
-            // TotalExpenses_Txt
-            // 
-            this.TotalExpenses_Txt.Location = new System.Drawing.Point(801, 252);
-            this.TotalExpenses_Txt.Name = "TotalExpenses_Txt";
-            this.TotalExpenses_Txt.ReadOnly = true;
-            this.TotalExpenses_Txt.Size = new System.Drawing.Size(200, 34);
-            this.TotalExpenses_Txt.TabIndex = 26;
-            this.TotalExpenses_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(564, 255);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(160, 26);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Total Expenses :";
-            // 
-            // TotalSales_Txt
-            // 
-            this.TotalSales_Txt.Location = new System.Drawing.Point(801, 138);
-            this.TotalSales_Txt.Name = "TotalSales_Txt";
-            this.TotalSales_Txt.ReadOnly = true;
-            this.TotalSales_Txt.Size = new System.Drawing.Size(200, 34);
-            this.TotalSales_Txt.TabIndex = 28;
-            this.TotalSales_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(564, 141);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 26);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Total Sales  :";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Tai Le", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(585, 194);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(34, 45);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "-";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Tai Le", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(880, 191);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(34, 45);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "-";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.Black;
-            this.panel7.Controls.Add(this.panel8);
-            this.panel7.Location = new System.Drawing.Point(562, 317);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(140, 2);
-            this.panel7.TabIndex = 16;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Black;
-            this.panel8.Controls.Add(this.panel10);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(140, 2);
-            this.panel8.TabIndex = 17;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Black;
-            this.panel9.Location = new System.Drawing.Point(0, 12);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(140, 2);
-            this.panel9.TabIndex = 18;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.Black;
-            this.panel10.Controls.Add(this.panel11);
-            this.panel10.Location = new System.Drawing.Point(-2, 6);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(140, 2);
-            this.panel10.TabIndex = 19;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.Black;
-            this.panel11.Location = new System.Drawing.Point(0, 12);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(140, 2);
-            this.panel11.TabIndex = 18;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel12.Controls.Add(this.panel15);
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(2, 350);
-            this.panel12.TabIndex = 16;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel13.Controls.Add(this.panel14);
-            this.panel13.Location = new System.Drawing.Point(22, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(2, 350);
-            this.panel13.TabIndex = 17;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(2, 350);
-            this.panel14.TabIndex = 16;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(2, 350);
-            this.panel15.TabIndex = 17;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.Black;
-            this.panel16.Location = new System.Drawing.Point(562, 323);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(140, 2);
-            this.panel16.TabIndex = 31;
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.Black;
-            this.panel17.Location = new System.Drawing.Point(779, 317);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(240, 2);
-            this.panel17.TabIndex = 32;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.Black;
-            this.panel18.Location = new System.Drawing.Point(779, 323);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(240, 2);
-            this.panel18.TabIndex = 33;
-            // 
-            // Net_Profit_Txt
-            // 
-            this.Net_Profit_Txt.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Net_Profit_Txt.Location = new System.Drawing.Point(801, 376);
-            this.Net_Profit_Txt.Name = "Net_Profit_Txt";
-            this.Net_Profit_Txt.ReadOnly = true;
-            this.Net_Profit_Txt.Size = new System.Drawing.Size(200, 34);
-            this.Net_Profit_Txt.TabIndex = 35;
-            this.Net_Profit_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(564, 379);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(119, 26);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "Net Profit  :";
-            // 
             // Reports_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,12 +645,12 @@ namespace Cafffe_Sytem.A.M.A
             ((System.ComponentModel.ISupportInitialize)(this.Reports_conteinar_dataGridView1)).EndInit();
             this.Accounting_Report_Tab.ResumeLayout(false);
             this.Accounting_Report_Tab.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
