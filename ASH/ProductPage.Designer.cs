@@ -1,6 +1,6 @@
 ﻿namespace Cafffe_Sytem.ASH
 {
-    partial class ProductsPage
+    partial class ProductPage
     {
         /// <summary>
         /// Required designer variable.
@@ -77,7 +77,6 @@
             // UpdateBtn
             // 
             this.UpdateBtn.BackColor = System.Drawing.Color.Green;
-            this.UpdateBtn.Enabled = false;
             this.UpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -87,11 +86,11 @@
             this.UpdateBtn.TabIndex = 25;
             this.UpdateBtn.Text = "Update Product";
             this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // DeleteBtn
             // 
             this.DeleteBtn.BackColor = System.Drawing.Color.Green;
-            this.DeleteBtn.Enabled = false;
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -101,11 +100,11 @@
             this.DeleteBtn.TabIndex = 26;
             this.DeleteBtn.Text = "Delete Product";
             this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // AddBtn
             // 
             this.AddBtn.BackColor = System.Drawing.Color.Green;
-            this.AddBtn.Enabled = false;
             this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -115,6 +114,7 @@
             this.AddBtn.TabIndex = 27;
             this.AddBtn.Text = "Add Product";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click_1);
             // 
             // FilterComBox
             // 
@@ -123,6 +123,7 @@
             this.FilterComBox.Name = "FilterComBox";
             this.FilterComBox.Size = new System.Drawing.Size(130, 21);
             this.FilterComBox.TabIndex = 29;
+            this.FilterComBox.SelectedIndexChanged += new System.EventHandler(this.FilterComBox_SelectedIndexChanged_1);
             // 
             // comboBox1
             // 
@@ -131,6 +132,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(130, 21);
             this.comboBox1.TabIndex = 31;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -163,7 +165,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(86, 21);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1000, 500);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -177,7 +178,6 @@
             // SearchBtn
             // 
             this.SearchBtn.BackColor = System.Drawing.Color.Green;
-            this.SearchBtn.Enabled = false;
             this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -187,14 +187,15 @@
             this.SearchBtn.TabIndex = 35;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = false;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click_1);
             // 
-            // ProductsPage
+            // ProductPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1394, 881);
             this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "ProductsPage";
+            this.Name = "ProductPage";
             this.Text = "Products";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

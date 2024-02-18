@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.Entity;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Cafffe_Sytem.D.M.M
+{
+    
+    
+    public partial class MangeClients : Form
+    {
+        public event EventHandler eva;
+
+        Coffee_SystemEntities dbContext = new Coffee_SystemEntities();
+
+        public MangeClients()
+        {
+            InitializeComponent();
+        }
+
+       
+
+        // Define the InitializeForUpdate method
+        public void InitializeForUpdate(int clintID, string clintName, string clintAddress, string clintPhone)
+        {
+            // Update the form controls with the provided client information
+            
+
+            ID_txt.Text = clintID.ToString();
+            name_txt.Text = clintName;
+            phone_txt.Text = clintPhone;
+            address_txt.Text = clintAddress;
+        }
+
+        private void update_btn_Click(object sender, EventArgs e)
+        {
+
+            int clintID = int.Parse(ID_txt.Text);
+            string clintName = name_txt.Text;
+            string clintAddress = address_txt.Text;
+            decimal clintPhone = decimal.Parse(phone_txt.Text);
+
+            // Retrieve the Clint entity from the database
+            Client q3 = dbContext.Clients.FirstOrDefault(c => c.C_ID == clintID);
+
+            // Update the properties of the retrieved Clint entity
+            if (q3 != null)
+            {
+                q3.C_Name = clintName;
+                q3.C_Phone_Number =long.Parse( clintPhone.ToString());
+                q3.C_Address = clintAddress;
+
+                // Save changes to the database
+                dbContext.Entry(q3).State = EntityState.Detached;
+            }
+            dbContext.Clients.Attach(q3);
+            dbContext.Entry(q3).State = EntityState.Modified;
+            dbContext.SaveChanges();
+            MessageBox.Show("update Successfull");
+
+            eva?.Invoke(this,e);
+        }
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+         
+
+            Client clint = new Client()
+            {
+                C_Name = name_txt.Text,
+                C_Address = address_txt.Text,
+                C_Phone_Number = long.Parse(phone_txt.Text)
+            };
+            dbContext.Clients.Add(clint);
+            dbContext.SaveChanges();
+            MessageBox.Show("add Successfull");
+            eva?.Invoke(this, e);
+        }
+
+        
+    }
+}

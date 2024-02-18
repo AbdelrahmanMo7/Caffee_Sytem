@@ -276,11 +276,11 @@
     <Compile Include="ASH\AddProductPage.Designer.cs">
       <DependentUpon>AddProductPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ASH\ProductsPage.cs">
+    <Compile Include="ASH\ProductPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ASH\ProductsPage.Designer.cs">
-      <DependentUpon>ProductsPage.cs</DependentUpon>
+    <Compile Include="ASH\ProductPage.Designer.cs">
+      <DependentUpon>ProductPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Coffee_SystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -310,8 +310,11 @@
     <EmbeddedResource Include="A.M.A\Reports_Page.resx">
       <DependentUpon>Reports_Page.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ASH\ProductsPage.resx">
-      <DependentUpon>ProductsPage.cs</DependentUpon>
+    <EmbeddedResource Include="ASH\AddProductPage.resx">
+      <DependentUpon>AddProductPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ASH\ProductPage.resx">
+      <DependentUpon>ProductPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
