@@ -287,6 +287,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="D.M.M\CahierForm.cs" />
+    <Compile Include="D.M.M\CahierForm.Designer.cs">
+      <DependentUpon>CahierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D.M.M\CashierDetailsBills.cs" />
+    <Compile Include="D.M.M\CashierDetailsBills.Designer.cs">
+      <DependentUpon>CashierDetailsBills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D.M.M\Clients.cs" />
+    <Compile Include="D.M.M\Clients.designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D.M.M\Login.cs" />
+    <Compile Include="D.M.M\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D.M.M\MangeClients.cs" />
+    <Compile Include="D.M.M\MangeClients.designer.cs">
+      <DependentUpon>MangeClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D.M.M\MangeOffer.cs" />
+    <Compile Include="D.M.M\MangeOffer.Designer.cs">
+      <DependentUpon>MangeOffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D.M.M\Offers.cs" />
+    <Compile Include="D.M.M\Offers.Designer.cs">
+      <DependentUpon>Offers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +343,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ASH\ProductPage.resx">
       <DependentUpon>ProductPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\CahierForm.resx">
+      <DependentUpon>CahierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\CashierDetailsBills.resx">
+      <DependentUpon>CashierDetailsBills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\MangeClients.resx">
+      <DependentUpon>MangeClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\MangeOffer.resx">
+      <DependentUpon>MangeOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\Offers.resx">
+      <DependentUpon>Offers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -365,7 +414,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="dina\" />
     <Folder Include="Marina\" />
     <Folder Include="stiven\" />
   </ItemGroup>
