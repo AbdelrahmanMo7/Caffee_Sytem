@@ -14,90 +14,85 @@ namespace Cafffe_Sytem.A.M.A
   
     public partial class Make_Bill : Form
     {
-        class bill_list 
-        {
-            public Product Item { get; set; }
-            public  int Count { get; set; }
-            public double Total { get; set; }
-            public bill_list(Product Item , int count, double total)
-            {
-                this.Item = Item;
-                this.Count = count;
-                this.Total = total;
-            }
-            public override bool Equals(object obj)
-            {
-                if (obj is Product)
-                {
-                    Product p = obj as Product;
-                    return this.Item.P_ID == p.P_ID && this.Item.P_Name == p.P_Name;
-                }
-                return false;
-            }
-           
-        }
-        User sys_user;
-        Coffee_SystemEntities context ;
+        User Current_system_user;// Will be static to be shared to all forms
+       // Coffee_SystemEntities context ; //---> Singleton  conext in all classes
         Product selected_Item;
-        double selected_Item_total, selected_Item_price;
+        bill_list_item Bill_selected_Item;
+        double selected_Item_total, selected_Item_price, Bill_Total_Amount;
         Client selected_Client;
-        List<bill_list> bill_Item_list;
+        List<bill_list_item> bill_Item_list;
         
 
-
+        // constractor
         public Make_Bill(  )
         {
            // this.sys_user = user;
             InitializeComponent();
             Bill_timer1.Start();
-
-            bill_Item_list = new List<bill_list>();
-            context = new Coffee_SystemEntities();
-            All_Cat_comboBox1.DataSource = context.Categories.Select(c => c.Cat_Name).ToList();
-           var p1 = context.Products.Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
+            selected_Client=null;
+            Bill_selected_Item = null;
+            bill_Item_list = new List<bill_list_item>();
+            
+            All_Cat_comboBox1.Items.Add("All");
+            All_Cat_comboBox1.Items.AddRange(DBConnection.Context.Categories.Select(c => c.Cat_Name).ToArray());
+           var p1 = DBConnection.Context.Products.Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
             Show_Products_dataGridView1.DataSource = p1;
+            var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
+            Show_Bills_Items_dataGridView1.DataSource = show_list;
+            PrintBill_Btn.Enabled = true;
 
         }
 
+        //----------------------------
+        // ** fillter & search in product
+        #region fillter & search in product
 
-        private void Search_Btn_Click(object sender, EventArgs e)
+        // fillter Product by category
+        private void All_Cat_comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            string selected_Item = Item_search_Txt.Text.ToString();
-            Show_Products_dataGridView1.DataSource = context.Products.Where(p=> p.P_Name==selected_Item).Select(p =>new { Name = p.P_Name, Category = p.Category.Cat_Name , Price= p.P_Price, Offer= p.Offer.Off_Name  }).ToList();
-        }
 
-        private void All_Cat_comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
             string selected_Cat = All_Cat_comboBox1.SelectedItem.ToString();
-            Show_Products_dataGridView1.DataSource = null;
-            Show_Products_dataGridView1.DataSource = context.Products.Where(p => p.Category.Cat_Name == selected_Cat).Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
-        }
-        private void ItemAmoun_numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            selected_Item_price = selected_Item.P_Price;
-            if (ApplyOffer_checkBox1.Enabled == true&&ApplyOffer_checkBox1.Checked == true)
+            if (selected_Cat == "All")
             {
-                selected_Item_price -= selected_Item_price * selected_Item.Offer.Off_Limit / 100;
+                Show_Products_dataGridView1.DataSource = DBConnection.Context.Products.Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
             }
-            selected_Item_total = (selected_Item_price) * ((int)ItemAmoun_numericUpDown1.Value);
-            Veiw_Item_TotalPrice_Txt.Text = (selected_Item_total).ToString();
-           
+            else
+            {
+                Show_Products_dataGridView1.DataSource = DBConnection.Context.Products.Where(p => p.Category.Cat_Name == selected_Cat).Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
+            }
+
         }
+
+        // search in product name
+        private void Item_search_Txt_TextChanged_1(object sender, EventArgs e)
+        {
+            string selected_product = Item_search_Txt.Text.ToString();
+            if (selected_product != null || selected_product == " ")
+            {
+                Show_Products_dataGridView1.DataSource = DBConnection.Context.Products.Where(p => p.P_Name.Contains(selected_product)).Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
+            }
+            else
+            {
+                Show_Products_dataGridView1.DataSource = DBConnection.Context.Products.Select(p => new { Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
+            }
+
+        }
+
+        #endregion
+        //------------------------------------------------
+
 
 
         private void Show_Products_dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
-                
-                selected_Item = context.Products.Select(p => p).ToList()[e.RowIndex];
+                Add_Item_ToBill_Btn.Text = "Add Item";
+                selected_Item = DBConnection.Context.Products.Select(p => p).ToList()[e.RowIndex];
                 Veiw_Item_Txt.Text = selected_Item.P_Name;
                 Veiw_ItemPrice_Txt.Text = selected_Item.P_Price.ToString();
-                selected_Item_price = selected_Item.P_Price;
-                if (ApplyOffer_checkBox1.Enabled == true && ApplyOffer_checkBox1.Checked == true)
-                {
-                    selected_Item_price -= selected_Item_price * selected_Item.Offer.Off_Limit / 100;
-                }
+                
                 if (selected_Item.P_Cat_Id != null)
                 {
                     Veiw_ItemCategory_Txt.Text = selected_Item.Category.Cat_Name;
@@ -109,8 +104,7 @@ namespace Cafffe_Sytem.A.M.A
                     ApplyOffer_checkBox1.Visible = true;
                     ApplyOffer_checkBox1.Checked = false;
                 }
-                selected_Item_total = (selected_Item_price) * ((int)ItemAmoun_numericUpDown1.Value);
-                Veiw_Item_TotalPrice_Txt.Text = (selected_Item_total).ToString();
+                calc_item_total();
             }
            
         }
@@ -119,66 +113,18 @@ namespace Cafffe_Sytem.A.M.A
       
         private void Show_Products_dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            Veiw_Item_Txt.Text = null;
-            Veiw_ItemPrice_Txt.Text = "";
-            Veiw_ItemCategory_Txt.Text = "";
-            Veiw_ItemOffer_Txt.Text = "";
-            Veiw_Item_TotalPrice_Txt.Text = "";
-            ApplyOffer_checkBox1.Enabled = false;
-            ApplyOffer_checkBox1.Visible = false;
-
+            refresh();
         }
 
+      
 
 
-        private void Add_Item_ToBill_Btn_Click(object sender, EventArgs e)
-        {
-            bill_list Item = bill_Item_list.Find(i=> i.Equals( selected_Item)) ;
-              //var Item = bill_Item_list.Where(i=> i.Item.P_ID==selected_Item.P_ID).FirstOrDefault() ;
-            if (Item == null||bill_Item_list.Count==0)
-            {
-                bill_Item_list.Add(new bill_list(selected_Item, ((int)ItemAmoun_numericUpDown1.Value),selected_Item_total ));
-                var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
-                Show_Bills_Items_dataGridView1.DataSource = show_list;
-                Veiw_Item_Txt.Text = null;
-                Veiw_ItemPrice_Txt.Text = "";
-                Veiw_ItemCategory_Txt.Text = "";
-                Veiw_ItemOffer_Txt.Text = "";
-                Veiw_Item_TotalPrice_Txt.Text = "";
-                ApplyOffer_checkBox1.Checked = false;
-              //  Add_Item_ToBill_Btn.Enabled = false;
 
-            }
-            else
-            {
-                MessageBox.Show($" Item {selected_Item.P_Name} is already existed in the Bill ");
-            }
-           
+        //------------------------
+        // **client addtion oprations
+        #region client addtion oprations
 
-            
-        }
-
-       
-
-        private void Bill_timer1_Tick(object sender, EventArgs e)
-        {
-           // Bill_Time_label.Text = DateTime.Now.ToString("HH:mm:ss tt");
-            Bill_Date_label13.Text = DateTime.Now.ToString();
-        }
-
-        private void Veiw_Item_Txt_TextChanged(object sender, EventArgs e)
-        {
-           
-            if (Veiw_Item_Txt.Text != null &&Veiw_Item_Txt.Text != "")
-            {
-                Add_Item_ToBill_Btn.Enabled = true;
-            }
-            else
-            {
-                Add_Item_ToBill_Btn.Enabled = false;
-            }
-        }
-
+        // check cient phone
         private void ClientPhone_Txt_TextChanged(object sender, EventArgs e)
         {
             if (Regex.IsMatch(ClientPhone_Txt.Text, "[^0-9]"))
@@ -188,9 +134,10 @@ namespace Cafffe_Sytem.A.M.A
             }
         }
 
+        // check client Name
         private void ClientName_Txt_TextChanged(object sender, EventArgs e)
         {
-            if (ClientName_Txt.Text!= null&& ClientName_Txt.Text !="  "&& ClientName_Txt.Text !=" ")
+            if (ClientName_Txt.Text != null && ClientName_Txt.Text != "  " && ClientName_Txt.Text != " ")
             {
                 Add_Client_Btn.Enabled = true;
             }
@@ -200,13 +147,7 @@ namespace Cafffe_Sytem.A.M.A
             }
         }
 
-        private void ApplyOffer_checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            selected_Item_price -= selected_Item_price * selected_Item.Offer.Off_Limit / 100;
-            selected_Item_total = (selected_Item_price) * ((int)ItemAmoun_numericUpDown1.Value);
-            Veiw_Item_TotalPrice_Txt.Text = (selected_Item_total).ToString();
-        }
-
+        // add client  button
         private void Add_Client_Btn_Click(object sender, EventArgs e)
         {
             foreach (var i in ClientName_Txt.Text)
@@ -219,32 +160,301 @@ namespace Cafffe_Sytem.A.M.A
                     }
                     else
                     {
-                        selected_Client = new Client { C_Name = ClientName_Txt.Text, C_Address = ClientAddress_Txt.Text, C_Phone_Number = (long)int.Parse(ClientPhone_Txt.Text.ToString())   };
-                        var Item = context.Clients.Where(c => c.C_Phone_Number==selected_Client.C_Phone_Number).FirstOrDefault();
+                        selected_Client = new Client { C_Name = ClientName_Txt.Text, C_Address = ClientAddress_Txt.Text, C_Phone_Number = (long)int.Parse(ClientPhone_Txt.Text.ToString()) };
+                        var Item = DBConnection.Context.Clients.Where(c => c.C_Phone_Number == selected_Client.C_Phone_Number).FirstOrDefault();
 
                         if (Item == null)
                         {
-                            context.Clients.Add(selected_Client);
-                            context.SaveChanges();
-                            selected_Client.C_ID=  context.Clients.Where(c => c.C_Phone_Number == selected_Client.C_Phone_Number).FirstOrDefault().C_ID;
+                            DBConnection.Context.Clients.Add(selected_Client);
+                            DBConnection.Context.SaveChanges();
+                            selected_Client.C_ID = DBConnection.Context.Clients.Where(c => c.C_Phone_Number == selected_Client.C_Phone_Number).FirstOrDefault().C_ID;
                             ClientName_label15.Text = selected_Client.C_Name;
                             ClientAddress_label13.Text = selected_Client.C_Address;
                             ClientPhone_label14.Text = selected_Client.C_Phone_Number.ToString();
-                            ClientName_label15.Text = selected_Client.C_Name;
                             MessageBox.Show($"Client {selected_Client.C_Name} is Add Successfully .");
-                           
+                            if (bill_Item_list.Count > 0)
+                            {
+                                PrintBill_Btn.Enabled = true;
+                            }
+                            else
+                            {
+                                PrintBill_Btn.Enabled = false;
+                            }
+
                         }
                         else
                         {
                             selected_Client = null;
                             MessageBox.Show($"This numberis already wxisted for client {Item.C_Name}. Please, enter another Number");
                         }
-                       
+
                     }
                     break;
                 }
             }
         }
+        #endregion
+        //---------------------------------------------------------
+
+
+        //------------------------
+        // **Add item to bill oprations
+        #region  Add item to bill
+
+        // check if there are any item in  Veiw_Item TextBoxt and (enable - disable) Add_Item_ToBill button
+        private void Veiw_Item_Txt_TextChanged(object sender, EventArgs e)
+        {
+
+            if (Veiw_Item_Txt.Text != null && Veiw_Item_Txt.Text != "")
+            {
+                Add_Item_ToBill_Btn.Enabled = true;
+            }
+            else
+            {
+                Add_Item_ToBill_Btn.Enabled = false;
+            }
+        }
+
+        // check if count of the selectd product is changed 
+        private void ItemAmoun_numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            calc_item_total();  
+        }
+
+        // Apply Offer if existed on it 
+        private void ApplyOffer_checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            calc_item_total();
+        }
+
+        // Add_Item_ToBill button
+        private void Add_Item_ToBill_Btn_Click(object sender, EventArgs e)
+        {
+            if (Add_Item_ToBill_Btn.Text == "Edit Item")
+            {
+
+                bill_list_item Item = bill_Item_list.Find(i => i.Equals(Bill_selected_Item));
+                if(Item!= null)
+                {
+                    Item.Count = (int)ItemAmoun_numericUpDown1.Value;
+                    Item.Total = selected_Item_total;
+                    Add_Item_ToBill_Btn.Text = "Add Item";
+                    var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
+                    Show_Bills_Items_dataGridView1.DataSource = show_list;
+                    refresh();
+                    calc_Bill_Amount();
+                }
+                
+            }
+            else
+            {
+                bill_list_item Item = bill_Item_list.Find(i => i.Equals(selected_Item));
+                //var Item = bill_Item_list.Where(i=> i.Item.P_ID==selected_Item.P_ID).FirstOrDefault() ;
+                if (Item == null || bill_Item_list.Count == 0)
+                {
+                    bill_Item_list.Add(new bill_list_item(selected_Item, ((int)ItemAmoun_numericUpDown1.Value), selected_Item_total));
+                    var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
+                    Show_Bills_Items_dataGridView1.DataSource = show_list;
+                    refresh();
+                    calc_Bill_Amount();
+
+
+                }
+                else
+                {
+                    MessageBox.Show($" Item {selected_Item.P_Name} is already existed in the Bill ");
+                }
+            }
+            
+        }
+
+        #endregion
+        //----------------------------------------------------------
+
+        private void Bill_timer1_Tick(object sender, EventArgs e)
+        {
+            // Bill_Time_label.Text = DateTime.Now.ToString("HH:mm:ss tt");
+            Bill_Date_label13.Text = DateTime.Now.ToString();
+        }
+
+
+
+        private void Show_Bills_Items_dataGridView1_DataSourceChanged(object sender, EventArgs e)
+        {
+            calc_Bill_Amount();
+            Bill_selected_Item =null;
+            selected_Item_total = 0;
+            selected_Item_price = 0;
+        }
+
+      
+
+        private void Show_Bills_Items_dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                Bill_selected_Item = bill_Item_list[e.RowIndex];
+                Delete_Bill_Item_Btn.Enabled = true;
+                Edit_Bill_Item_Btn.Enabled = true;
+
+                //
+            }
+
+        }
+
+        private void Show_Bills_Items_dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            Bill_selected_Item = null;
+            Delete_Bill_Item_Btn.Enabled = false;
+            Edit_Bill_Item_Btn.Enabled = false;
+        }
+
+        private void PrintBill_Btn_Click(object sender, EventArgs e)
+        {
+            calc_Bill_Amount();
+          
+
+            Bill_Templete bill_Templete1 = new Bill_Templete(bill_Item_list, selected_Client, Bill_Total_Amount);
+            bill_Templete1.ShowDialog();
+        }
+
+        // edit button to edit selected bill item
+        private void Edit_Bill_Item_Btn_Click(object sender, EventArgs e)
+        {
+            if (Bill_selected_Item != null)
+            {
+                Veiw_Item_Txt.Text = Bill_selected_Item.Item.P_Name;
+                Veiw_ItemPrice_Txt.Text = Bill_selected_Item.Item.P_Price.ToString();
+                if (Bill_selected_Item.Item.P_Cat_Id != null)
+                {
+                    Veiw_ItemCategory_Txt.Text = Bill_selected_Item.Item.Category.Cat_Name;
+                }
+                if (Bill_selected_Item.Item.P_Of_Id != null)
+                {
+                    Veiw_ItemOffer_Txt.Text = Bill_selected_Item.Item.Offer.Off_Name;
+                    ApplyOffer_checkBox1.Enabled = true;
+                    ApplyOffer_checkBox1.Visible = true;
+                    if((Bill_selected_Item.Count* Bill_selected_Item.Item.P_Price)== Bill_selected_Item.Total)
+                    {
+                        ApplyOffer_checkBox1.Checked = false;
+                    }
+                    else
+                    {
+                        ApplyOffer_checkBox1.Checked = true;
+                    }
+                    
+                }
+                
+                calc_item_total();
+                ItemAmoun_numericUpDown1.Value = Bill_selected_Item.Count;
+                Add_Item_ToBill_Btn.Text = "Edit Item";
+
+            }
+            else
+            {
+                MessageBox.Show("No Item Selected to be edited !!!");
+
+            }
+        }
+        // Delete button to delete selected bill item
+        private void Delete_Bill_Item_Btn_Click(object sender, EventArgs e)
+        {
+            if (Bill_selected_Item != null)
+            {
+                string deleted_itemName = Bill_selected_Item.Item.P_Name;
+                bill_Item_list.Remove(Bill_selected_Item);
+                var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
+                Show_Bills_Items_dataGridView1.DataSource = show_list;
+                calc_Bill_Amount();
+                MessageBox.Show($"Item {deleted_itemName} Deleted Successfully .");
+            }
+            else
+            {
+                MessageBox.Show("No Item Selected to be deleted !!!");
+
+            }
+        }
+        //
+        //--------------------------------------------------------------
+        //
+
+        //
+        void refresh()
+        {
+            Veiw_Item_Txt.Text = null;
+            Veiw_ItemPrice_Txt.Text = "";
+            Veiw_ItemCategory_Txt.Text = "";
+            Veiw_ItemOffer_Txt.Text = "";
+            Veiw_Item_TotalPrice_Txt.Text = "";
+            ItemAmoun_numericUpDown1.Value = 1;
+            ApplyOffer_checkBox1.Enabled = false;
+            ApplyOffer_checkBox1.Visible = false;
+        }
+
+        //
+        void calc_item_total()
+        {
+            if (Add_Item_ToBill_Btn.Text == "Edit Item")
+            {
+                if (Bill_selected_Item != null && Add_Item_ToBill_Btn.Enabled)
+                {
+                    selected_Item_price = Bill_selected_Item.Item.P_Price;
+                    if (ApplyOffer_checkBox1.Enabled == true && ApplyOffer_checkBox1.Checked == true)
+                    {
+                        selected_Item_price -= selected_Item_price * Bill_selected_Item.Item.Offer.Off_Limit / 100;
+                    }
+                    selected_Item_total = (selected_Item_price) * ((int)ItemAmoun_numericUpDown1.Value);
+                    Veiw_Item_TotalPrice_Txt.Text = (selected_Item_total).ToString();
+                }
+            }
+            else
+            {
+                if (selected_Item != null && Add_Item_ToBill_Btn.Enabled)
+                {
+                    selected_Item_price = selected_Item.P_Price;
+                    if (ApplyOffer_checkBox1.Enabled == true && ApplyOffer_checkBox1.Checked == true)
+                    {
+                        selected_Item_price -= selected_Item_price * selected_Item.Offer.Off_Limit / 100;
+                    }
+                    selected_Item_total = (selected_Item_price) * ((int)ItemAmoun_numericUpDown1.Value);
+                    Veiw_Item_TotalPrice_Txt.Text = (selected_Item_total).ToString();
+                }
+            }
+        }
+        //      
+        void calc_Bill_Amount()
+        {
+            if (bill_Item_list.Count > 0)
+            {
+                double amount = 0;
+                foreach (bill_list_item i in bill_Item_list)
+                {
+                    amount += i.Total;
+                }
+                Bill_Total_Amount = amount;
+                Bill_TotalAmount_label15.Text = Bill_Total_Amount.ToString();
+                if (selected_Client != null)
+                {
+                    if (selected_Client.C_ID != 0)
+                    {
+                        PrintBill_Btn.Enabled = true;
+                    }
+                    else
+                    {
+                        PrintBill_Btn.Enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                Bill_Total_Amount = 00.00;
+                Bill_TotalAmount_label15.Text = Bill_Total_Amount.ToString();
+                PrintBill_Btn.Enabled = false;
+            }
+           
+        }
+
     }
 }
 

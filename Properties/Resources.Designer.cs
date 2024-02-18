@@ -63,6 +63,16 @@ namespace Cafffe_Sytem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2123 {
+            get {
+                object obj = ResourceManager.GetObject("2123", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Iconka_Home_Sweet_Home_Home_Russian_128 {
             get {
                 object obj = ResourceManager.GetObject("Iconka-Home-Sweet-Home-Home-Russian.128", resourceCulture);
@@ -153,6 +163,26 @@ namespace Cafffe_Sytem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_facebook_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-facebook-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_facebook_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-facebook-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_home {
             get {
                 object obj = ResourceManager.GetObject("icons8-home", resourceCulture);
@@ -223,6 +253,26 @@ namespace Cafffe_Sytem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_instagram_old_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-instagram-old-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_instagram_old_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-instagram-old-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_menu_29 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-29", resourceCulture);
@@ -266,6 +316,16 @@ namespace Cafffe_Sytem.Properties {
         internal static System.Drawing.Bitmap icons8_offer_26 {
             get {
                 object obj = ResourceManager.GetObject("icons8-offer-26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_print_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-print-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

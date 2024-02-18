@@ -211,6 +211,13 @@
     <Compile Include="A.M.A\Bill_has_Products.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="A.M.A\bill_list_item.cs" />
+    <Compile Include="A.M.A\Bill_Templete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="A.M.A\Bill_Templete.Designer.cs">
+      <DependentUpon>Bill_Templete.cs</DependentUpon>
+    </Compile>
     <Compile Include="A.M.A\Category.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
@@ -232,6 +239,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
     </Compile>
+    <Compile Include="A.M.A\DBConnection.cs" />
     <Compile Include="A.M.A\Employee.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
@@ -293,6 +301,9 @@
     <Compile Include="Templete.Designer.cs">
       <DependentUpon>Templete.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="A.M.A\Bill_Templete.resx">
+      <DependentUpon>Bill_Templete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="A.M.A\Make_Bill.resx">
       <DependentUpon>Make_Bill.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,7 +365,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="A.M.A\NewFolder1\" />
     <Folder Include="dina\" />
     <Folder Include="Marina\" />
     <Folder Include="stiven\" />
@@ -463,6 +473,12 @@
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
       <LastGenOutput>Coffee_Context.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-facebook-20.png" />
+    <None Include="Resources\icons8-instagram-old-20.png" />
+    <None Include="Resources\icons8-instagram-old-50.png" />
+    <None Include="Resources\icons8-facebook-50.png" />
+    <None Include="Resources\2123.PNG" />
+    <None Include="Resources\icons8-print-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
