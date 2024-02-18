@@ -47,7 +47,7 @@ namespace Cafffe_Sytem.D.M.M
             decimal clintPhone = decimal.Parse(phone_txt.Text);
 
             // Retrieve the Clint entity from the database
-            Client q3 = dbContext.Clients.FirstOrDefault(c => c.C_ID == clintID);
+            Client q3 = DBConnection.Context.Clients.FirstOrDefault(c => c.C_ID == clintID);
 
             // Update the properties of the retrieved Clint entity
             if (q3 != null)

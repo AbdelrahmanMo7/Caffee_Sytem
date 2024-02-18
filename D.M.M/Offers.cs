@@ -12,7 +12,6 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class Offers:Templete
     {
-        private readonly Coffee_SystemEntities dbContext;
 
         public Offers()
         {

@@ -12,7 +12,6 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class Clients :Templete
     {
-        Coffee_SystemEntities dbContext = new Coffee_SystemEntities();
 
         public Clients()
         {

@@ -7,7 +7,6 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class CahierForm : Templete
     {
-        private readonly Coffee_SystemEntities dbContext;
 
         public CahierForm()
         {
