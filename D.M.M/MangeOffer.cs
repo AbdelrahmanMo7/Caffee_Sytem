@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cafffe_Sytem.A.M.A;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace Cafffe_Sytem.D.M.M
     public partial class MangeOffer : Form
     {
         public event EventHandler eva;
-        Coffee_SystemEntities dbContext = new Coffee_SystemEntities();
+      
         public MangeOffer()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace Cafffe_Sytem.D.M.M
             TimeSpan offerOff_End = TimeSpan.Parse(offend_txt.Text);
 
             // Retrieve the Clint entity from the database
-            Offer q3 = dbContext.Offers.FirstOrDefault(c => c.Off_ID == offerID);
+            Offer q3 = DBConnection.Context.Offers.FirstOrDefault(c => c.Off_ID == offerID);
 
             // Update the properties of the retrieved Clint entity
             if (q3 != null)
@@ -45,14 +46,14 @@ namespace Cafffe_Sytem.D.M.M
                 q3.Off_Name = offerOff_Name;
                 q3.Off_Limit = int.Parse( offerOff_Limit);
                 q3.Off_Start = offerOff_Start;
-                q3.Off_End = offerOff_End;
+               // q3.Off_End = offerOff_End;
 
                 // Save changes to the database
-                dbContext.Entry(q3).State = EntityState.Detached;
+                DBConnection.Context.Entry(q3).State = EntityState.Detached;
             }
-            dbContext.Offers.Attach(q3);
-            dbContext.Entry(q3).State = EntityState.Modified;
-            dbContext.SaveChanges();
+            DBConnection.Context.Offers.Attach(q3);
+            DBConnection.Context.Entry(q3).State = EntityState.Modified;
+            DBConnection.Context.SaveChanges();
             MessageBox.Show("update Successfull");
 
             eva?.Invoke(this, e);
@@ -67,10 +68,10 @@ namespace Cafffe_Sytem.D.M.M
                 Off_Name = offname_txt.Text,
                 Off_Limit = int.Parse(offlimit_txt.Text),
                 Off_Start =DateTime.Parse( offstart_txt.Text),
-                Off_End =TimeSpan.Parse( offend_txt.Text),
+               // Off_End =TimeSpan.Parse( offend_txt.Text),
             };
-            dbContext.Offers.Add(offer);
-            dbContext.SaveChanges();
+            DBConnection.Context.Offers.Add(offer);
+            DBConnection.Context.SaveChanges();
             MessageBox.Show("add Successfull");
             eva?.Invoke(this, e);
         }

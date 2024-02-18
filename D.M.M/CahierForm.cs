@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cafffe_Sytem.A.M.A;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,11 +8,12 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class CahierForm : Templete
     {
+      
 
         public CahierForm()
         {
             InitializeComponent();
-            dbContext = new Coffee_SystemEntities();
+           
             InitializeForm();
             PopulateComboBox();
         }
@@ -23,7 +25,7 @@ namespace Cafffe_Sytem.D.M.M
 
         private void LoadUserBillsTotal()
         {
-            var userBillsTotal = dbContext.Users
+            var userBillsTotal = DBConnection.Context.Users
      .Where(user => user.U_UserName.Contains("cashier"))
      .Select(user => new
      {
@@ -98,7 +100,7 @@ namespace Cafffe_Sytem.D.M.M
                 // Check if the value is not null and can be parsed to an integer
                 if (userIdCellValue != null && int.TryParse(userIdCellValue.ToString(), out int selectedUserId))
                 {
-                    using (var dbContext = new Coffee_SystemEntities())
+                    using (var dbContext = DBConnection.Context)
                     {
                         try
                         {
@@ -142,7 +144,7 @@ namespace Cafffe_Sytem.D.M.M
 
         private void init()
         {
-            var x = dbContext.Users.Select(c => new { c.U_ID, c.U_Name, c.U_UserName, c.U_IsAdmin_ }).ToList();
+            var x = DBConnection.Context.Users.Select(c => new { c.U_ID, c.U_Name, c.U_UserName, c.U_IsAdmin_ }).ToList();
             dataGridView1.DataSource = x;
         }
 
@@ -154,7 +156,7 @@ namespace Cafffe_Sytem.D.M.M
             comboBox1.Items.Add("All Users");
 
             // Get unique usernames from the Clients table
-            var uniqueUsernames = dbContext.Users.Select(c => c.U_UserName).Distinct().ToList();
+            var uniqueUsernames = DBConnection.Context.Users.Select(c => c.U_UserName).Distinct().ToList();
 
             // Add unique usernames to the ComboBox
             comboBox1.Items.AddRange(uniqueUsernames.ToArray());
@@ -165,7 +167,7 @@ namespace Cafffe_Sytem.D.M.M
             string selectedUsername = comboBox1.SelectedItem.ToString();
 
             // Filter clients based on the selected username
-            var filteredClients = dbContext.Users.AsQueryable(); // Start with all clients
+            var filteredClients = DBConnection.Context.Users.AsQueryable(); // Start with all clients
 
             if (selectedUsername != "All Users")
             {
@@ -187,7 +189,7 @@ namespace Cafffe_Sytem.D.M.M
                 if (!string.IsNullOrEmpty(enteredText))
                 {
                     // Filter clients whose names contain the entered text
-                    var filteredClients = dbContext.Users
+                    var filteredClients = DBConnection.Context.Users
                         .Where(c => c.U_UserName.ToLower().Contains(enteredText))
                         .Select(c => new { c.U_ID, c.U_Name, c.U_UserName, c.U_IsAdmin_ })
                         .ToList();

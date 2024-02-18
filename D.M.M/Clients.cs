@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cafffe_Sytem.A.M.A;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class Clients :Templete
     {
+       
 
         public Clients()
         {
@@ -29,7 +31,7 @@ namespace Cafffe_Sytem.D.M.M
             comboBox1.Items.Add("All Users");
 
             // Get unique usernames from the Clients table
-            var uniqueUsernames = dbContext.Clients.Select(c => c.C_Name).Distinct().ToList();
+            var uniqueUsernames = DBConnection.Context.Clients.Select(c => c.C_Name).Distinct().ToList();
 
             // Add unique usernames to the ComboBox
             comboBox1.Items.AddRange(uniqueUsernames.ToArray());
@@ -40,7 +42,7 @@ namespace Cafffe_Sytem.D.M.M
             string selectedUsername = comboBox1.SelectedItem.ToString();
 
             // Filter clients based on the selected username
-            var filteredClients = dbContext.Clients.AsQueryable(); // Start with all clients
+            var filteredClients = DBConnection.Context.Clients.AsQueryable(); // Start with all clients
 
             if (selectedUsername != "All Users")
             {
@@ -62,7 +64,7 @@ namespace Cafffe_Sytem.D.M.M
                 if (!string.IsNullOrEmpty(enteredText))
                 {
                     // Filter clients whose names contain the entered text
-                    var filteredClients = dbContext.Clients
+                    var filteredClients = DBConnection.Context.Clients
                         .Where(c => c.C_Name.ToLower().Contains(enteredText))
                         .Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number })
                         .ToList();
@@ -84,7 +86,7 @@ namespace Cafffe_Sytem.D.M.M
 
         private void init()
         {
-            var x = dbContext.Clients.Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number }).ToList();
+            var x = DBConnection.Context.Clients.Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number }).ToList();
             dataGridView1.DataSource = x;
         }
 
@@ -103,15 +105,15 @@ namespace Cafffe_Sytem.D.M.M
                     int selectedClintID = (int)dataGridView1.SelectedRows[0].Cells["C_ID"].Value;
 
                     // Retrieve the corresponding Clint entity from the database
-                    var selectedClint = dbContext.Clients.FirstOrDefault(c => c.C_ID == selectedClintID);
+                    var selectedClint = DBConnection.Context.Clients.FirstOrDefault(c => c.C_ID == selectedClintID);
 
                     if (selectedClint != null)
                     {
                         // Remove the selected Clint entity from the dbContext.Clints collection
-                        dbContext.Clients.Remove(selectedClint);
+                        DBConnection.Context.Clients.Remove(selectedClint);
 
                         // Save changes to the database
-                        dbContext.SaveChanges();
+                        DBConnection.Context.SaveChanges();
 
                         // Refresh the DataGridView to reflect the changes
                         init();
@@ -265,7 +267,7 @@ namespace Cafffe_Sytem.D.M.M
                     long selectedPhoneNumber;
                     if (long.TryParse(selectedPhoneNumberStr, out selectedPhoneNumber))
                     {
-                        var filteredClients = dbContext.Clients.AsQueryable(); // Start with all clients
+                        var filteredClients = DBConnection.Context.Clients.AsQueryable(); // Start with all clients
 
                         // If a specific phone number is selected, filter by phone number
                         filteredClients = filteredClients.Where(c => c.C_Phone_Number == selectedPhoneNumber);
@@ -302,7 +304,7 @@ namespace Cafffe_Sytem.D.M.M
                     // Convert the entered text from string to long
                    
                         // Filter clients whose phone numbers contain the entered text
-                        var filteredClients = dbContext.Clients
+                        var filteredClients = DBConnection.Context.Clients
                             .Where(c => c.C_Phone_Number.ToString().Contains( enteredText))
                             .Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number })
                             .ToList();
@@ -332,7 +334,7 @@ namespace Cafffe_Sytem.D.M.M
             phone_comboBox.Items.Add("All Users");
 
             // Get unique phone numbers from the Clients table
-            var uniquePhoneNumbers = dbContext.Clients.Select(c => c.C_Phone_Number).Distinct().ToList();
+            var uniquePhoneNumbers = DBConnection.Context.Clients.Select(c => c.C_Phone_Number).Distinct().ToList();
 
             // Add unique phone numbers to the ComboBox
             phone_comboBox.Items.AddRange(uniquePhoneNumbers.Select(p => p.ToString()).ToArray());

@@ -44,11 +44,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(206)))), ((int)(((byte)(176)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 84);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(455, 460);
+            this.dataGridView1.Size = new System.Drawing.Size(338, 374);
             this.dataGridView1.TabIndex = 0;
             // 
             // Back_btn
@@ -56,9 +57,10 @@
             this.Back_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(133)))), ((int)(((byte)(127)))));
             this.Back_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Back_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.Back_btn.Location = new System.Drawing.Point(12, 570);
+            this.Back_btn.Location = new System.Drawing.Point(9, 463);
+            this.Back_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Back_btn.Name = "Back_btn";
-            this.Back_btn.Size = new System.Drawing.Size(118, 50);
+            this.Back_btn.Size = new System.Drawing.Size(88, 41);
             this.Back_btn.TabIndex = 1;
             this.Back_btn.TabStop = false;
             this.Back_btn.Text = "Back";
@@ -70,32 +72,35 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(133)))), ((int)(((byte)(127)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-2, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(806, 103);
+            this.panel1.Size = new System.Drawing.Size(604, 84);
             this.panel1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 57);
+            this.label1.Location = new System.Drawing.Point(10, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 29);
+            this.label1.Size = new System.Drawing.Size(238, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cashier With Bills details";
             // 
             // CashierDetailsBills
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(453, 635);
+            this.ClientSize = new System.Drawing.Size(340, 516);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Back_btn);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(453, 635);
-            this.MinimumSize = new System.Drawing.Size(453, 635);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(340, 516);
+            this.MinimumSize = new System.Drawing.Size(340, 516);
             this.Name = "CashierDetailsBills";
             this.Text = "CashierDetailsBills";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

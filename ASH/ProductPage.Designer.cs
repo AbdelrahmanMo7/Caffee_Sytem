@@ -48,12 +48,12 @@
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(1179, 881);
+            this.panel1.Size = new System.Drawing.Size(1155, 749);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Size = new System.Drawing.Size(2253, 2090);
+            this.panel2.Size = new System.Drawing.Size(2277, 2090);
             // 
             // panel3
             // 
@@ -66,13 +66,13 @@
             this.panel3.Controls.Add(this.AddBtn);
             this.panel3.Controls.Add(this.DeleteBtn);
             this.panel3.Controls.Add(this.UpdateBtn);
-            this.panel3.Size = new System.Drawing.Size(2247, 200);
+            this.panel3.Size = new System.Drawing.Size(2271, 200);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.dataGridView1);
             this.panel4.Location = new System.Drawing.Point(0, 296);
-            this.panel4.Size = new System.Drawing.Size(1709, 1558);
+            this.panel4.Size = new System.Drawing.Size(1733, 1558);
             // 
             // UpdateBtn
             // 
@@ -142,7 +142,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(625, 163);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 20);
+            this.label2.Size = new System.Drawing.Size(276, 20);
             this.label2.TabIndex = 30;
             this.label2.Text = "Get Items by Offer :";
             // 
@@ -165,7 +165,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(86, 21);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1000, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(1024, 500);
             this.dataGridView1.TabIndex = 0;
             // 
             // SearchTxt
@@ -193,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 881);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "ProductPage";
             this.Text = "Products";

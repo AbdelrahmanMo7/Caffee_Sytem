@@ -177,7 +177,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::Cafffe_Sytem.Properties.Resources.transparency;
+            this.pictureBox2.Image = global::Cafffe_Sytem.Properties.Resources.icons8_cashier_26;
             this.pictureBox2.Location = new System.Drawing.Point(1151, 69);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 30);

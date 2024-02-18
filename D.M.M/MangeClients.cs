@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cafffe_Sytem.A.M.A;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace Cafffe_Sytem.D.M.M
     {
         public event EventHandler eva;
 
-        Coffee_SystemEntities dbContext = new Coffee_SystemEntities();
+        
 
         public MangeClients()
         {
@@ -57,11 +58,11 @@ namespace Cafffe_Sytem.D.M.M
                 q3.C_Address = clintAddress;
 
                 // Save changes to the database
-                dbContext.Entry(q3).State = EntityState.Detached;
+                DBConnection.Context.Entry(q3).State = EntityState.Detached;
             }
-            dbContext.Clients.Attach(q3);
-            dbContext.Entry(q3).State = EntityState.Modified;
-            dbContext.SaveChanges();
+            DBConnection.Context.Clients.Attach(q3);
+            DBConnection.Context.Entry(q3).State = EntityState.Modified;
+            DBConnection.Context.SaveChanges();
             MessageBox.Show("update Successfull");
 
             eva?.Invoke(this,e);
@@ -79,8 +80,8 @@ namespace Cafffe_Sytem.D.M.M
                 C_Address = address_txt.Text,
                 C_Phone_Number = long.Parse(phone_txt.Text)
             };
-            dbContext.Clients.Add(clint);
-            dbContext.SaveChanges();
+            DBConnection.Context.Clients.Add(clint);
+            DBConnection.Context.SaveChanges();
             MessageBox.Show("add Successfull");
             eva?.Invoke(this, e);
         }

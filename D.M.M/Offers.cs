@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cafffe_Sytem.A.M.A;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,12 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class Offers:Templete
     {
+      
 
         public Offers()
         {
             InitializeComponent();
-            dbContext = new Coffee_SystemEntities();
+         
             init();
         }
 
@@ -123,15 +125,15 @@ namespace Cafffe_Sytem.D.M.M
                     int selectedofferID = (int)dataGridView1.SelectedRows[0].Cells["Off_ID"].Value;
 
                     // Retrieve the corresponding Clint entity from the database
-                    var selectedoffer = dbContext.Offers.FirstOrDefault(c => c.Off_ID == selectedofferID);
+                    var selectedoffer = DBConnection.Context.Offers.FirstOrDefault(c => c.Off_ID == selectedofferID);
 
                     if (selectedoffer != null)
                     {
                         // Remove the selected Clint entity from the dbContext.Clints collection
-                        dbContext.Offers.Remove(selectedoffer);
+                        DBConnection.Context.Offers.Remove(selectedoffer);
 
                         // Save changes to the database
-                        dbContext.SaveChanges();
+                        DBConnection.Context.SaveChanges();
 
                         // Refresh the DataGridView to reflect the changes
                         init();
@@ -151,7 +153,7 @@ namespace Cafffe_Sytem.D.M.M
 
         private void init()
         {
-            var x = dbContext.Offers.Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start,c.Off_End }).ToList();
+            var x = DBConnection.Context.Offers.Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start,c.Off_End }).ToList();
             dataGridView1.DataSource = x;
         }
         private void PopulateComboBox()
@@ -162,7 +164,7 @@ namespace Cafffe_Sytem.D.M.M
             comboBox1.Items.Add("All offers");
 
             // Get unique usernames from the Clients table
-            var uniqueUsernames = dbContext.Offers.Select(c => c.Off_Name).Distinct().ToList();
+            var uniqueUsernames = DBConnection.Context.Offers.Select(c => c.Off_Name).Distinct().ToList();
 
             // Add unique usernames to the ComboBox
             comboBox1.Items.AddRange(uniqueUsernames.ToArray());
@@ -173,7 +175,7 @@ namespace Cafffe_Sytem.D.M.M
             string selectedUsername = comboBox1.SelectedItem.ToString();
 
             // Filter clients based on the selected username
-            var filteredClients = dbContext.Offers.AsQueryable(); // Start with all clients
+            var filteredClients = DBConnection.Context.Offers.AsQueryable(); // Start with all clients
 
             if (selectedUsername != "All offers")
             {
@@ -195,7 +197,7 @@ namespace Cafffe_Sytem.D.M.M
                 if (!string.IsNullOrEmpty(enteredText))
                 {
                     // Filter clients whose names contain the entered text
-                    var filteredClients = dbContext.Offers
+                    var filteredClients = DBConnection.Context.Offers
                         .Where(c => c.Off_Name.ToLower().Contains(enteredText))
                         .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
                         .ToList();

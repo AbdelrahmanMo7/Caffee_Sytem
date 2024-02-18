@@ -287,31 +287,45 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\CahierForm.cs" />
+    <Compile Include="D.M.M\CahierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D.M.M\CahierForm.Designer.cs">
       <DependentUpon>CahierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\CashierDetailsBills.cs" />
+    <Compile Include="D.M.M\CashierDetailsBills.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D.M.M\CashierDetailsBills.Designer.cs">
       <DependentUpon>CashierDetailsBills.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\Clients.cs" />
+    <Compile Include="D.M.M\Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D.M.M\Clients.designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\Login.cs" />
+    <Compile Include="D.M.M\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D.M.M\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\MangeClients.cs" />
+    <Compile Include="D.M.M\MangeClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D.M.M\MangeClients.designer.cs">
       <DependentUpon>MangeClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\MangeOffer.cs" />
+    <Compile Include="D.M.M\MangeOffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D.M.M\MangeOffer.Designer.cs">
       <DependentUpon>MangeOffer.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\Offers.cs" />
+    <Compile Include="D.M.M\Offers.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D.M.M\Offers.Designer.cs">
       <DependentUpon>Offers.cs</DependentUpon>
     </Compile>
@@ -521,6 +535,7 @@
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
       <LastGenOutput>Coffee_Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\cafe1.png" />
     <None Include="Resources\icons8-facebook-20.png" />
     <None Include="Resources\icons8-instagram-old-20.png" />
     <None Include="Resources\icons8-instagram-old-50.png" />

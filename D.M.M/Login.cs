@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cafffe_Sytem.A.M.A;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class Login : Form
     {
-        Coffee_SystemEntities dbContext = new Coffee_SystemEntities();
+      
 
         public Login()
         {
@@ -43,7 +44,7 @@ namespace Cafffe_Sytem.D.M.M
             var use=username_txt.Text.Trim();
             var pass= passward_txt.Text.Trim();
            
-            var q= dbContext.Users.Where(c => c.U_UserName ==use).Select(c => c).FirstOrDefault();
+            var q= DBConnection.Context.Users.Where(c => c.U_UserName ==use).Select(c => c).FirstOrDefault();
 
             if (q != null)
             {
