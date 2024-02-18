@@ -42,10 +42,12 @@ namespace Cafffe_Sytem.A.M.A
             var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
             Bill_Items_dataGridView1.DataSource = show_list;
 
+            var q= DBConnection.Context.Bills.Where(b => b.B_ID == 1).Select(b => b).FirstOrDefault();
 
+            
         }
 
-
+        
 
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
