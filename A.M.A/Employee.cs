@@ -18,11 +18,11 @@ namespace Cafffe_Sytem.A.M.A
         public string Emp_Name { get; set; }
         public long Emp_Phone_Number { get; set; }
         public int Emp_Age { get; set; }
-        public string Emp_Gender { get; set; }
+        public Nullable<bool> Emp_Gender { get; set; }
         public Nullable<int> Emp_Salary { get; set; }
         public string Emp_Address { get; set; }
-        public Nullable<System.TimeSpan> Emp_ShiftStart { get; set; }
-        public Nullable<System.TimeSpan> Emp_ShiftEnd { get; set; }
+        public Nullable<int> Emp_ShiftStart { get; set; }
+        public Nullable<int> Emp_ShiftEnd { get; set; }
         public Nullable<int> P_Id { get; set; }
     
         public virtual Posistion Posistion { get; set; }

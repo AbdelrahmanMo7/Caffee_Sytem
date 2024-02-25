@@ -24,8 +24,8 @@ namespace Cafffe_Sytem.A.M.A
         public int Off_ID { get; set; }
         public string Off_Name { get; set; }
         public int Off_Limit { get; set; }
-        public Nullable<System.DateTime> Off_Start { get; set; }
-        public Nullable<System.DateTime> Off_End { get; set; }
+        public System.DateTime Off_Start { get; set; }
+        public System.DateTime Off_End { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Category> Categories { get; set; }

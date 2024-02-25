@@ -6,14 +6,11 @@ using System.Windows.Forms;
 
 namespace Cafffe_Sytem.D.M.M
 {
-    public partial class CahierForm : Templete
+    public partial class CashierForm : Templete
     {
-      
-
-        public CahierForm()
+        public CashierForm()
         {
             InitializeComponent();
-           
             InitializeForm();
             PopulateComboBox();
         }
@@ -26,21 +23,18 @@ namespace Cafffe_Sytem.D.M.M
         private void LoadUserBillsTotal()
         {
             var userBillsTotal = DBConnection.Context.Users
-     .Where(user => user.U_UserName.Contains("cashier"))
-     .Select(user => new
-     {
-         CashierID = user.U_ID,
-         CashierName = user.U_Name,
-         BillsCount = user.Bills.Select(b=>b).Count(), // Use nullable double
-         TotalAmount = user.Bills.Sum(b => (double?)b.B_Total_Amount) // Use nullable double
-     })
-     .ToList();
+                .Where(u => u.U_IsAdmin_== false)
+                .Select(user => new
+                {
+                    ID = user.U_ID,
+                    Name = user.U_Name,
+                    Bills_Count = user.Bills.Count(), // Use Count() directly
+                    Total_Amount = user.Bills.Sum(b => (double?)b.B_Total_Amount) // Use nullable double
+                })
+                .ToList();
             dataGridView1.DataSource = userBillsTotal;
+            
         }
-
-
-
-
 
         private void search_btn_Click(object sender, EventArgs e)
         {
@@ -88,52 +82,43 @@ namespace Cafffe_Sytem.D.M.M
                 MessageBox.Show("Please enter a search keyword.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-    
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Get the value of the UserID column from the clicked row
-                object userIdCellValue = dataGridView1.Rows[e.RowIndex].Cells["CashierID"].Value;
+                object userIdCellValue = dataGridView1.Rows[e.RowIndex].Cells["ID"].Value;
 
                 // Check if the value is not null and can be parsed to an integer
                 if (userIdCellValue != null && int.TryParse(userIdCellValue.ToString(), out int selectedUserId))
                 {
-                    using (var dbContext = DBConnection.Context)
-                    {
+                   
                         try
                         {
                             // Query bills for the selected user
-                            var userBillsDetails = from bill in dbContext.Bills
-                                                   where bill.User.U_ID == selectedUserId
-                                                   select new
-                                                   {
-                                                       BillID = bill.B_ID,
-                                                       Time = bill.B_Time,
-                                                       Date = bill.B_Date,
-                                                       Total = bill.B_Total_Amount,
-                                                       TableNumber = bill.B_Table_Num,
-                                                       IsDeleted = bill.B_IsDeleted_,
-                                                       UserID = bill.User.U_ID,
-                                                       ClintID = bill.Creater_Id,
-                                                       // Include other bill details as needed
-                                                   };
+                            var userBillsDetails =DBConnection.Context.Bills
+                                                   .Where (bill=>bill.User.U_ID == selectedUserId && bill.B_IsDeleted_==false).Select(bill => bill).ToList();
 
                             // Create a new instance of CashierDetailsBills
-                            Cafffe_Sytem.D.M.M.CashierDetailsBills cashierDetailsBills = new CashierDetailsBills();
+                            Cafffe_Sytem.D.M.M.CashierDetailsBills cashierDetailsBills = new CashierDetailsBills(userBillsDetails);
 
                             // Bind the query result to the DataGridView in CashierDetailsBills
-                            cashierDetailsBills.dataGridView1.DataSource = userBillsDetails.ToList();
-
+                           
+                            cashierDetailsBills.CashierName_label3.Text = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                           
                             // Show the CahierForm
+
                             cashierDetailsBills.Show();
+                          
+
+
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show($"Error retrieving bills for user: {ex.Message}");
                         }
-                    }
+                    
                 }
                 else
                 {
@@ -142,11 +127,7 @@ namespace Cafffe_Sytem.D.M.M
             }
         }
 
-        private void init()
-        {
-            var x = DBConnection.Context.Users.Select(c => new { c.U_ID, c.U_Name, c.U_UserName, c.U_IsAdmin_ }).ToList();
-            dataGridView1.DataSource = x;
-        }
+       
 
         private void PopulateComboBox()
         {
@@ -156,29 +137,36 @@ namespace Cafffe_Sytem.D.M.M
             comboBox1.Items.Add("All Users");
 
             // Get unique usernames from the Clients table
-            var uniqueUsernames = DBConnection.Context.Users.Select(c => c.U_UserName).Distinct().ToList();
+            var uniqueUsernames = DBConnection.Context.Users.Where(c=>c.U_IsAdmin_==false).Select(c => c.U_Name).ToList();
 
             // Add unique usernames to the ComboBox
             comboBox1.Items.AddRange(uniqueUsernames.ToArray());
         }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected username from ComboBox
             string selectedUsername = comboBox1.SelectedItem.ToString();
 
             // Filter clients based on the selected username
-            var filteredClients = DBConnection.Context.Users.AsQueryable(); // Start with all clients
+            var filteredClients = DBConnection.Context.Users.Where(c => c.U_IsAdmin_ == false).AsQueryable(); // Start with all clients
 
             if (selectedUsername != "All Users")
             {
                 // If a specific user is selected, filter by username
-                filteredClients = filteredClients.Where(c => c.U_UserName == selectedUsername);
+                filteredClients = filteredClients.Where(c => c.U_Name == selectedUsername);
             }
 
             // Update DataGridView with filtered results
-            var filteredClientList = filteredClients.Select(c => new { c.U_ID, c.U_Name,c.U_UserName ,c.U_IsAdmin_ }).ToList();
+            var filteredClientList = filteredClients .Where(u => u.U_IsAdmin_ == false).Select(c => new {
+                ID = c.U_ID,
+                Name = c.U_Name,
+                Bills_Count = c.Bills.Count(), // Use Count() directly
+                Total_Amount = c.Bills.Sum(b => (double?)b.B_Total_Amount) 
+            }).ToList();
             dataGridView1.DataSource = filteredClientList;
         }
+
         // Event handler for ComboBox's TextChanged event
         private void combobox_textchange(object sender, EventArgs e)
         {
@@ -190,8 +178,14 @@ namespace Cafffe_Sytem.D.M.M
                 {
                     // Filter clients whose names contain the entered text
                     var filteredClients = DBConnection.Context.Users
-                        .Where(c => c.U_UserName.ToLower().Contains(enteredText))
-                        .Select(c => new { c.U_ID, c.U_Name, c.U_UserName, c.U_IsAdmin_ })
+                        .Where(c => c.U_Name.ToLower().Contains(enteredText)&& c.U_IsAdmin_ == false)
+                         
+                        .Select(c => new {
+                            ID = c.U_ID,
+                            Name = c.U_Name,
+                            Bills_Count = c.Bills.Count(), // Use Count() directly
+                            Total_Amount = c.Bills.Sum(b => (double?)b.B_Total_Amount)
+                        })
                         .ToList();
 
                     // Update DataGridView with filtered results
@@ -200,7 +194,7 @@ namespace Cafffe_Sytem.D.M.M
                 else
                 {
                     // If no text is entered, display all clients
-                    init();
+                    LoadUserBillsTotal();
                 }
             }
             catch (Exception ex)

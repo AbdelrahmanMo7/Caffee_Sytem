@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,9 @@ namespace Cafffe_Sytem.D.M.M
         public Offers()
         {
             InitializeComponent();
-         
+           
+            PopulateComboBoxphone();
+            PopulateComboBoxofferend();
             init();
         }
 
@@ -75,7 +78,7 @@ namespace Cafffe_Sytem.D.M.M
         }
         private void update_btn_Click(object sender, EventArgs e)
         {
-            Cafffe_Sytem.D.M.M.MangeOffer mangeOffer = new Cafffe_Sytem.D.M.M.MangeOffer();
+            Cafffe_Sytem.D.M.M.MangeOffer mangeOffer = new Cafffe_Sytem.D.M.M.MangeOffer("update");
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -105,7 +108,7 @@ namespace Cafffe_Sytem.D.M.M
         }
         private void add_btn_Click(object sender, EventArgs e)
         {
-            Cafffe_Sytem.D.M.M.MangeOffer mangeOffer = new Cafffe_Sytem.D.M.M.MangeOffer();
+            Cafffe_Sytem.D.M.M.MangeOffer mangeOffer = new Cafffe_Sytem.D.M.M.MangeOffer("Add");
             mangeOffer.Show();
             mangeOffer.eva += this.refresh;
         }
@@ -155,68 +158,256 @@ namespace Cafffe_Sytem.D.M.M
         {
             var x = DBConnection.Context.Offers.Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start,c.Off_End }).ToList();
             dataGridView1.DataSource = x;
+            PopulateComboBoxofferend();
+            PopulateComboBoxphone();
+
         }
-        private void PopulateComboBox()
+        private void offer_start_filter_comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear(); // Clear existing items in the ComboBox
-
-            // Add "All Users" option as the first item in the ComboBox
-            comboBox1.Items.Add("All offers");
-
-            // Get unique usernames from the Clients table
-            var uniqueUsernames = DBConnection.Context.Offers.Select(c => c.Off_Name).Distinct().ToList();
-
-            // Add unique usernames to the ComboBox
-            comboBox1.Items.AddRange(uniqueUsernames.ToArray());
-        }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Get the selected username from ComboBox
-            string selectedUsername = comboBox1.SelectedItem.ToString();
-
-            // Filter clients based on the selected username
-            var filteredClients = DBConnection.Context.Offers.AsQueryable(); // Start with all clients
-
-            if (selectedUsername != "All offers")
-            {
-                // If a specific user is selected, filter by username
-                filteredClients = filteredClients.Where(c => c.Off_Name == selectedUsername);
-            }
-
-            // Update DataGridView with filtered results
-            var filteredClientList = filteredClients.Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start,c.Off_End }).ToList();
-            dataGridView1.DataSource = filteredClientList;
-        }
-        // Event handler for ComboBox's TextChanged event
-        private void combobox_textchange(object sender, EventArgs e)
-        {
-            string enteredText = comboBox1.Text.Trim().ToLower(); // Get the entered text and convert to lowercase
-
             try
             {
-                if (!string.IsNullOrEmpty(enteredText))
-                {
-                    // Filter clients whose names contain the entered text
-                    var filteredClients = DBConnection.Context.Offers
-                        .Where(c => c.Off_Name.ToLower().Contains(enteredText))
-                        .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
-                        .ToList();
+                // Get the selected shift start date from ComboBox
+                string selectedShiftStartStr = offer_start_filter_comboBox1.SelectedItem?.ToString();
 
-                    // Update DataGridView with filtered results
-                    dataGridView1.DataSource = filteredClients;
+                if (selectedShiftStartStr != "All offers")
+                {
+                    // Convert the selected shift start date from string to DateTime
+                    if (DateTime.TryParse(selectedShiftStartStr, out DateTime selectedShiftStartDate))
+                    {
+                        // Filter offers based on the selected shift start date
+                        var filteredOffers = DBConnection.Context.Offers
+                            .Where(c => DbFunctions.TruncateTime(c.Off_Start) == selectedShiftStartDate.Date)
+                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .ToList();
+
+                        // Update DataGridView with filtered results
+                        dataGridView1.DataSource = filteredOffers;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid date selected.");
+                    }
                 }
                 else
                 {
-                    // If no text is entered, display all clients
-                    init();
+                    // If "All offers" is selected, display all offers
+                    init(); // Assuming init() is a method that displays all offers
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while filtering clients: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while filtering offers: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void offer_start_filter_comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string enteredText = offer_start_filter_comboBox1.Text.Trim();
+
+                if (!string.IsNullOrEmpty(enteredText))
+                {
+                    // Convert the entered text to DateTime if possible
+                    if (DateTime.TryParse(enteredText, out DateTime selectedDate))
+                    {
+                        // Filter offers based on the entered date
+                        var filteredOffers = DBConnection.Context.Offers
+                            .Where(c => DbFunctions.TruncateTime(c.Off_Start) == selectedDate)
+                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .ToList();
+
+                        // Update DataGridView with filtered results
+                        dataGridView1.DataSource = filteredOffers;
+                    }
+                    else
+                    {
+                        // Filter offers based on the entered string
+                        var filteredOffers = DBConnection.Context.Offers
+                            .Where(c => c.Off_Start.ToString().Contains(enteredText))
+                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .ToList();
+
+                        // Update DataGridView with filtered results
+                        dataGridView1.DataSource = filteredOffers;
+                    }
+                }
+                else
+                {
+                    // If no text is entered, display all offers
+                    offer_start_filter_comboBox1_SelectedIndexChanged(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while filtering offers: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void PopulateComboBoxphone()
+        {
+            offer_start_filter_comboBox1.Items.Clear(); // Clear existing items in the ComboBox
+
+            // Add "All Users" option as the first item in the ComboBox
+            offer_start_filter_comboBox1.Items.Add("All offers");
+
+            // Get unique phone numbers from the Clients table
+            var uniquePhoneNumbers = DBConnection.Context.Offers.Select(c => c.Off_Start).Distinct().ToList();
+
+            // Add unique phone numbers to the ComboBox
+            offer_start_filter_comboBox1.Items.AddRange(uniquePhoneNumbers.Select(p => p.ToString()).ToArray());
+        }
+
+
+
+
+
+
+
+
+
+
+        private void Offer_end_filter_comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Get the selected shift start date from ComboBox
+                string selectedShiftStartStr = Offer_end_filter_comboBox1.SelectedItem?.ToString();
+
+                if (selectedShiftStartStr != "All offers")
+                {
+                    // Convert the selected shift start date from string to DateTime
+                    if (DateTime.TryParse(selectedShiftStartStr, out DateTime selectedShiftStartDate))
+                    {
+                        // Filter offers based on the selected shift start date
+                        var filteredOffers = DBConnection.Context.Offers
+                            .Where(c => DbFunctions.TruncateTime(c.Off_End) == selectedShiftStartDate.Date)
+                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .ToList();
+
+                        // Update DataGridView with filtered results
+                        dataGridView1.DataSource = filteredOffers;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid date selected.");
+                    }
+                }
+                else
+                {
+                    // If "All offers" is selected, display all offers
+                    init(); // Assuming init() is a method that displays all offers
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while filtering offers: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Offer_end_filter_comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string enteredText = Offer_end_filter_comboBox1.Text.Trim();
+
+                if (!string.IsNullOrEmpty(enteredText))
+                {
+                    // Convert the entered text to DateTime if possible
+                    if (DateTime.TryParse(enteredText, out DateTime selectedDate))
+                    {
+                        // Filter offers based on the entered date
+                        var filteredOffers = DBConnection.Context.Offers
+                            .Where(c => DbFunctions.TruncateTime(c.Off_End) == selectedDate)
+                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .ToList();
+
+                        // Update DataGridView with filtered results
+                        dataGridView1.DataSource = filteredOffers;
+                    }
+                    else
+                    {
+                        // Filter offers based on the entered string
+                        var filteredOffers = DBConnection.Context.Offers
+                            .Where(c => c.Off_End.ToString().Contains(enteredText))
+                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .ToList();
+
+                        // Update DataGridView with filtered results
+                        dataGridView1.DataSource = filteredOffers;
+                    }
+                }
+                else
+                {
+                    // If no text is entered, display all offers
+                    Offer_end_filter_comboBox1_SelectedIndexChanged(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while filtering offers: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void PopulateComboBoxofferend()
+        {
+            Offer_end_filter_comboBox1.Items.Clear(); // Clear existing items in the ComboBox
+
+            // Add "All Users" option as the first item in the ComboBox
+            Offer_end_filter_comboBox1.Items.Add("All offers");
+
+            // Get unique phone numbers from the Clients table
+            var uniquePhoneNumbers = DBConnection.Context.Offers.Select(c => c.Off_End).Distinct().ToList();
+
+            // Add unique phone numbers to the ComboBox
+            Offer_end_filter_comboBox1.Items.AddRange(uniquePhoneNumbers.Select(p => p.ToString()).ToArray());
+        }
+
+
+
+
+
+
+
+
+
+
+
+       
+       
+        // Event handler for ComboBox's TextChanged event
+        //private void combobox_textchangename(object sender, EventArgs e)
+        //{
+        //    string enteredText = name_comboBox1.Text.Trim().ToLower(); // Get the entered text and convert to lowercase
+
+        //    try
+        //    {
+        //        if (!string.IsNullOrEmpty(enteredText))
+        //        {
+        //            // Filter clients whose names contain the entered text
+        //            var filteredClients = DBConnection.Context.Offers
+        //                .Where(c => c.Off_Name.ToLower().Contains(enteredText))
+        //                .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+        //                .ToList();
+
+        //            // Update DataGridView with filtered results
+        //            dataGridView1.DataSource = filteredClients;
+        //        }
+        //        else
+        //        {
+        //            // If no text is entered, display all clients
+        //            init();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("An error occurred while filtering offer: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
+     
 
 
     }

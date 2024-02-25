@@ -21,6 +21,7 @@ namespace Cafffe_Sytem.ASH
             InitializeComponent();
             LoadData();
             LoadFilterComboCategory();
+            LoadFilterComboOffer();
         }
 
         public void LoadData()
@@ -72,6 +73,7 @@ namespace Cafffe_Sytem.ASH
             }
         }
 
+        //============================== Delete Functionality =======================//
         public void DeleteData()
         {
             if (dataGridView1.SelectedRows.Count == 1)
@@ -82,14 +84,17 @@ namespace Cafffe_Sytem.ASH
                 if (deletedProduct != null)
                 {
                     // Confirm deletion with the user
-                    DialogResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult result = MessageBox.Show(" Worning!!! if this Product has been deleted this may daleted all it`s data from all biils .   Are you sure you want to delete this product?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result == DialogResult.Yes)
                     {
                         // Find the product by ID and remove it
-                        var productToDelete = DBConnection.Context.Products.Find(deletedProduct.Id);
+                        Product productToDelete = DBConnection.Context.Products.Find(deletedProduct.Id);
                         if (productToDelete != null)
                         {
+                            productToDelete.Bill_has_Products.Count();
+                            productToDelete.Bill_has_Products.Clear();
+                            DBConnection.Context.SaveChanges();
                             DBConnection.Context.Products.Remove(productToDelete);
                             DBConnection.Context.SaveChanges();
                             LoadData(); // Refresh DataGridView after deleting the product
@@ -103,8 +108,6 @@ namespace Cafffe_Sytem.ASH
             }
         }
 
-
-
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             DeleteData();
@@ -117,6 +120,7 @@ namespace Cafffe_Sytem.ASH
             Q2.Add("All");
             Q2.AddRange((from e in DBConnection.Context.Categories
                          select e.Cat_Name).ToList());
+            Q2.Add("No Category");
 
 
             // Set the DataSource to the list of products
@@ -129,110 +133,128 @@ namespace Cafffe_Sytem.ASH
             Q3.Add("All");
             Q3.AddRange((from e in DBConnection.Context.Offers
                          select e.Off_Name).ToList());
-
+            Q3.Add("No Offer");
 
             // Set the DataSource to the list of products
-            FilterComBox.DataSource = Q3;
+            comboBox1.DataSource = Q3;
         }
 
+        //===================== Category Filter ====================//
         private void FilterComBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             // Get the selected category from the combo box
             string selectedCategory = FilterComBox.Text;
 
             // Check if a category is selected
-            if (!string.IsNullOrWhiteSpace(selectedCategory) && selectedCategory != "All")
+            if (!string.IsNullOrWhiteSpace(selectedCategory))
             {
                 // Filter the data based on the selected category
-                var filteredData = (from product in DBConnection.Context.Products
-                                    where product.Category.Cat_Name == selectedCategory
-                                    select new
-                                    {
-                                        Id = product.P_ID,
-                                        Name = product.P_Name,
-                                        Price = product.P_Price,
-                                        Quantity = product.P_Quantity,
-                                        Code = product.P_Code,
-                                        Category = product.Category.Cat_Name,
-                                        Offer = product.Offer.Off_Name
-                                    }).ToList();
+                if (selectedCategory == "No Category")
+                {
+                    // Show products where the Category is null
+                    var filteredData = (from product in DBConnection.Context.Products
+                                        where product.Category == null
+                                        select new
+                                        {
+                                            Id = product.P_ID,
+                                            Name = product.P_Name,
+                                            Price = product.P_Price,
+                                            Quantity = product.P_Quantity,
+                                            Code = product.P_Code,
+                                            Category = product.Category == null ? "No Category assigned" : product.Category.Cat_Name,
+                                            Offer = product.Offer.Off_Name
+                                        }).ToList();
 
-                // Set the DataSource to the filtered data
-                dataGridView1.DataSource = filteredData;
-            }
-            else
-            {
-                // If no category is selected or All, load all data
-                LoadData();
+                    // Set the DataSource to the filtered data
+                    dataGridView1.DataSource = filteredData;
+                }
+
+                else if (selectedCategory == "All")
+                {
+                    // If "All" is selected, load all data
+                    LoadData();
+                }
+                else
+                {
+                    // Show products based on the selected Category
+                    var filteredData = (from product in DBConnection.Context.Products
+                                        where product.Category.Cat_Name == selectedCategory
+                                        select new
+                                        {
+                                            Id = product.P_ID,
+                                            Name = product.P_Name,
+                                            Price = product.P_Price,
+                                            Quantity = product.P_Quantity,
+                                            Code = product.P_Code,
+                                            Category = product.Category.Cat_Name,
+                                            Offer = product.Offer.Off_Name
+                                        }).ToList();
+
+                    // Set the DataSource to the filtered data
+                    dataGridView1.DataSource = filteredData;
+                }
             }
         }
+
+        //======================== Offer Filter ====================//
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected offer from the combo box
-            string selectedOffer = FilterComBox.Text;
+            string selectedOffer = comboBox1.Text;
 
             // Check if an offer is selected
-            if (!string.IsNullOrWhiteSpace(selectedOffer) && selectedOffer != "All")
+            if (!string.IsNullOrWhiteSpace(selectedOffer))
             {
                 // Filter the data based on the selected category
-                var filteredData = (from product in DBConnection.Context.Products
-                                    where product.Offer.Off_Name == selectedOffer
-                                    select new
-                                    {
-                                        Id = product.P_ID,
-                                        Name = product.P_Name,
-                                        Price = product.P_Price,
-                                        Quantity = product.P_Quantity,
-                                        Code = product.P_Code,
-                                        Category = product.Category.Cat_Name,
-                                        Offer = product.Offer.Off_Name
-                                    }).ToList();
+                if (selectedOffer == "No Offer")
+                {
+                    // Show products where the Offer is null
+                    var filteredData = (from product in DBConnection.Context.Products
+                                        where product.Offer == null
+                                        select new
+                                        {
+                                            Id = product.P_ID,
+                                            Name = product.P_Name,
+                                            Price = product.P_Price,
+                                            Quantity = product.P_Quantity,
+                                            Code = product.P_Code,
+                                            Category = product.Category.Cat_Name,
+                                            Offer = product.Offer == null ? "No Offer assigned" : product.Offer.Off_Name
+                                        }).ToList();
 
-                // Set the DataSource to the filtered data
-                dataGridView1.DataSource = filteredData;
-            }
-            else
-            {
-                // If no offer is selected or All, load all data
-                LoadData();
+                    // Set the DataSource to the filtered data
+                    dataGridView1.DataSource = filteredData;
+                }
+                else if (selectedOffer == "All")
+                {
+                    // If "All" is selected, load all data
+                    LoadData();
+                }
+                else
+                {
+                    // Show products based on the selected offer
+                    var filteredData = (from product in DBConnection.Context.Products
+                                        where product.Offer.Off_Name == selectedOffer
+                                        select new
+                                        {
+                                            Id = product.P_ID,
+                                            Name = product.P_Name,
+                                            Price = product.P_Price,
+                                            Quantity = product.P_Quantity,
+                                            Code = product.P_Code,
+                                            Category = product.Category.Cat_Name,
+                                            Offer = product.Offer.Off_Name
+                                        }).ToList();
+
+                    // Set the DataSource to the filtered data
+                    dataGridView1.DataSource = filteredData;
+                }
             }
         }
 
-        //private void FilterBtn_Click(object sender, EventArgs e)
-        //{
-        //    // Get the selected category from the combo box
-        //    string selectedCategory = FilterComBox.Text;
-
-        //    // Check if a category is selected
-        //    if (!string.IsNullOrWhiteSpace(selectedCategory))
-        //    {
-        //        // Filter the data based on the selected category
-        //        var filteredData = (from product in Context.Products
-        //                            where product.Category.Cat_Name == selectedCategory
-        //                            select new
-        //                            {
-        //                                Id = product.P_ID,
-        //                                Name = product.P_Name,
-        //                                Price = product.P_Price,
-        //                                Quantity = product.P_Quantity,
-        //                                Code = product.P_Code,
-        //                                Category = product.Category.Cat_Name,
-        //                                Offer = product.Offer.Off_Name
-        //                            }).ToList();
-
-        //        // Set the DataSource to the filtered data
-        //        dataGridView1.DataSource = filteredData;
-        //    }
-        //    else
-        //    {
-        //        // If no category is selected, load all data
-        //        MessageBox.Show("Please select the category of product to filter.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-
-        //}
         //================= Search Stuff ===================//
-       
+
         private void SearchBtn_Click_1(object sender, EventArgs e)
         {
             // Get the search keyword from the search textbox
@@ -241,6 +263,14 @@ namespace Cafffe_Sytem.ASH
             // Check if a search keyword is provided
             if (!string.IsNullOrWhiteSpace(searchKeyword))
             {
+                // Check if the search keyword is "all" or "All"
+                if (searchKeyword == "all")
+                {
+                    // Load all data again
+                    LoadData();
+                    return;
+                }
+
                 // Filter the data based on the product name 
                 var filteredData = (from product in DBConnection.Context.Products
                                     where product.P_Name.ToLower().Contains(searchKeyword)
@@ -248,6 +278,7 @@ namespace Cafffe_Sytem.ASH
                                     {
                                         Id = product.P_ID,
                                         Name = product.P_Name,
+                                        Price = product.P_Price,
                                         Quantity = product.P_Quantity,
                                         Code = product.P_Code,
                                         Category = product.Category.Cat_Name,
@@ -256,13 +287,17 @@ namespace Cafffe_Sytem.ASH
 
                 // Set the DataSource to the filtered data
                 dataGridView1.DataSource = filteredData;
-
             }
             else
             {
                 // If no search keyword is provided, load all data
                 MessageBox.Show("Please enter the name of product to search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

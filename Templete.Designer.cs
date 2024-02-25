@@ -55,6 +55,9 @@ namespace Cafffe_Sytem
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Is_Admin_label2 = new System.Windows.Forms.Label();
+            this.UserName_label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Page_Name = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -72,6 +75,7 @@ namespace Cafffe_Sytem
             this.sPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,6 +175,7 @@ namespace Cafffe_Sytem
             this.sButton10.Text = "              Home ";
             this.sButton10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton10.UseVisualStyleBackColor = false;
+            this.sButton10.Click += new System.EventHandler(this.sButton10_Click);
             // 
             // sPanel10
             // 
@@ -207,6 +212,7 @@ namespace Cafffe_Sytem
             this.sButton9.Text = "              Items";
             this.sButton9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton9.UseVisualStyleBackColor = false;
+            this.sButton9.Click += new System.EventHandler(this.sButton9_Click);
             // 
             // sPanel13
             // 
@@ -244,6 +250,7 @@ namespace Cafffe_Sytem
             this.sButton3.Text = "              Category";
             this.sButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton3.UseVisualStyleBackColor = false;
+            this.sButton3.Click += new System.EventHandler(this.sButton3_Click);
             // 
             // sButton12
             // 
@@ -303,6 +310,7 @@ namespace Cafffe_Sytem
             this.sButton11.Text = "              Offers";
             this.sButton11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton11.UseVisualStyleBackColor = false;
+            this.sButton11.Click += new System.EventHandler(this.sButton11_Click);
             // 
             // sPanel7
             // 
@@ -339,6 +347,7 @@ namespace Cafffe_Sytem
             this.sButton6.Text = "              Cashiers";
             this.sButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton6.UseVisualStyleBackColor = false;
+            this.sButton6.Click += new System.EventHandler(this.sButton6_Click);
             // 
             // sPanel6
             // 
@@ -375,6 +384,7 @@ namespace Cafffe_Sytem
             this.sButton5.Text = "              Employees";
             this.sButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton5.UseVisualStyleBackColor = false;
+            this.sButton5.Click += new System.EventHandler(this.sButton5_Click);
             // 
             // sPanel9
             // 
@@ -411,6 +421,7 @@ namespace Cafffe_Sytem
             this.sButton8.Text = "              Clients";
             this.sButton8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton8.UseVisualStyleBackColor = false;
+            this.sButton8.Click += new System.EventHandler(this.sButton8_Click);
             // 
             // sPanel8
             // 
@@ -447,6 +458,7 @@ namespace Cafffe_Sytem
             this.sButton7.Text = "              Bills";
             this.sButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton7.UseVisualStyleBackColor = false;
+            this.sButton7.Click += new System.EventHandler(this.sButton7_Click);
             // 
             // sPanel3
             // 
@@ -483,6 +495,7 @@ namespace Cafffe_Sytem
             this.sButton2.Text = "              Reports";
             this.sButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton2.UseVisualStyleBackColor = false;
+            this.sButton2.Click += new System.EventHandler(this.sButton2_Click);
             // 
             // sPanel1
             // 
@@ -519,6 +532,7 @@ namespace Cafffe_Sytem
             this.sButton1.Text = "              Management";
             this.sButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sButton1.UseVisualStyleBackColor = false;
+            this.sButton1.Click += new System.EventHandler(this.sButton1_Click);
             // 
             // sPanel2
             // 
@@ -537,7 +551,6 @@ namespace Cafffe_Sytem
             // 
             this.SideBar_timer.Enabled = true;
             this.SideBar_timer.Interval = 1;
-            this.SideBar_timer.Tick += new System.EventHandler(this.SideBar_timer_Tick);
             // 
             // panel1
             // 
@@ -571,6 +584,9 @@ namespace Cafffe_Sytem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(133)))), ((int)(((byte)(127)))));
+            this.panel2.Controls.Add(this.Is_Admin_label2);
+            this.panel2.Controls.Add(this.UserName_label1);
+            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.Page_Name);
             this.panel2.Controls.Add(this.panel3);
@@ -578,6 +594,41 @@ namespace Cafffe_Sytem
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1156, 250);
             this.panel2.TabIndex = 0;
+            // 
+            // Is_Admin_label2
+            // 
+            this.Is_Admin_label2.AutoSize = true;
+            this.Is_Admin_label2.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Is_Admin_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(225)))), ((int)(((byte)(32)))), ((int)(((byte)(24)))));
+            this.Is_Admin_label2.Location = new System.Drawing.Point(810, 58);
+            this.Is_Admin_label2.Name = "Is_Admin_label2";
+            this.Is_Admin_label2.Size = new System.Drawing.Size(52, 21);
+            this.Is_Admin_label2.TabIndex = 6;
+            this.Is_Admin_label2.Text = "label2";
+            // 
+            // UserName_label1
+            // 
+            this.UserName_label1.AutoSize = true;
+            this.UserName_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName_label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UserName_label1.Location = new System.Drawing.Point(799, 27);
+            this.UserName_label1.Name = "UserName_label1";
+            this.UserName_label1.Size = new System.Drawing.Size(70, 25);
+            this.UserName_label1.TabIndex = 5;
+            this.UserName_label1.Text = "label1";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Cafffe_Sytem.Properties.Resources.icons8_power_64;
+            this.pictureBox2.Location = new System.Drawing.Point(1027, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(78, 64);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -640,6 +691,7 @@ namespace Cafffe_Sytem
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -681,5 +733,8 @@ namespace Cafffe_Sytem
         protected System.Windows.Forms.Label Page_Name;
         private System.ComponentModel.IContainer components;
         protected System.Windows.Forms.Panel panel4;
+        protected System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label Is_Admin_label2;
+        private System.Windows.Forms.Label UserName_label1;
     }
 }

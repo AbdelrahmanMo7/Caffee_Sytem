@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,7 +52,7 @@ namespace Cafffe_Sytem.D.M.M
             }
 
             // Update DataGridView with filtered results
-            var filteredClientList = filteredClients.Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number }).ToList();
+            var filteredClientList = filteredClients.Select(c => new { ID= c.C_ID, Name= c.C_Name, Address= c.C_Address,Phone= c.C_Phone_Number }).ToList();
             dataGridView1.DataSource = filteredClientList;
         }
         // Event handler for ComboBox's TextChanged event
@@ -66,7 +67,7 @@ namespace Cafffe_Sytem.D.M.M
                     // Filter clients whose names contain the entered text
                     var filteredClients = DBConnection.Context.Clients
                         .Where(c => c.C_Name.ToLower().Contains(enteredText))
-                        .Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number })
+                        .Select(c => new { ID = c.C_ID, Name = c.C_Name, Address = c.C_Address, Phone = c.C_Phone_Number })
                         .ToList();
 
                     // Update DataGridView with filtered results
@@ -86,7 +87,7 @@ namespace Cafffe_Sytem.D.M.M
 
         private void init()
         {
-            var x = DBConnection.Context.Clients.Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number }).ToList();
+            var x = DBConnection.Context.Clients.Select(c => new { ID = c.C_ID, Name = c.C_Name, Address = c.C_Address, Phone = c.C_Phone_Number }).ToList();
             dataGridView1.DataSource = x;
         }
 
@@ -102,7 +103,7 @@ namespace Cafffe_Sytem.D.M.M
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     // Get the ID of the selected Clint
-                    int selectedClintID = (int)dataGridView1.SelectedRows[0].Cells["C_ID"].Value;
+                    int selectedClintID = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
 
                     // Retrieve the corresponding Clint entity from the database
                     var selectedClint = DBConnection.Context.Clients.FirstOrDefault(c => c.C_ID == selectedClintID);
@@ -137,25 +138,25 @@ namespace Cafffe_Sytem.D.M.M
         }
         private void update_btn_Click(object sender, EventArgs e)
         {
-            Cafffe_Sytem.D.M.M.MangeClients mangeClients = new Cafffe_Sytem.D.M.M.MangeClients();
+            Cafffe_Sytem.D.M.M.MangeClients mangeClients = new Cafffe_Sytem.D.M.M.MangeClients(update_btn.Text);
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 // Get the data from the selected row
                 var selectedRow = dataGridView1.SelectedRows[0];
-                var clintID = (int)selectedRow.Cells["C_ID"].Value;
-                var clintName = selectedRow.Cells["C_Name"].Value.ToString();
-                var clintAddress = selectedRow.Cells["C_Address"].Value.ToString();
-                var clintPhone = selectedRow.Cells["C_Phone_Number"].Value.ToString();
+                var clintID = (int)selectedRow.Cells["ID"].Value;
+                var clintName = selectedRow.Cells["Name"].Value.ToString();
+                var clintAddress = selectedRow.Cells["Address"].Value.ToString();
+                var clintPhone = selectedRow.Cells["Phone"].Value.ToString();
 
                 // Create an instance of the MangeClients form
                
                 // Pass the data to the MangeClients form for updating
                 mangeClients.InitializeForUpdate(clintID, clintName, clintAddress, clintPhone);
-
+                mangeClients.eva += this.refresh;
                 // Show the MangeClients form
                 mangeClients.Show();
-                mangeClients.eva += this.refresh;
+               
 
                 init();
             }
@@ -167,7 +168,7 @@ namespace Cafffe_Sytem.D.M.M
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cafffe_Sytem.D.M.M.MangeClients mangeClients = new Cafffe_Sytem.D.M.M.MangeClients();
+            Cafffe_Sytem.D.M.M.MangeClients mangeClients = new Cafffe_Sytem.D.M.M.MangeClients("Add");
             mangeClients.Show();
             mangeClients.eva += this.refresh;
         }
@@ -273,7 +274,7 @@ namespace Cafffe_Sytem.D.M.M
                         filteredClients = filteredClients.Where(c => c.C_Phone_Number == selectedPhoneNumber);
 
                         // Update DataGridView with filtered results
-                        var filteredClientList = filteredClients.Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number }).ToList();
+                        var filteredClientList = filteredClients.Select(c => new { ID = c.C_ID, Name = c.C_Name, Address = c.C_Address, Phone = c.C_Phone_Number }).ToList();
                         dataGridView1.DataSource = filteredClientList;
                     }
                     else
@@ -306,7 +307,7 @@ namespace Cafffe_Sytem.D.M.M
                         // Filter clients whose phone numbers contain the entered text
                         var filteredClients = DBConnection.Context.Clients
                             .Where(c => c.C_Phone_Number.ToString().Contains( enteredText))
-                            .Select(c => new { c.C_ID, c.C_Name, c.C_Address, c.C_Phone_Number })
+                            .Select(c => new { ID = c.C_ID, Name = c.C_Name, Address = c.C_Address, Phone = c.C_Phone_Number })
                             .ToList();
 
                         // Update DataGridView with filtered results
@@ -340,5 +341,14 @@ namespace Cafffe_Sytem.D.M.M
             phone_comboBox.Items.AddRange(uniquePhoneNumbers.Select(p => p.ToString()).ToArray());
         }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -13,10 +13,10 @@ namespace Cafffe_Sytem.A.M.A
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Coffee_SystemEntities : DbContext
+    public partial class Coffee_Context2 : DbContext
     {
-        public Coffee_SystemEntities()
-            : base("name=Coffee_SystemEntities")
+        public Coffee_Context2()
+            : base("name=Coffee_Context2")
         {
         }
     

@@ -46,7 +46,7 @@ namespace Cafffe_Sytem.A.M.A
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.CashierName_label9 = new System.Windows.Forms.Label();
             this.Caffee_Appointment_label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -132,7 +132,6 @@ namespace Cafffe_Sytem.A.M.A
             this.Bill_Temp_panel2.Padding = new System.Windows.Forms.Padding(4);
             this.Bill_Temp_panel2.Size = new System.Drawing.Size(284, 630);
             this.Bill_Temp_panel2.TabIndex = 1;
-            this.Bill_Temp_panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Bill_Temp_panel2_Paint);
             // 
             // panel9
             // 
@@ -154,7 +153,7 @@ namespace Cafffe_Sytem.A.M.A
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.label9);
+            this.panel6.Controls.Add(this.CashierName_label9);
             this.panel6.Controls.Add(this.Caffee_Appointment_label10);
             this.panel6.Controls.Add(this.label11);
             this.panel6.Location = new System.Drawing.Point(4, 532);
@@ -251,17 +250,17 @@ namespace Cafffe_Sytem.A.M.A
             this.label4.TabIndex = 10;
             this.label4.Text = "Cashier Name:";
             // 
-            // label9
+            // CashierName_label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(94, 5);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Client Name";
+            this.CashierName_label9.AutoSize = true;
+            this.CashierName_label9.BackColor = System.Drawing.Color.Transparent;
+            this.CashierName_label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CashierName_label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.CashierName_label9.Location = new System.Drawing.Point(94, 5);
+            this.CashierName_label9.Name = "CashierName_label9";
+            this.CashierName_label9.Size = new System.Drawing.Size(74, 13);
+            this.CashierName_label9.TabIndex = 11;
+            this.CashierName_label9.Text = "Client Name";
             // 
             // Caffee_Appointment_label10
             // 
@@ -333,10 +332,10 @@ namespace Cafffe_Sytem.A.M.A
             // 
             this.BillNumber22_label14.AutoSize = true;
             this.BillNumber22_label14.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BillNumber22_label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillNumber22_label14.Location = new System.Drawing.Point(17, 34);
+            this.BillNumber22_label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BillNumber22_label14.Location = new System.Drawing.Point(17, 37);
             this.BillNumber22_label14.Name = "BillNumber22_label14";
-            this.BillNumber22_label14.Size = new System.Drawing.Size(51, 13);
+            this.BillNumber22_label14.Size = new System.Drawing.Size(41, 9);
             this.BillNumber22_label14.TabIndex = 38;
             this.BillNumber22_label14.Text = "Bill.No: ";
             // 
@@ -355,11 +354,11 @@ namespace Cafffe_Sytem.A.M.A
             this.Bill_DateTime_label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bill_DateTime_label15.AutoSize = true;
             this.Bill_DateTime_label15.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Bill_DateTime_label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bill_DateTime_label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Bill_DateTime_label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Bill_DateTime_label15.Location = new System.Drawing.Point(134, 34);
+            this.Bill_DateTime_label15.Location = new System.Drawing.Point(144, 37);
             this.Bill_DateTime_label15.Name = "Bill_DateTime_label15";
-            this.Bill_DateTime_label15.Size = new System.Drawing.Size(63, 13);
+            this.Bill_DateTime_label15.Size = new System.Drawing.Size(50, 9);
             this.Bill_DateTime_label15.TabIndex = 18;
             this.Bill_DateTime_label15.Text = "Date Time";
             this.Bill_DateTime_label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -545,7 +544,7 @@ namespace Cafffe_Sytem.A.M.A
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(1, 37);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(274, 16);
+            this.label8.Size = new System.Drawing.Size(273, 16);
             this.label8.TabIndex = 6;
             this.label8.Text = "______________________________________";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -643,7 +642,7 @@ namespace Cafffe_Sytem.A.M.A
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(1, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(274, 16);
+            this.label3.Size = new System.Drawing.Size(273, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "______________________________________";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -737,7 +736,7 @@ namespace Cafffe_Sytem.A.M.A
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label CashierName_label9;
         private System.Windows.Forms.Label Caffee_Appointment_label10;
         private System.Windows.Forms.Label label11;
         private Sipaa.Framework.SPanel sPanel2;

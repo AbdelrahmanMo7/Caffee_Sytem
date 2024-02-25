@@ -15,14 +15,26 @@ namespace Cafffe_Sytem.D.M.M
     public partial class MangeOffer : Form
     {
         public event EventHandler eva;
-      
-        public MangeOffer()
+        int selectedId;
+        public MangeOffer(string pagetype)
         {
             InitializeComponent();
+            if (pagetype == "Add")
+            {
+                update_btn.Visible = false;
+                add_btn.Visible = true;
+                pagetitle_labl.Text = "Add new offer";
+            }
+            else
+            {
+                update_btn.Visible = true;
+                add_btn.Visible = false;
+                pagetitle_labl.Text = "Update offer data";
+            }
         }
       public void  InitializeForUpdate(int offerOff_ID,string offerOff_Name,string offerOff_Limit,string offerOff_Start,string offerOff_End)
         {
-            ID_txt.Text = offerOff_ID.ToString();
+            selectedId= offerOff_ID;
             offname_txt.Text = offerOff_Name;
             offlimit_txt.Text =( offerOff_Limit).ToString();
             offstart_txt.Text = offerOff_Start.ToString();
@@ -31,14 +43,14 @@ namespace Cafffe_Sytem.D.M.M
         private void update_btn_Click(object sender, EventArgs e)
         {
 
-            int offerID = int.Parse(ID_txt.Text);
+           
             string offerOff_Name = offname_txt.Text;
             string offerOff_Limit = offlimit_txt.Text;
             DateTime offerOff_Start = DateTime.Parse(offstart_txt.Text);
-            TimeSpan offerOff_End = TimeSpan.Parse(offend_txt.Text);
+            DateTime offerOff_End = DateTime.Parse(offend_txt.Text);
 
             // Retrieve the Clint entity from the database
-            Offer q3 = DBConnection.Context.Offers.FirstOrDefault(c => c.Off_ID == offerID);
+            Offer q3 = DBConnection.Context.Offers.FirstOrDefault(c => c.Off_ID == selectedId);
 
             // Update the properties of the retrieved Clint entity
             if (q3 != null)
@@ -68,7 +80,7 @@ namespace Cafffe_Sytem.D.M.M
                 Off_Name = offname_txt.Text,
                 Off_Limit = int.Parse(offlimit_txt.Text),
                 Off_Start =DateTime.Parse( offstart_txt.Text),
-               // Off_End =TimeSpan.Parse( offend_txt.Text),
+                Off_End = DateTime.Parse( offend_txt.Text),
             };
             DBConnection.Context.Offers.Add(offer);
             DBConnection.Context.SaveChanges();
@@ -76,5 +88,14 @@ namespace Cafffe_Sytem.D.M.M
             eva?.Invoke(this, e);
         }
 
+        private void MangeOffer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void offstart_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

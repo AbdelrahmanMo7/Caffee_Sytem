@@ -187,6 +187,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -239,24 +240,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\DBConnection.cs" />
     <Compile Include="A.M.A\Employee.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="A.M.A\Make_Bill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="A.M.A\Make_Bill.Designer.cs">
-      <DependentUpon>Make_Bill.cs</DependentUpon>
     </Compile>
     <Compile Include="A.M.A\Offer.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="A.M.A\Period_Item.cs" />
     <Compile Include="A.M.A\Posistion.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
     <Compile Include="A.M.A\Product.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A.M.A\Report_Item.cs" />
+    <Compile Include="A.M.A\DBConnection.cs" />
+    <Compile Include="A.M.A\Make_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="A.M.A\Make_Bill.Designer.cs">
+      <DependentUpon>Make_Bill.cs</DependentUpon>
     </Compile>
     <Compile Include="A.M.A\Reports_Page.cs">
       <SubType>Form</SubType>
@@ -270,11 +273,23 @@
     <Compile Include="A.M.A\User.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="ASH\AddCategoryPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ASH\AddCategoryPage.Designer.cs">
+      <DependentUpon>AddCategoryPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ASH\AddProductPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ASH\AddProductPage.Designer.cs">
       <DependentUpon>AddProductPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ASH\CategoryPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ASH\CategoryPage.Designer.cs">
+      <DependentUpon>CategoryPage.cs</DependentUpon>
     </Compile>
     <Compile Include="ASH\ProductPage.cs">
       <SubType>Form</SubType>
@@ -287,11 +302,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\CahierForm.cs">
+    <Compile Include="D.M.M\CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\CahierForm.Designer.cs">
-      <DependentUpon>CahierForm.cs</DependentUpon>
+    <Compile Include="D.M.M\CashierForm.Designer.cs">
+      <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="D.M.M\CashierDetailsBills.cs">
       <SubType>Form</SubType>
@@ -304,6 +319,12 @@
     </Compile>
     <Compile Include="D.M.M\Clients.designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D.M.M\CrudPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="D.M.M\CrudPopUp.Designer.cs">
+      <DependentUpon>CrudPopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="D.M.M\Login.cs">
       <SubType>Form</SubType>
@@ -329,14 +350,63 @@
     <Compile Include="D.M.M\Offers.Designer.cs">
       <DependentUpon>Offers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Marina\addEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Marina\addEmployee.Designer.cs">
+      <DependentUpon>addEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Marina\Bills.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Marina\Bills.Designer.cs">
+      <DependentUpon>Bills.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Marina\Detalis Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Marina\Detalis Bill.Designer.cs">
+      <DependentUpon>Detalis Bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Marina\Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Marina\Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Marina\updateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Marina\updateEmployee.Designer.cs">
+      <DependentUpon>updateEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steven\AddNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Steven\AddNewUser.Designer.cs">
+      <DependentUpon>AddNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Steven\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Steven\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Steven\Managment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Steven\Managment.Designer.cs">
+      <DependentUpon>Managment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Steven\ReportItem2.cs" />
+    <Compile Include="Steven\UpdateUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Steven\UpdateUsers.Designer.cs">
+      <DependentUpon>UpdateUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,20 +422,29 @@
     <EmbeddedResource Include="A.M.A\Reports_Page.resx">
       <DependentUpon>Reports_Page.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ASH\AddCategoryPage.resx">
+      <DependentUpon>AddCategoryPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ASH\AddProductPage.resx">
       <DependentUpon>AddProductPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ASH\CategoryPage.resx">
+      <DependentUpon>CategoryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ASH\ProductPage.resx">
       <DependentUpon>ProductPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\CahierForm.resx">
-      <DependentUpon>CahierForm.cs</DependentUpon>
+    <EmbeddedResource Include="D.M.M\CashierForm.resx">
+      <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="D.M.M\CashierDetailsBills.resx">
       <DependentUpon>CashierDetailsBills.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="D.M.M\Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D.M.M\CrudPopUp.resx">
+      <DependentUpon>CrudPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="D.M.M\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -379,8 +458,20 @@
     <EmbeddedResource Include="D.M.M\Offers.resx">
       <DependentUpon>Offers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Marina\addEmployee.resx">
+      <DependentUpon>addEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Marina\Bills.resx">
+      <DependentUpon>Bills.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Marina\Detalis Bill.resx">
+      <DependentUpon>Detalis Bill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Marina\Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Marina\updateEmployee.resx">
+      <DependentUpon>updateEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -392,6 +483,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Steven\AddNewUser.resx">
+      <DependentUpon>AddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steven\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steven\Managment.resx">
+      <DependentUpon>Managment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steven\UpdateUsers.resx">
+      <DependentUpon>UpdateUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Templete.resx">
       <DependentUpon>Templete.cs</DependentUpon>
     </EmbeddedResource>
@@ -427,10 +530,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Marina\" />
-    <Folder Include="stiven\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Roundicons-100-Free-Solid-Home.512.png" />
   </ItemGroup>
@@ -536,6 +636,10 @@
       <LastGenOutput>Coffee_Context.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\cafe1.png" />
+    <None Include="Resources\icons8-power.gif" />
+    <None Include="Resources\icons8-power-64.png" />
+    <Content Include="Resources\icons8-users-30.png" />
+    <None Include="Resources\transparency.png" />
     <None Include="Resources\icons8-facebook-20.png" />
     <None Include="Resources\icons8-instagram-old-20.png" />
     <None Include="Resources\icons8-instagram-old-50.png" />

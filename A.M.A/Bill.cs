@@ -21,8 +21,8 @@ namespace Cafffe_Sytem.A.M.A
         }
     
         public int B_ID { get; set; }
-        public Nullable<System.DateTime> B_Date { get; set; }
-        public Nullable<System.TimeSpan> B_Time { get; set; }
+        public System.DateTime B_Date { get; set; }
+        public string B_Time { get; set; }
         public double B_Total_Amount { get; set; }
         public int B_Table_Num { get; set; }
         public Nullable<bool> B_IsDeleted_ { get; set; }
@@ -32,7 +32,6 @@ namespace Cafffe_Sytem.A.M.A
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill_has_Products> Bill_has_Products { get; set; }
-        
         public virtual Client Client { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }

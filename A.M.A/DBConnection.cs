@@ -10,14 +10,14 @@ namespace Cafffe_Sytem.A.M.A
     {
        
         DBConnection() { }
-        static Coffee_SystemEntities  context = null;
-        public static Coffee_SystemEntities Context
+        static Coffee_Context2 context = null;
+        public static Coffee_Context2 Context
         {
             get
             {
                 if (context == null)
                 {
-                    context = new Coffee_SystemEntities();
+                    context = new Coffee_Context2();
                 }
                 return context;
             }

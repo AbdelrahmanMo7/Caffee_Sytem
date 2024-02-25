@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Coffee_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Coffee_Context.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bill_has_Products">
           <Key>
             <PropertyRef Name="Bill_ID" />
@@ -19,8 +19,8 @@
             <PropertyRef Name="B_ID" />
           </Key>
           <Property Name="B_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="B_Date" Type="date" StoreGeneratedPattern="Computed" />
-          <Property Name="B_Time" Type="time" Precision="7" StoreGeneratedPattern="Computed" />
+          <Property Name="B_Date" Type="date" Nullable="false" />
+          <Property Name="B_Time" Type="nvarchar" MaxLength="30" />
           <Property Name="B_Total_Amount" Type="float" Nullable="false" />
           <Property Name="B_Table_Num" Type="int" Nullable="false" />
           <Property Name="B_IsDeleted?" Type="bit" />
@@ -53,11 +53,11 @@
           <Property Name="Emp_Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Emp_Phone_Number" Type="bigint" Nullable="false" />
           <Property Name="Emp_Age" Type="int" Nullable="false" />
-          <Property Name="Emp_Gender" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Emp_Gender" Type="bit" />
           <Property Name="Emp_Salary" Type="int" />
           <Property Name="Emp_Address" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Emp_ShiftStart" Type="time" Precision="7" />
-          <Property Name="Emp_ShiftEnd" Type="time" Precision="7" />
+          <Property Name="Emp_ShiftStart" Type="int" />
+          <Property Name="Emp_ShiftEnd" Type="int" />
           <Property Name="P_Id" Type="int" />
         </EntityType>
         <EntityType Name="Offers">
@@ -67,8 +67,8 @@
           <Property Name="Off_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Off_Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Off_Limit" Type="int" Nullable="false" />
-          <Property Name="Off_Start" Type="date" />
-          <Property Name="Off_End" Type="date" />
+          <Property Name="Off_Start" Type="date" Nullable="false" />
+          <Property Name="Off_End" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Posistions">
           <Key>
@@ -234,7 +234,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Coffee_SystemModelStoreContainer">
+        <EntityContainer Name="Coffee_ContextStoreContainer">
           <EntitySet Name="Bill_has_Products" EntityType="Self.Bill_has_Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
@@ -290,7 +290,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Coffee_SystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Coffee_Context" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Bill_has_Products">
           <Key>
             <PropertyRef Name="Bill_ID" />
@@ -307,8 +307,8 @@
             <PropertyRef Name="B_ID" />
           </Key>
           <Property Name="B_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="B_Date" Type="DateTime" annotation:StoreGeneratedPattern="Computed" Precision="0" />
-          <Property Name="B_Time" Type="Time" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="B_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="B_Time" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="B_Total_Amount" Type="Double" Nullable="false" />
           <Property Name="B_Table_Num" Type="Int32" Nullable="false" />
           <Property Name="B_IsDeleted_" Type="Boolean" />
@@ -348,11 +348,11 @@
           <Property Name="Emp_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Emp_Phone_Number" Type="Int64" Nullable="false" />
           <Property Name="Emp_Age" Type="Int32" Nullable="false" />
-          <Property Name="Emp_Gender" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Emp_Gender" Type="Boolean" />
           <Property Name="Emp_Salary" Type="Int32" />
           <Property Name="Emp_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Emp_ShiftStart" Type="Time" Precision="7" />
-          <Property Name="Emp_ShiftEnd" Type="Time" Precision="7" />
+          <Property Name="Emp_ShiftStart" Type="Int32" />
+          <Property Name="Emp_ShiftEnd" Type="Int32" />
           <Property Name="P_Id" Type="Int32" />
           <NavigationProperty Name="Posistion" Relationship="Self.FK_Employee_Position_PosID" FromRole="Employees" ToRole="Posistions" />
         </EntityType>
@@ -363,8 +363,8 @@
           <Property Name="Off_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Off_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Off_Limit" Type="Int32" Nullable="false" />
-          <Property Name="Off_Start" Type="DateTime" Precision="0" />
-          <Property Name="Off_End" Type="DateTime" Precision="0" />
+          <Property Name="Off_Start" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Off_End" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Offers_OfID" FromRole="Offers" ToRole="Category" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_Offer_OfID" FromRole="Offers" ToRole="Products" />
         </EntityType>
@@ -540,7 +540,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Coffee_SystemEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Coffee_Context2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bill_has_Products" EntityType="Self.Bill_has_Products" />
           <EntitySet Name="Bills" EntityType="Self.Bill" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
@@ -597,9 +597,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Coffee_SystemModelStoreContainer" CdmEntityContainer="Coffee_SystemEntities">
+        <EntityContainerMapping StorageEntityContainer="Coffee_ContextStoreContainer" CdmEntityContainer="Coffee_Context2">
           <EntitySetMapping Name="Bill_has_Products">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Bill_has_Products">
+            <EntityTypeMapping TypeName="Coffee_Context.Bill_has_Products">
               <MappingFragment StoreEntitySet="Bill_has_Products">
                 <ScalarProperty Name="Bill_ID" ColumnName="Bill_ID" />
                 <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
@@ -608,7 +608,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bills">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Bill">
+            <EntityTypeMapping TypeName="Coffee_Context.Bill">
               <MappingFragment StoreEntitySet="Bills">
                 <ScalarProperty Name="B_ID" ColumnName="B_ID" />
                 <ScalarProperty Name="B_Date" ColumnName="B_Date" />
@@ -623,7 +623,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Category">
+            <EntityTypeMapping TypeName="Coffee_Context.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
                 <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
@@ -632,7 +632,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Client">
+            <EntityTypeMapping TypeName="Coffee_Context.Client">
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="C_ID" ColumnName="C_ID" />
                 <ScalarProperty Name="C_Name" ColumnName="C_Name" />
@@ -642,7 +642,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Employee">
+            <EntityTypeMapping TypeName="Coffee_Context.Employee">
               <MappingFragment StoreEntitySet="Employees">
                 <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
                 <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
@@ -658,7 +658,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Offers">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Offer">
+            <EntityTypeMapping TypeName="Coffee_Context.Offer">
               <MappingFragment StoreEntitySet="Offers">
                 <ScalarProperty Name="Off_ID" ColumnName="Off_ID" />
                 <ScalarProperty Name="Off_Name" ColumnName="Off_Name" />
@@ -669,7 +669,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Posistions">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Posistion">
+            <EntityTypeMapping TypeName="Coffee_Context.Posistion">
               <MappingFragment StoreEntitySet="Posistions">
                 <ScalarProperty Name="Pos_ID" ColumnName="Pos_ID" />
                 <ScalarProperty Name="Pos_Name" ColumnName="Pos_Name" />
@@ -678,7 +678,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Product">
+            <EntityTypeMapping TypeName="Coffee_Context.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="P_ID" ColumnName="P_ID" />
                 <ScalarProperty Name="P_Name" ColumnName="P_Name" />
@@ -691,7 +691,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sys_Info">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.Sys_Info">
+            <EntityTypeMapping TypeName="Coffee_Context.Sys_Info">
               <MappingFragment StoreEntitySet="Sys_Info">
                 <ScalarProperty Name="Sys_Info_ID" ColumnName="Sys_Info_ID" />
                 <ScalarProperty Name="Coffee_Name" ColumnName="Coffee_Name" />
@@ -706,7 +706,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="Coffee_SystemModel.User">
+            <EntityTypeMapping TypeName="Coffee_Context.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="U_ID" ColumnName="U_ID" />
                 <ScalarProperty Name="U_Name" ColumnName="U_Name" />

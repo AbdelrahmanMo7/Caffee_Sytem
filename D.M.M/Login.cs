@@ -1,4 +1,5 @@
 ﻿using Cafffe_Sytem.A.M.A;
+using Cafffe_Sytem.Steven;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,12 @@ namespace Cafffe_Sytem.D.M.M
     public partial class Login : Form
     {
       
-
+        public static User Current_User { get; set; }   
         public Login()
         {
             InitializeComponent();
             passward_txt.PasswordChar = '*';
+           
         }
 
         private void exist_labl_Click(object sender, EventArgs e)
@@ -41,10 +43,11 @@ namespace Cafffe_Sytem.D.M.M
         private void login_btn_Click(object sender, EventArgs e)
         {
          
-            var use=username_txt.Text.Trim();
-            var pass= passward_txt.Text.Trim();
+            string use=username_txt.Text.ToString();
+            string pass = passward_txt.Text.ToString();
            
-            var q= DBConnection.Context.Users.Where(c => c.U_UserName ==use).Select(c => c).FirstOrDefault();
+           // var q= DBConnection.Context.Users.Where(c => c.U_UserName ==use).Select(c => c).FirstOrDefault();
+              var q= DBConnection.Context.Users.Where(u => u.U_UserName ==use).Select(u => u).FirstOrDefault();
 
             if (q != null)
             {
@@ -53,11 +56,17 @@ namespace Cafffe_Sytem.D.M.M
                 {
                     if (q.U_IsAdmin_ == true)
                     {
- CahierForm cahierForm = new CahierForm();
-                        cahierForm.Show();
+                        Current_User = q;
+                        Dashboard dashboard = new Dashboard();
+                        dashboard.Show();
+                        this.Hide();
                     }
                     else
                     {
+                        Current_User = q;
+                        Make_Bill make_Bill = new Make_Bill();  
+                        make_Bill.Show();
+                        this.Hide();
 
                     }
                     

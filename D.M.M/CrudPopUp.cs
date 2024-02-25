@@ -8,18 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cafffe_Sytem
+namespace Cafffe_Sytem.D.M.M
 {
-    public partial class Form1 : Form
+    public partial class CrudPopUp : Form
     {
-        public Form1()
+        public CrudPopUp()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+     
+       
     }
 }

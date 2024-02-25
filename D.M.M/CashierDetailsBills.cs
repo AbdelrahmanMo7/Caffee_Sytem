@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cafffe_Sytem.A.M.A;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,53 @@ namespace Cafffe_Sytem.D.M.M
 {
     public partial class CashierDetailsBills : Form
     {
-        public CashierDetailsBills()
+
+        List<Bill> bills = new List<Bill>();
+        public CashierDetailsBills(List<Bill> bills)
         {
             InitializeComponent();
+            this.bills=bills;
+            dataGridView1.DataSource = bills.Select( bill=> new
+            {
+                ID = bill.B_ID,
+                Time = bill.B_Time,
+                Date = bill.B_Date,
+                Total = bill.B_Total_Amount,
+                TableNumber = bill.B_Table_Num,
+                Cashier = bill.User.U_Name,
+                Client = bill.Client.C_Name,
+                // Include other bill details as needed
+            }).ToList() ;
 
-            
-    }
+        }
+    
 
-        private void Back_btn_Click(object sender, EventArgs e)
+      
+        private void datetimepicker_filter_selected(object sender, EventArgs e)
         {
-            this.Close();
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+
+            // Filter the rows based on the selected date
+           
+
+            // Update the DataGridView with the filtered data
+            dataGridView1.DataSource = bills.Where(bill=>bill.B_Date==selectedDate).Select(bill => new
+            {
+                ID = bill.B_ID,
+                Time = bill.B_Time,
+                Date = bill.B_Date,
+                Total = bill.B_Total_Amount,
+                TableNumber = bill.B_Table_Num,
+                Cashier = bill.User.U_Name,
+                Client = bill.Client.C_Name,
+                // Include other bill details as needed
+            }).ToList();
+            ;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
