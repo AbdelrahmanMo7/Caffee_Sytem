@@ -206,271 +206,266 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A.M.A\Bill.cs">
+    <Compile Include="Models\Bill.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Bill_has_Products.cs">
+    <Compile Include="Models\Bill_has_Products.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\bill_list_item.cs" />
-    <Compile Include="A.M.A\Bill_Templete.cs">
+    <Compile Include="CustomModels\bill_list_item.cs" />
+    <Compile Include="Pages\Bill_Templete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="A.M.A\Bill_Templete.Designer.cs">
+    <Compile Include="Pages\Bill_Templete.Designer.cs">
       <DependentUpon>Bill_Templete.cs</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Category.cs">
+    <Compile Include="Models\Category.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Client.cs">
+    <Compile Include="Models\Client.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Coffee_Context.Context.cs">
+    <Compile Include="Models\Coffee_Context.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_Context.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Coffee_Context.cs">
+    <Compile Include="Models\Coffee_Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Coffee_Context.Designer.cs">
+    <Compile Include="Models\Coffee_Context.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Employee.cs">
+    <Compile Include="Models\Employee.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Offer.cs">
+    <Compile Include="Models\Offer.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Period_Item.cs" />
-    <Compile Include="A.M.A\Posistion.cs">
+    <Compile Include="CustomModels\Period_Item.cs" />
+    <Compile Include="Models\Posistion.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Product.cs">
+    <Compile Include="Models\Product.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Report_Item.cs" />
-    <Compile Include="A.M.A\DBConnection.cs" />
-    <Compile Include="A.M.A\Make_Bill.cs">
+    <Compile Include="CustomModels\Report_Item.cs" />
+    <Compile Include="CustomModels\DBConnection.cs" />
+    <Compile Include="Pages\Make_Bill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="A.M.A\Make_Bill.Designer.cs">
+    <Compile Include="Pages\Make_Bill.Designer.cs">
       <DependentUpon>Make_Bill.cs</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Reports_Page.cs">
+    <Compile Include="Pages\Reports_Page.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="A.M.A\Reports_Page.Designer.cs">
+    <Compile Include="Pages\Reports_Page.Designer.cs">
       <DependentUpon>Reports_Page.cs</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\Sys_Info.cs">
+    <Compile Include="Models\Sys_Info.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="A.M.A\User.cs">
+    <Compile Include="Models\User.cs">
       <DependentUpon>Coffee_Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ASH\AddCategoryPage.cs">
+    <Compile Include="Pages\SacondryPages\AddCategoryPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ASH\AddCategoryPage.Designer.cs">
+    <Compile Include="Pages\SacondryPages\AddCategoryPage.Designer.cs">
       <DependentUpon>AddCategoryPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ASH\AddProductPage.cs">
+    <Compile Include="Pages\SacondryPages\AddProductPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ASH\AddProductPage.Designer.cs">
+    <Compile Include="Pages\SacondryPages\AddProductPage.Designer.cs">
       <DependentUpon>AddProductPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ASH\CategoryPage.cs">
+    <Compile Include="Pages\CategoryPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ASH\CategoryPage.Designer.cs">
+    <Compile Include="Pages\CategoryPage.Designer.cs">
       <DependentUpon>CategoryPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ASH\ProductPage.cs">
+    <Compile Include="Pages\ProductPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ASH\ProductPage.Designer.cs">
+    <Compile Include="Pages\ProductPage.Designer.cs">
       <DependentUpon>ProductPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Coffee_SystemDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="D.M.M\CashierForm.cs">
+    <Compile Include="Pages\CashierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\CashierForm.Designer.cs">
+    <Compile Include="Pages\CashierForm.Designer.cs">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\CashierDetailsBills.cs">
+    <Compile Include="Pages\SacondryPages\CashierDetailsBills.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\CashierDetailsBills.Designer.cs">
+    <Compile Include="Pages\SacondryPages\CashierDetailsBills.Designer.cs">
       <DependentUpon>CashierDetailsBills.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\Clients.cs">
+    <Compile Include="Pages\Clients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\Clients.designer.cs">
+    <Compile Include="Pages\Clients.designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\CrudPopUp.cs">
+    <Compile Include="Pages\SacondryPages\CrudPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\CrudPopUp.Designer.cs">
+    <Compile Include="Pages\SacondryPages\CrudPopUp.Designer.cs">
       <DependentUpon>CrudPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\Login.cs">
+    <Compile Include="Pages\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\Login.Designer.cs">
+    <Compile Include="Pages\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\MangeClients.cs">
+    <Compile Include="Pages\SacondryPages\MangeClients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\MangeClients.designer.cs">
+    <Compile Include="Pages\SacondryPages\MangeClients.designer.cs">
       <DependentUpon>MangeClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\MangeOffer.cs">
+    <Compile Include="Pages\SacondryPages\MangeOffer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\MangeOffer.Designer.cs">
+    <Compile Include="Pages\SacondryPages\MangeOffer.Designer.cs">
       <DependentUpon>MangeOffer.cs</DependentUpon>
     </Compile>
-    <Compile Include="D.M.M\Offers.cs">
+    <Compile Include="Pages\Offers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D.M.M\Offers.Designer.cs">
+    <Compile Include="Pages\Offers.Designer.cs">
       <DependentUpon>Offers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Marina\addEmployee.cs">
+    <Compile Include="Pages\SacondryPages\addEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Marina\addEmployee.Designer.cs">
+    <Compile Include="Pages\SacondryPages\addEmployee.Designer.cs">
       <DependentUpon>addEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Marina\Bills.cs">
+    <Compile Include="Pages\Bills.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Marina\Bills.Designer.cs">
+    <Compile Include="Pages\Bills.Designer.cs">
       <DependentUpon>Bills.cs</DependentUpon>
     </Compile>
-    <Compile Include="Marina\Detalis Bill.cs">
+    <Compile Include="Pages\SacondryPages\Detalis Bill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Marina\Detalis Bill.Designer.cs">
+    <Compile Include="Pages\SacondryPages\Detalis Bill.Designer.cs">
       <DependentUpon>Detalis Bill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Marina\Employees.cs">
+    <Compile Include="Pages\Employees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Marina\Employees.Designer.cs">
+    <Compile Include="Pages\Employees.Designer.cs">
       <DependentUpon>Employees.cs</DependentUpon>
     </Compile>
-    <Compile Include="Marina\updateEmployee.cs">
+    <Compile Include="Pages\SacondryPages\updateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Marina\updateEmployee.Designer.cs">
+    <Compile Include="Pages\SacondryPages\updateEmployee.Designer.cs">
       <DependentUpon>updateEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Steven\AddNewUser.cs">
+    <Compile Include="Pages\SacondryPages\AddNewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Steven\AddNewUser.Designer.cs">
+    <Compile Include="Pages\SacondryPages\AddNewUser.Designer.cs">
       <DependentUpon>AddNewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Steven\Dashboard.cs">
+    <Compile Include="Pages\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Steven\Dashboard.Designer.cs">
+    <Compile Include="Pages\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Steven\Managment.cs">
+    <Compile Include="Pages\Managment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Steven\Managment.Designer.cs">
+    <Compile Include="Pages\Managment.Designer.cs">
       <DependentUpon>Managment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Steven\ReportItem2.cs" />
-    <Compile Include="Steven\UpdateUsers.cs">
+    <Compile Include="CustomModels\ReportItem2.cs" />
+    <Compile Include="Pages\SacondryPages\UpdateUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Steven\UpdateUsers.Designer.cs">
+    <Compile Include="Pages\SacondryPages\UpdateUsers.Designer.cs">
       <DependentUpon>UpdateUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templete.cs">
+    <Compile Include="Pages\SacondryPages\Templete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Templete.Designer.cs">
+    <Compile Include="Pages\SacondryPages\Templete.Designer.cs">
       <DependentUpon>Templete.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="A.M.A\Bill_Templete.resx">
+    <EmbeddedResource Include="Pages\Bill_Templete.resx">
       <DependentUpon>Bill_Templete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="A.M.A\Make_Bill.resx">
+    <EmbeddedResource Include="Pages\Make_Bill.resx">
       <DependentUpon>Make_Bill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="A.M.A\Reports_Page.resx">
+    <EmbeddedResource Include="Pages\Reports_Page.resx">
       <DependentUpon>Reports_Page.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ASH\AddCategoryPage.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\AddCategoryPage.resx">
       <DependentUpon>AddCategoryPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ASH\AddProductPage.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\AddProductPage.resx">
       <DependentUpon>AddProductPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ASH\CategoryPage.resx">
+    <EmbeddedResource Include="Pages\CategoryPage.resx">
       <DependentUpon>CategoryPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ASH\ProductPage.resx">
+    <EmbeddedResource Include="Pages\ProductPage.resx">
       <DependentUpon>ProductPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\CashierForm.resx">
+    <EmbeddedResource Include="Pages\CashierForm.resx">
       <DependentUpon>CashierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\CashierDetailsBills.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\CashierDetailsBills.resx">
       <DependentUpon>CashierDetailsBills.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\Clients.resx">
+    <EmbeddedResource Include="Pages\Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\CrudPopUp.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\CrudPopUp.resx">
       <DependentUpon>CrudPopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\Login.resx">
+    <EmbeddedResource Include="Pages\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\MangeClients.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\MangeClients.resx">
       <DependentUpon>MangeClients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\MangeOffer.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\MangeOffer.resx">
       <DependentUpon>MangeOffer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D.M.M\Offers.resx">
+    <EmbeddedResource Include="Pages\Offers.resx">
       <DependentUpon>Offers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Marina\addEmployee.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\addEmployee.resx">
       <DependentUpon>addEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Marina\Bills.resx">
+    <EmbeddedResource Include="Pages\Bills.resx">
       <DependentUpon>Bills.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Marina\Detalis Bill.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\Detalis Bill.resx">
       <DependentUpon>Detalis Bill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Marina\Employees.resx">
+    <EmbeddedResource Include="Pages\Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Marina\updateEmployee.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\updateEmployee.resx">
       <DependentUpon>updateEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -483,38 +478,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Steven\AddNewUser.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\AddNewUser.resx">
       <DependentUpon>AddNewUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Steven\Dashboard.resx">
+    <EmbeddedResource Include="Pages\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Steven\Managment.resx">
+    <EmbeddedResource Include="Pages\Managment.resx">
       <DependentUpon>Managment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Steven\UpdateUsers.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\UpdateUsers.resx">
       <DependentUpon>UpdateUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Templete.resx">
+    <EmbeddedResource Include="Pages\SacondryPages\Templete.resx">
       <DependentUpon>Templete.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="A.M.A\Coffee_Context.edmx">
+    <EntityDeploy Include="Models\Coffee_Context.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Coffee_Context.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="A.M.A\Coffee_Context.edmx.diagram">
+    <None Include="Models\Coffee_Context.edmx.diagram">
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
-    </None>
-    <None Include="Coffee_SystemDataSet.xsc">
-      <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Coffee_SystemDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Coffee_SystemDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Coffee_SystemDataSet.xss">
-      <DependentUpon>Coffee_SystemDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -625,12 +609,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="A.M.A\Coffee_Context.Context.tt">
+    <Content Include="Models\Coffee_Context.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
       <LastGenOutput>Coffee_Context.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="A.M.A\Coffee_Context.tt">
+    <Content Include="Models\Coffee_Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Coffee_Context.edmx</DependentUpon>
       <LastGenOutput>Coffee_Context.cs</LastGenOutput>
