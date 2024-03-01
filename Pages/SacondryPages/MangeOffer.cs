@@ -19,7 +19,10 @@ namespace Cafffe_Sytem.Pages.SacondryPages
         int selectedId;
         public MangeOffer(string pagetype)
         {
+           
             InitializeComponent();
+            off_End_dateTimePicker2.CustomFormat = " dd - MM - yyyy";
+            off_Start_dateTimePicker1.CustomFormat = " dd - MM - yyyy";
             if (pagetype == "Add")
             {
                 update_btn.Visible = false;
@@ -33,22 +36,23 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 pagetitle_labl.Text = "Update offer data";
             }
         }
-      public void  InitializeForUpdate(int offerOff_ID,string offerOff_Name,string offerOff_Limit,string offerOff_Start,string offerOff_End)
+      public void  InitializeForUpdate(int offerOff_ID,string offerOff_Name,int offerOff_Limit,DateTime offerOff_Start, DateTime offerOff_End)
         {
             selectedId= offerOff_ID;
             offname_txt.Text = offerOff_Name;
-            offlimit_txt.Text =( offerOff_Limit).ToString();
-            offstart_txt.Text = offerOff_Start.ToString();
-            offend_txt.Text = offerOff_End.ToString();
+            Limit_numericUpDown1.Value =offerOff_Limit;
+            off_Start_dateTimePicker1.Value =offerOff_Start;
+            off_End_dateTimePicker2.Value =offerOff_End;
+            
         }
         private void update_btn_Click(object sender, EventArgs e)
         {
 
            
             string offerOff_Name = offname_txt.Text;
-            string offerOff_Limit = offlimit_txt.Text;
-            DateTime offerOff_Start = DateTime.Parse(offstart_txt.Text);
-            DateTime offerOff_End = DateTime.Parse(offend_txt.Text);
+            int offerOff_Limit =(int) Limit_numericUpDown1.Value;
+            DateTime offerOff_Start = off_Start_dateTimePicker1.Value;
+            DateTime offerOff_End = off_End_dateTimePicker2.Value;
 
             // Retrieve the Clint entity from the database
             Offer q3 = DBConnection.Context.Offers.FirstOrDefault(c => c.Off_ID == selectedId);
@@ -57,9 +61,9 @@ namespace Cafffe_Sytem.Pages.SacondryPages
             if (q3 != null)
             {
                 q3.Off_Name = offerOff_Name;
-                q3.Off_Limit = int.Parse( offerOff_Limit);
+                q3.Off_Limit = offerOff_Limit;
                 q3.Off_Start = offerOff_Start;
-               // q3.Off_End = offerOff_End;
+                q3.Off_End = offerOff_End;
 
                 // Save changes to the database
                 DBConnection.Context.Entry(q3).State = EntityState.Detached;
@@ -74,14 +78,20 @@ namespace Cafffe_Sytem.Pages.SacondryPages
         private void add_btn_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrEmpty(offname_txt.Text))
+            {
+                MessageBox.Show("Please, Enter name for the Offer !!!");
+                return;
+            }
 
+           
 
             Offer offer = new Offer()
             {
                 Off_Name = offname_txt.Text,
-                Off_Limit = int.Parse(offlimit_txt.Text),
-                Off_Start =DateTime.Parse( offstart_txt.Text),
-                Off_End = DateTime.Parse( offend_txt.Text),
+                Off_Limit = (int)Limit_numericUpDown1.Value,
+                Off_Start = off_Start_dateTimePicker1.Value,
+                Off_End = off_End_dateTimePicker2.Value,
             };
             DBConnection.Context.Offers.Add(offer);
             DBConnection.Context.SaveChanges();

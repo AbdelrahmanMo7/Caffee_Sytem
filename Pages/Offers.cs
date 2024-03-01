@@ -39,12 +39,12 @@ namespace Cafffe_Sytem.Pages
 
             // Get the search keyword from the search box
             string keyword = searchvalue_txt.Text.Trim().ToLower();
-
+            int searchid=-1;
             // Ensure the keyword is not empty
             if (!string.IsNullOrWhiteSpace(keyword))
             {
                 bool matchFound = false;
-
+               
                 // Iterate through each row in the DataGridView
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
@@ -54,6 +54,7 @@ namespace Cafffe_Sytem.Pages
                         // Check if the cell value contains the keyword
                         if (cell.Value != null && cell.Value.ToString().ToLower().Contains(keyword))
                         {
+                            searchid = (int)row.Cells["ID"].Value; 
                             // Highlight the cell
                             cell.Style.BackColor = Color.Yellow;
                             matchFound = true; // Set flag to indicate at least one match found
@@ -66,11 +67,19 @@ namespace Cafffe_Sytem.Pages
                     // If no matches were found, show a message to the user
                     MessageBox.Show("No matching records found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else
+                {
+                    dataGridView1.DataSource=null;
+                    dataGridView1.DataSource=DBConnection.Context.Offers.Where(c=>c.Off_ID== searchid).Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End }).ToList();
+
+                }
             }
             else
             {
                 // Display a message to the user if the search keyword is empty
                 MessageBox.Show("Please enter a search keyword.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = DBConnection.Context.Offers.Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End }).ToList();
             }
         }
         public void refresh(object obj,EventArgs e)
@@ -85,11 +94,11 @@ namespace Cafffe_Sytem.Pages
             {
                 // Get the data from the selected row
                 var selectedRow = dataGridView1.SelectedRows[0];
-                var offerOff_ID = (int)selectedRow.Cells["Off_ID"].Value;
-                var offerOff_Name = selectedRow.Cells["Off_Name"].Value.ToString();
-                var offerOff_Limit = selectedRow.Cells["Off_Limit"].Value.ToString();
-                var offerOff_Start = selectedRow.Cells["Off_Start"].Value.ToString();
-                var offerOff_End = selectedRow.Cells["Off_End"].Value.ToString();
+                var offerOff_ID = (int)selectedRow.Cells["ID"].Value;
+                var offerOff_Name = selectedRow.Cells["Name"].Value.ToString();
+                int offerOff_Limit =int.Parse( selectedRow.Cells["Limit"].Value.ToString());
+                DateTime offerOff_Start = Convert.ToDateTime(selectedRow.Cells["Off_Start"].Value.ToString());
+                DateTime offerOff_End = Convert.ToDateTime(selectedRow.Cells["Off_End"].Value.ToString());
 
                 // Create an instance of the MangeClients form
 
@@ -126,7 +135,7 @@ namespace Cafffe_Sytem.Pages
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
                     // Get the ID of the selected Clint
-                    int selectedofferID = (int)dataGridView1.SelectedRows[0].Cells["Off_ID"].Value;
+                    int selectedofferID = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
 
                     // Retrieve the corresponding Clint entity from the database
                     var selectedoffer = DBConnection.Context.Offers.FirstOrDefault(c => c.Off_ID == selectedofferID);
@@ -157,7 +166,7 @@ namespace Cafffe_Sytem.Pages
 
         private void init()
         {
-            var x = DBConnection.Context.Offers.Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start,c.Off_End }).ToList();
+            var x = DBConnection.Context.Offers.Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End }).ToList();
             dataGridView1.DataSource = x;
             PopulateComboBoxofferend();
             PopulateComboBoxphone();
@@ -178,7 +187,7 @@ namespace Cafffe_Sytem.Pages
                         // Filter offers based on the selected shift start date
                         var filteredOffers = DBConnection.Context.Offers
                             .Where(c => DbFunctions.TruncateTime(c.Off_Start) == selectedShiftStartDate.Date)
-                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End })
                             .ToList();
 
                         // Update DataGridView with filtered results
@@ -215,7 +224,7 @@ namespace Cafffe_Sytem.Pages
                         // Filter offers based on the entered date
                         var filteredOffers = DBConnection.Context.Offers
                             .Where(c => DbFunctions.TruncateTime(c.Off_Start) == selectedDate)
-                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End })
                             .ToList();
 
                         // Update DataGridView with filtered results
@@ -226,7 +235,7 @@ namespace Cafffe_Sytem.Pages
                         // Filter offers based on the entered string
                         var filteredOffers = DBConnection.Context.Offers
                             .Where(c => c.Off_Start.ToString().Contains(enteredText))
-                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End })
                             .ToList();
 
                         // Update DataGridView with filtered results
@@ -262,13 +271,6 @@ namespace Cafffe_Sytem.Pages
 
 
 
-
-
-
-
-
-
-
         private void Offer_end_filter_comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -284,7 +286,7 @@ namespace Cafffe_Sytem.Pages
                         // Filter offers based on the selected shift start date
                         var filteredOffers = DBConnection.Context.Offers
                             .Where(c => DbFunctions.TruncateTime(c.Off_End) == selectedShiftStartDate.Date)
-                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End })
                             .ToList();
 
                         // Update DataGridView with filtered results
@@ -321,7 +323,7 @@ namespace Cafffe_Sytem.Pages
                         // Filter offers based on the entered date
                         var filteredOffers = DBConnection.Context.Offers
                             .Where(c => DbFunctions.TruncateTime(c.Off_End) == selectedDate)
-                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End })
                             .ToList();
 
                         // Update DataGridView with filtered results
@@ -332,7 +334,7 @@ namespace Cafffe_Sytem.Pages
                         // Filter offers based on the entered string
                         var filteredOffers = DBConnection.Context.Offers
                             .Where(c => c.Off_End.ToString().Contains(enteredText))
-                            .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
+                            .Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End })
                             .ToList();
 
                         // Update DataGridView with filtered results
@@ -366,50 +368,12 @@ namespace Cafffe_Sytem.Pages
             Offer_end_filter_comboBox1.Items.AddRange(uniquePhoneNumbers.Select(p => p.ToString()).ToArray());
         }
 
-
-
-
-
-
-
-
-
-
-
-       
-       
-        // Event handler for ComboBox's TextChanged event
-        //private void combobox_textchangename(object sender, EventArgs e)
-        //{
-        //    string enteredText = name_comboBox1.Text.Trim().ToLower(); // Get the entered text and convert to lowercase
-
-        //    try
-        //    {
-        //        if (!string.IsNullOrEmpty(enteredText))
-        //        {
-        //            // Filter clients whose names contain the entered text
-        //            var filteredClients = DBConnection.Context.Offers
-        //                .Where(c => c.Off_Name.ToLower().Contains(enteredText))
-        //                .Select(c => new { c.Off_ID, c.Off_Name, c.Off_Limit, c.Off_Start, c.Off_End })
-        //                .ToList();
-
-        //            // Update DataGridView with filtered results
-        //            dataGridView1.DataSource = filteredClients;
-        //        }
-        //        else
-        //        {
-        //            // If no text is entered, display all clients
-        //            init();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("An error occurred while filtering offer: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-     
-
-
+        private void searchvalue_txt_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(searchvalue_txt.Text))
+            {
+                init();
+            }
+        }
     }
 }

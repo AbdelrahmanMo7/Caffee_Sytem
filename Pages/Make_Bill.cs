@@ -505,8 +505,8 @@ namespace Cafffe_Sytem.Pages
              
             int selectedBillID = int.Parse(Show_Bills_dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString());
             var selectedBill = DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selectedBillID);
-            Detalis_Bill detailsForm = new Detalis_Bill(selectedBill.Client_Id);
-            detailsForm.SetBillDetails(selectedBill.B_ID, selectedBill.B_Date.ToString(), selectedBill.B_Table_Num, (float)selectedBill.B_Total_Amount, selectedBill.User.U_Name);
+            Detalis_Bill detailsForm = new Detalis_Bill(selectedBill);
+            
             detailsForm.Show();
         }
 

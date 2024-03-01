@@ -95,8 +95,7 @@ namespace Cafffe_Sytem.Pages
                 if (userIdCellValue != null && int.TryParse(userIdCellValue.ToString(), out int selectedUserId))
                 {
                    
-                        try
-                        {
+                       
                             // Query bills for the selected user
                             var userBillsDetails =DBConnection.Context.Bills
                                                    .Where (bill=>bill.User.U_ID == selectedUserId && bill.B_IsDeleted_==false).Select(bill => bill).ToList();
@@ -114,11 +113,7 @@ namespace Cafffe_Sytem.Pages
                           
 
 
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show($"Error retrieving bills for user: {ex.Message}");
-                        }
+                      
                     
                 }
                 else

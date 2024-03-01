@@ -28,7 +28,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 Total = bill.B_Total_Amount,
                 TableNumber = bill.B_Table_Num,
                 Cashier = bill.User.U_Name,
-                Client = bill.Client.C_Name,
+                Client = bill.Client?.C_Name,
                 // Include other bill details as needed
             }).ToList() ;
 

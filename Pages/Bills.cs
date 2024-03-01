@@ -17,11 +17,7 @@ namespace Cafffe_Sytem.Pages
     public partial class Bills : Templete
     {
 
-       
-       
         public int selected;
-
-
       
         public Bills()
         {
@@ -30,10 +26,8 @@ namespace Cafffe_Sytem.Pages
             BindDataGridView();
 
 
-            var bill_list = DBConnection.Context.Bills.Select(b => b.B_ID).GroupBy(d => d).ToList();
            
-            var bil = DBConnection.Context.Bills.Select(C => C).ToList();
-            dataGridView1.DataSource = bil;
+            
             Is_ExsitedcomboBox2.Items.Add( "Existed");
             Is_ExsitedcomboBox2.Items.Add(  "Deleted" );
             Is_ExsitedcomboBox2.SelectedItem= "Existed";
@@ -44,27 +38,12 @@ namespace Cafffe_Sytem.Pages
             getbills();
         }
 
-        private void init()
-        {
-            var e = DBConnection.Context.Bills.Select(b => new { b.B_ID, b.B_Date, b.B_Time, b.B_Total_Amount, b.B_Table_Num, b.B_IsDeleted_, b.Creater_Id, b.Client_Id, b.Remover_Id }).ToString();
-            dataGridView1.DataSource = e;
-        }
+       
 
 
         private void BindDataGridView()
         {
-            if (DBConnection.Context.Bills != null)
-            {
-                var bil = DBConnection.Context.Bills
-                    .Select(b => new { b.B_ID, b.B_Date, b.B_Time, b.B_Total_Amount, b.B_Table_Num, b.B_IsDeleted_, b.Creater_Id, b.Client_Id, b.Remover_Id })
-                    .ToList();
-
-                dataGridView1.DataSource = bil;
-            }
-            else
-            {
-               Console.WriteLine ("error");
-            }
+            getbills();
         }
 
 
@@ -111,9 +90,9 @@ namespace Cafffe_Sytem.Pages
         private void buttonsearch_Click(object sender, EventArgs e)
         {
 
-            if (Bill_idtextBox1.Text != null)
+            if (!string.IsNullOrWhiteSpace( Bill_idtextBox1.Text))
             {
-                int selectedBillID = Convert.ToInt32(Bill_idtextBox1.Text);
+                int selectedBillID = int.Parse(Bill_idtextBox1.Text.ToString());
 
 
                 var selectedBill = DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selectedBillID);
@@ -124,7 +103,7 @@ namespace Cafffe_Sytem.Pages
 
                     if (Is_ExsitedcomboBox2.SelectedItem == "Existed")
                     {
-                        var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == false && b.B_ID == selectedBillID)
+                        var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == false && b.B_ID == selectedBillID).ToList()
                              .Select(b => new
                              {
                                  No = b.B_ID,
@@ -133,7 +112,7 @@ namespace Cafffe_Sytem.Pages
                                  Total = b.B_Total_Amount,
                                  Table = b.B_Table_Num,
                                  Cashier = b.User.U_Name,
-                                 Client = b.Client.C_Name
+                                 Client = b.Client?.C_Name
                              }).ToList();
                         dataGridView1.DataSource = query;
 
@@ -141,7 +120,7 @@ namespace Cafffe_Sytem.Pages
                     }
                     else
                     {
-                        var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == true && b.B_ID == selectedBillID)
+                        var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == true && b.B_ID == selectedBillID).ToList()
                              .Select(b => new
                              {
                                  No = b.B_ID,
@@ -150,23 +129,26 @@ namespace Cafffe_Sytem.Pages
                                  Total = b.B_Total_Amount,
                                  Table = b.B_Table_Num,
                                  Cashier = b.User.U_Name,
-                                 Remover = b.User1.U_Name,
-                                 Client = b.Client.C_Name
+                                 Remover = b.User1?.U_Name,
+                                 Client = b.Client?.C_Name
                              }).ToList();
                         dataGridView1.DataSource = query;
 
                     }
 
-                    LoadData();
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Selected bill not found .");
+                    MessageBox.Show("Please enter valied bill No .");
+                    LoadData();
                 }
             }
             else
             {
-                MessageBox.Show("Please enter valied bill No .");
+                MessageBox.Show("Selected bill not found in this List.");
+               
+                LoadData();
             }
 
         }
@@ -192,6 +174,7 @@ namespace Cafffe_Sytem.Pages
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if(e.RowIndex>-1)
             selected = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
           
         }
@@ -200,7 +183,7 @@ namespace Cafffe_Sytem.Pages
         {
             if (Is_ExsitedcomboBox2.SelectedItem == "Existed")
             {
-                var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == false)
+                var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == false).ToList()
                      .Select(b => new
                      {
                          No = b.B_ID,
@@ -209,7 +192,7 @@ namespace Cafffe_Sytem.Pages
                          Total = b.B_Total_Amount,
                          Table = b.B_Table_Num,
                          Cashier = b.User.U_Name,
-                         Client = b.Client.C_Name
+                         Client = b.Client?.C_Name
                      }).ToList();
                 dataGridView1.DataSource = query;
 
@@ -217,7 +200,7 @@ namespace Cafffe_Sytem.Pages
             }
             else
             {
-                var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == true)
+                var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == true).ToList()
                      .Select(b => new
                      {
                          No = b.B_ID,
@@ -226,8 +209,8 @@ namespace Cafffe_Sytem.Pages
                          Total = b.B_Total_Amount,
                          Table = b.B_Table_Num,
                          Cashier = b.User.U_Name,
-                         Remover = b.User1.U_Name,
-                         Client = b.Client.C_Name
+                         Remover = b.User1?.U_Name,
+                         Client = b.Client?.C_Name
                      }).ToList();
                 dataGridView1.DataSource = query;
 
@@ -243,8 +226,8 @@ namespace Cafffe_Sytem.Pages
 
                 if (selectedBill != null)
                 {
-                    Detalis_Bill detailsForm = new Detalis_Bill(selectedBill.Client_Id);
-                    detailsForm.SetBillDetails(selectedBill.B_ID, selectedBill.B_Date.ToString(), selectedBill.B_Table_Num, (float)selectedBill.B_Total_Amount, selectedBill.User.U_Name);
+                    Detalis_Bill detailsForm = new Detalis_Bill(selectedBill);
+                   
                     detailsForm.Show();
                 }
                 else
@@ -280,10 +263,9 @@ namespace Cafffe_Sytem.Pages
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int selectedBillID = selected;
-            var selectedBill = DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selectedBillID);
-            Detalis_Bill detailsForm = new Detalis_Bill(selectedBill.Client_Id);
-            detailsForm.SetBillDetails(selectedBill.B_ID, selectedBill.B_Date.ToString(), selectedBill.B_Table_Num, (float)selectedBill.B_Total_Amount, selectedBill.User.U_Name);
+           
+            Detalis_Bill detailsForm = new Detalis_Bill(DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selected));
+          
             detailsForm.Show();
         }
     }

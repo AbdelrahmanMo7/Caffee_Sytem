@@ -60,8 +60,6 @@
             // 
             // panel2
             // 
-            this.panel2.AutoSize = false;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Size = new System.Drawing.Size(1155, 98);
             // 
             // panel3
@@ -149,6 +147,7 @@
             this.DeleteBtn.TabIndex = 29;
             this.DeleteBtn.Text = "Delete Category";
             this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click_1);
             // 
             // UpdateBtn
             // 
@@ -163,6 +162,7 @@
             this.UpdateBtn.TabIndex = 28;
             this.UpdateBtn.Text = "Update Category";
             this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // AddBtn
             // 
@@ -176,6 +176,7 @@
             this.AddBtn.TabIndex = 30;
             this.AddBtn.Text = "Add Category";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // groupBox2
             // 
@@ -215,6 +216,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(200, 33);
             this.comboBox1.TabIndex = 39;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // Groupbox1
             // 
@@ -239,6 +241,7 @@
             this.SearchBtn.TabIndex = 37;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = false;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // SearchTxt
             // 

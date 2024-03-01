@@ -49,6 +49,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogOut_pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,7 +69,6 @@
             // 
             // panel2
             // 
-            this.panel2.AutoSize = false;
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Size = new System.Drawing.Size(1155, 99);
             // 
@@ -336,6 +336,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogOut_pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

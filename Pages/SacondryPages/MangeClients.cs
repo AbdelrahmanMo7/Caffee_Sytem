@@ -56,12 +56,9 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         private void update_btn_Click(object sender, EventArgs e)
         {
-            string clintName = name_txt.Text;
-            string clintAddress = address_txt.Text;
-            long clintPhone = long.Parse(phone_txt.Text);
-            var Item = DBConnection.Context.Clients.Where(c => c.C_Phone_Number == clintPhone).FirstOrDefault();
+            
 
-            if (string.IsNullOrWhiteSpace(clintName))
+            if (string.IsNullOrWhiteSpace(name_txt.Text))
             {
                 MessageBox.Show("Please enter client name.");
                 return;
@@ -76,7 +73,11 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 MessageBox.Show("Please enter Valiad numbers more than 5 numbers .");
                 return;
             }
-           
+            string clintName = name_txt.Text;
+            string clintAddress = address_txt.Text;
+            long clintPhone = long.Parse(phone_txt.Text);
+            var Item = DBConnection.Context.Clients.Where(c => c.C_Phone_Number == clintPhone).FirstOrDefault();
+
             if (Item != null&&Item.C_ID!= selectedId)
             {
                 MessageBox.Show($"This Phone number is already existed for client {Item.C_Name}. please change this number");

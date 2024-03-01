@@ -54,9 +54,9 @@ namespace Cafffe_Sytem.Pages
             int salary = DBConnection.Context.Employees.Sum(e => e.Emp_Salary).Value;
             int sal_Pariod = ReportPariod_List[Acounting_Pariods_comboBox2.SelectedIndex].Value;
             
-            salary = salary * (sal_Pariod/28);
+            int  new_salary = (salary * sal_Pariod)/28;
            
-            Salaries_Txt.Text = salary.ToString();
+            Salaries_Txt.Text = new_salary.ToString();
 
             if (Material_Txt.Text == null || Material_Txt.Text.Length == 0)
                 Material_Txt.Text="0";
@@ -66,7 +66,7 @@ namespace Cafffe_Sytem.Pages
                 Subscriptions_Txt.Text = "0";
             if (PettyCash_Txt.Text == null || PettyCash_Txt.Text.Length == 0)
                 PettyCash_Txt.Text = "0";
-            TotalExpenses_Txt.Text =( (salary+ int.Parse(Material_Txt.Text.ToString())+ int.Parse(Maintenance_Txt.Text.ToString())+ int.Parse(Subscriptions_Txt.Text.ToString())+ int.Parse(PettyCash_Txt.Text.ToString())).ToString());
+            TotalExpenses_Txt.Text =( (new_salary + int.Parse(Material_Txt.Text.ToString())+ int.Parse(Maintenance_Txt.Text.ToString())+ int.Parse(Subscriptions_Txt.Text.ToString())+ int.Parse(PettyCash_Txt.Text.ToString())).ToString());
 
         }
 

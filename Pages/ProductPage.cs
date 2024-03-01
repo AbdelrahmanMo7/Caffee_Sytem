@@ -292,6 +292,7 @@ namespace Cafffe_Sytem.Pages
             }
             else
             {
+                LoadData();
                 // If no search keyword is provided, load all data
                 MessageBox.Show("Please enter the name of product to search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

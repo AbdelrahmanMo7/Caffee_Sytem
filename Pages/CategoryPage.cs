@@ -119,33 +119,6 @@ namespace Cafffe_Sytem.Pages
                 MessageBox.Show("Please select from row header just one category to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            //if (dataGridView1.SelectedRows.Count == 1)
-            //{
-            //    // Get the selected product
-            //    var deletedCategory= dataGridView1.SelectedRows[0].DataBoundItem as dynamic;
-
-            //    if (deletedCategory != null)
-            //    {
-            //        // Confirm deletion with the user
-            //        DialogResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            //        if (result == DialogResult.Yes)
-            //        {
-            //            // Find the product by ID and remove it
-            //            var categoryToDelete = DBConnection.Context.Categories.Find(deletedCategory.Id);
-            //            if (categoryToDelete != null)
-            //            {
-            //                DBConnection.Context.Categories.Remove(categoryToDelete);
-            //                DBConnection.Context.SaveChanges();
-            //                LoadData(); // Refresh DataGridView after deleting the product
-            //            }
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please select from row header just one product to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
         }
 
         private void DeleteBtn_Click_1(object sender, EventArgs e)
@@ -243,11 +216,12 @@ namespace Cafffe_Sytem.Pages
             }
             else
             {
+                LoadData();
                 // If no search keyword is provided, load all data
                 MessageBox.Show("Please enter the name of product to search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        
+       
     }
 }

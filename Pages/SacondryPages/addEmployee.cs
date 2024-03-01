@@ -86,11 +86,11 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 Emp_Phone_Number = (long)int.Parse(textphone.Text.ToString()),
                 Emp_Age = int.Parse(textage.Text.ToString()),
                 Emp_Gender = gender,
-                P_Id= DBConnection.Context.Posistions.Find(Position_comboBox1.SelectedItem).Pos_ID,
+                P_Id= DBConnection.Context.Posistions.Where(p=>p.Pos_Name==Position_comboBox1.SelectedItem.ToString()).FirstOrDefault().Pos_ID,
                 Emp_Salary = int.Parse(textsalary.Text.ToString()),
                 Emp_Address = textaddress.Text.ToString(),
-                Emp_ShiftStart = int.Parse(numericUpDownstart.Value.ToString()),
-                Emp_ShiftEnd = int.Parse(numericUpDownend.Value.ToString())
+                Emp_ShiftStart = (int) numericUpDownstart.Value,
+                Emp_ShiftEnd = (int)  numericUpDownend.Value 
             };
 
             DBConnection.Context.Employees.Add(newEmployee);

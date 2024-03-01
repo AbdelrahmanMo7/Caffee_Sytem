@@ -69,8 +69,6 @@
             // 
             // panel2
             // 
-            this.panel2.AutoSize = false;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Size = new System.Drawing.Size(1160, 99);
             // 
@@ -102,7 +100,6 @@
             this.panel4.AutoSize = false;
             this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Location = new System.Drawing.Point(0, 200);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.MaximumSize = new System.Drawing.Size(1318, 455);
             this.panel4.MinimumSize = new System.Drawing.Size(1158, 455);
@@ -136,7 +133,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.GridColor = System.Drawing.Color.LightGray;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 1);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.MaximumSize = new System.Drawing.Size(1320, 455);
             this.dataGridView1.MinimumSize = new System.Drawing.Size(1155, 450);

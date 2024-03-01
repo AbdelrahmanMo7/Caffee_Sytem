@@ -65,12 +65,15 @@ namespace Cafffe_Sytem.Pages.SacondryPages
             long phoneNumber = long.Parse(textphone.Text);
 
             // Check if the phone number already exists
-            var emp1 = DBConnection.Context.Employees.Select(emp => emp.Emp_Phone_Number == phoneNumber);
 
-            if (emp1 != null && employeeToUpdate.Emp_Phone_Number != phoneNumber)
+            if (DBConnection.Context.Employees.Any(emp => emp.Emp_Phone_Number == phoneNumber))
             {
-                MessageBox.Show("Phone Number Already Exists To Another Employee.");
-                return;
+                if (employeeToUpdate.Emp_Phone_Number != phoneNumber)
+                {
+                 MessageBox.Show("Phone Number Already Exists To Another Employee.");
+                 return;
+                }
+               
             }
 
             employeeToUpdate.Emp_Name = textname.Text;

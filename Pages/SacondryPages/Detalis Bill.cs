@@ -18,84 +18,53 @@ namespace Cafffe_Sytem.Pages.SacondryPages
     public partial class Detalis_Bill : Form
     {
        
-        private int clientId;
-        public Detalis_Bill(int clientId)
+        private Bill selected_bill;
+        public Detalis_Bill(Bill selected_bill)
         {
+            this.selected_bill = selected_bill;
             InitializeComponent();
             Init();
-            this.clientId = clientId;
+            SetBillDetails();
             LoadClientDetails();
         }
 
-        //private void Init()
-        //{
-        //    var products = caf.Products.ToList();
-        //    var totalProducts = products.Count;
-        //    var totalPrice = products.Sum(p => p.P_Price);
-        //    var averagePrice = totalProducts > 0 ? totalPrice / totalProducts : 0;
-
-        //    var productDetails = products.Select(p => new
-        //    {
-        //        p.P_Name,
-        //        p.P_Price,
-        //        //p.P_ID,
-        //        //p.P_Code,
-
-        //        p.P_Quantity
-        //    }).ToList();
-
-        //    dataGridView1.DataSource = productDetails;
-
-        //}
+       
 
         private void Init()
         {
-            var products = DBConnection.Context.Products.ToList();
-            var productDetails = products.Select(p => new
+           
+            var productDetails = selected_bill.Bill_has_Products.Select(p => new
             {
-                p.P_Name,
-                p.P_Price,
-                p.P_Quantity,
-                TotalPrice = p.P_Price * p.P_Quantity // Calculate total price for each product
+               Product_Name= p.Product.P_Name,
+                Price= p.Product.P_Price,
+                Count=p.Product_Count,
+                TotalPrice = p.Product.P_Price * p.Product_Count // Calculate total price for each product
             }).ToList();
 
             dataGridView1.DataSource = productDetails;
 
             // Calculate total price for all products
-            var totalPriceForAllProducts = productDetails.Sum(p => p.TotalPrice);
+            var totalPriceForAllProducts = selected_bill.B_Total_Amount;
             // Now you can print or use totalPriceForAllProducts as needed
-            Console.WriteLine("Total price for all products: " + totalPriceForAllProducts);
         }
 
 
-
-
-
-
-
-
-
-
-
-        public void SetBillDetails(int id, string date, int table, float total, string cashier)
+        public void SetBillDetails()
         {
-            txtBillId.Text = id.ToString();
-            txtDate.Text = date;
-            txttable.Text = table.ToString();
-            txtTotal.Text = total.ToString();
-            txtCashier.Text = cashier;
+            txtBillId.Text = selected_bill.B_ID.ToString();
+            txtDate.Text = selected_bill.B_Date.ToString("dd-MM-yyyy");
+            txttable.Text = selected_bill.B_Table_Num.ToString();
+            txtTotal.Text = selected_bill.B_Total_Amount.ToString();
+            txtCashier.Text = selected_bill.User.U_Name;
         }
 
         private void LoadClientDetails()
         {
-            Client client = new Client();
-            client = DBConnection.Context.Clients.FirstOrDefault(c => c.C_ID == clientId);
-            if (client != null)
-            {
-                txtClintName.Text = client.C_Name;
-                txtClientPhone.Text = client.C_Phone_Number.ToString();
-                txtClientAddress.Text = client.C_Address;
-            }
+            
+                txtClintName.Text = selected_bill.Client?.C_Name;
+                txtClientPhone.Text = selected_bill.Client?.C_Phone_Number.ToString();
+                txtClientAddress.Text = selected_bill.Client?.C_Address;
+           
 
         }
         private void Detalis_Bill_Load(object sender, EventArgs e)

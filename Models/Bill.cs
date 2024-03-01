@@ -26,7 +26,7 @@ namespace Cafffe_Sytem.Models
         public double B_Total_Amount { get; set; }
         public int B_Table_Num { get; set; }
         public Nullable<bool> B_IsDeleted_ { get; set; }
-        public int Client_Id { get; set; }
+        public Nullable<int> Client_Id { get; set; }
         public int Creater_Id { get; set; }
         public Nullable<int> Remover_Id { get; set; }
     
