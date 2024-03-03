@@ -38,6 +38,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
       
         private void datetimepicker_filter_selected(object sender, EventArgs e)
         {
+            try { 
             DateTime selectedDate = dateTimePicker1.Value.Date;
 
             // Filter the rows based on the selected date
@@ -55,7 +56,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 Client = bill.Client.C_Name,
                 // Include other bill details as needed
             }).ToList();
-            ;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

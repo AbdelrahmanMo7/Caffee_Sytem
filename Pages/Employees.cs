@@ -51,8 +51,7 @@ namespace Cafffe_Sytem.Pages
 
          void getShowList( IEnumerable<Employee> emp_list)
         {
-             
-
+            try { 
             var ShowList = emp_list.Select(m => new
             {
                 ID = m.Emp_ID,
@@ -123,6 +122,13 @@ namespace Cafffe_Sytem.Pages
 
             }
             dataGridView1.DataSource = ShowList2;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
       
@@ -133,7 +139,7 @@ namespace Cafffe_Sytem.Pages
        
         private void comboBoxsalary_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            try { 
             string selectedSalary = comboBoxsalary.SelectedItem.ToString();
 
             if (string.IsNullOrEmpty(selectedSalary))
@@ -152,20 +158,34 @@ namespace Cafffe_Sytem.Pages
                 getShowList(DBConnection.Context.Employees.Where(a => a.Emp_Salary == selectedsalaryInt).ToList());
               
            }
-            
 
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         #endregion
 
         #region    name Search
         private void btnsearch_Click(object sender, EventArgs e)
         {
+            try { 
             if (string.IsNullOrEmpty(NameSearch_Txt.Text))
             {
                 getShowList(DBConnection.Context.Employees.ToList());
                 return;
             }
             getShowList(DBConnection.Context.Employees.Where(m=>m.Emp_Name==NameSearch_Txt.Text).ToList());
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
@@ -175,7 +195,7 @@ namespace Cafffe_Sytem.Pages
 
         private void Start_com_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            try { 
             string selectedShiftStart = Start_com.SelectedItem.ToString();
 
 
@@ -195,7 +215,13 @@ namespace Cafffe_Sytem.Pages
                 getShowList(DBConnection.Context.Employees.Where(a => a.Emp_ShiftStart == selectedShiftStartInt).ToList());
 
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         #endregion
 
@@ -209,6 +235,7 @@ namespace Cafffe_Sytem.Pages
 
         private void btnadd_Click(object sender, EventArgs e)
         {
+            try { 
             addEmployee emp = new addEmployee("Add");
             emp.DataUpdated += (s, args) =>
             {
@@ -217,6 +244,15 @@ namespace Cafffe_Sytem.Pages
                 DBConnection.Context.SaveChanges();
             };
             emp.Show();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
@@ -224,7 +260,8 @@ namespace Cafffe_Sytem.Pages
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+           try{
+                if (dataGridView1.SelectedRows.Count > 0)
             {
                 int selectedEmployeeID = (int)dataGridView1.SelectedRows[0].Cells["ID"].Value;
                 if (selectedEmployeeID != null)
@@ -258,29 +295,14 @@ namespace Cafffe_Sytem.Pages
             {
                 MessageBox.Show("Select row to update");
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
-
-
-
-
-
-
-
-
-
-
-       
-
-
-
-
-
-        //private readonly Coffee_System cafffe = new Coffee_System();
-        //    Employees employ = new Employees();
-
-
-
-
 
 
 
@@ -291,10 +313,14 @@ namespace Cafffe_Sytem.Pages
 
         private void btndelet_Click(object sender, EventArgs e)
         {
+            try { 
 
+            DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
 
-
-            if (dataGridView1.SelectedRows.Count > 0)
+           
+                if (dataGridView1.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
@@ -317,13 +343,20 @@ namespace Cafffe_Sytem.Pages
                 // Refresh the DataGridView
                RefreshDataGridView();
             }
+            }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
-       #endregion
+        #endregion
 
 
-        
+
     }
 }
 

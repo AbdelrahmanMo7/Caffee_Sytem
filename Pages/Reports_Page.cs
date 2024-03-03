@@ -51,6 +51,7 @@ namespace Cafffe_Sytem.Pages
         //Calc expenses 
         void calcExpenses()
         {
+            try { 
             int salary = DBConnection.Context.Employees.Sum(e => e.Emp_Salary).Value;
             int sal_Pariod = ReportPariod_List[Acounting_Pariods_comboBox2.SelectedIndex].Value;
             
@@ -67,12 +68,19 @@ namespace Cafffe_Sytem.Pages
             if (PettyCash_Txt.Text == null || PettyCash_Txt.Text.Length == 0)
                 PettyCash_Txt.Text = "0";
             TotalExpenses_Txt.Text =( (new_salary + int.Parse(Material_Txt.Text.ToString())+ int.Parse(Maintenance_Txt.Text.ToString())+ int.Parse(Subscriptions_Txt.Text.ToString())+ int.Parse(PettyCash_Txt.Text.ToString())).ToString());
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         //Calc Net Profit
         void calcProfit()
         {
+            try { 
             DateTime newDate = DateTime.Today.AddDays(-(ReportPariod_List[Acounting_Pariods_comboBox2.SelectedIndex].Value));
             List<Bill> bills_list= DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == false && b.B_Date >= newDate).ToList();
             if (bills_list == null)
@@ -95,12 +103,19 @@ namespace Cafffe_Sytem.Pages
                 Profit_label15.ForeColor = Color.Red;
                 Net_Profit_Txt.ForeColor = Color.Red;
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void Material_Txt_TextChanged(object sender, EventArgs e)
 
         {
+            try { 
             if (Material_Txt.Text.Length >= 10)
 
             {
@@ -115,12 +130,19 @@ namespace Cafffe_Sytem.Pages
                 return;
             }
             calcExpenses();
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void Maintenance_Txt_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (Maintenance_Txt.Text.Length >= 10)
 
             {
@@ -135,10 +157,18 @@ namespace Cafffe_Sytem.Pages
                 return;
             }
             calcExpenses();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void Subscriptions_Txt_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (Subscriptions_Txt.Text.Length >= 10)
 
             {
@@ -153,10 +183,18 @@ namespace Cafffe_Sytem.Pages
                 return;
             }
             calcExpenses();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void PettyCash_Txt_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (PettyCash_Txt.Text.Length >= 10)
 
             {
@@ -171,6 +209,13 @@ namespace Cafffe_Sytem.Pages
                 return;
             }
             calcExpenses();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void TotalSales_Txt_TextChanged(object sender, EventArgs e)
@@ -197,6 +242,7 @@ namespace Cafffe_Sytem.Pages
     //-----
     void getReport( int pariod)
         {
+            try { 
             DateTime newDate = DateTime.Today.AddDays(-pariod);
             string type =Report_type_comboBox1.SelectedItem.ToString();
             //"Category","Products" 
@@ -258,7 +304,13 @@ namespace Cafffe_Sytem.Pages
                 Report_name_label1.Location = new System.Drawing.Point(515, 13);
 
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -284,10 +336,18 @@ namespace Cafffe_Sytem.Pages
         }
         private void Period_comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try { 
             if (Report_type_comboBox1.DataSource==null || Report_type_comboBox1.Items.Count==0)
                 return;
            // getReport(int.Parse( Period_comboBox2.ValueMember[Period_comboBox2.SelectedIndex].ToString()));
             getReport(ReportPariod_List[Period_comboBox2.SelectedIndex].Value);
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
       

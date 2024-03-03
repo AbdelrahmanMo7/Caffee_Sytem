@@ -23,6 +23,7 @@ namespace Cafffe_Sytem.Pages
 
         private void LoadUserBillsTotal()
         {
+            try { 
             var userBillsTotal = DBConnection.Context.Users
                 .Where(u => u.U_IsAdmin_== false)
                 .Select(user => new
@@ -34,11 +35,18 @@ namespace Cafffe_Sytem.Pages
                 })
                 .ToList();
             dataGridView1.DataSource = userBillsTotal;
-            
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void search_btn_Click(object sender, EventArgs e)
         {
+            try { 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -82,10 +90,18 @@ namespace Cafffe_Sytem.Pages
                 // Display a message to the user if the search keyword is empty
                 MessageBox.Show("Please enter a search keyword.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Get the value of the UserID column from the clicked row
@@ -110,10 +126,7 @@ namespace Cafffe_Sytem.Pages
                             // Show the CahierForm
 
                             cashierDetailsBills.Show();
-                          
-
-
-                      
+  
                     
                 }
                 else
@@ -121,12 +134,20 @@ namespace Cafffe_Sytem.Pages
                     MessageBox.Show("Invalid user ID value.");
                 }
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
        
 
         private void PopulateComboBox()
         {
+            try {
             comboBox1.Items.Clear(); // Clear existing items in the ComboBox
 
             // Add "All Users" option as the first item in the ComboBox
@@ -137,10 +158,18 @@ namespace Cafffe_Sytem.Pages
 
             // Add unique usernames to the ComboBox
             comboBox1.Items.AddRange(uniqueUsernames.ToArray());
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try { 
             // Get the selected username from ComboBox
             string selectedUsername = comboBox1.SelectedItem.ToString();
 
@@ -161,11 +190,19 @@ namespace Cafffe_Sytem.Pages
                 Total_Amount = c.Bills.Sum(b => (double?)b.B_Total_Amount) 
             }).ToList();
             dataGridView1.DataSource = filteredClientList;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         // Event handler for ComboBox's TextChanged event
         private void combobox_textchange(object sender, EventArgs e)
         {
+          
             string enteredText = comboBox1.Text.Trim().ToLower(); // Get the entered text and convert to lowercase
 
             try

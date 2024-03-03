@@ -51,6 +51,7 @@ namespace Cafffe_Sytem.Pages
 
         private void buttondelete_Click(object sender, EventArgs e)
         {
+            try {
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
@@ -67,8 +68,14 @@ namespace Cafffe_Sytem.Pages
                         
                             selectedBill.B_IsDeleted_ = true;
                             selectedBill.Remover_Id = Login.Current_User.U_ID;
-                            // Save changes to the database
+                        foreach (var pr in selectedBill.Bill_has_Products)
+                        {
+                            var p = DBConnection.Context.Products.Find(pr.Product_ID);
+                            if (p != null)
+                                p.P_Quantity += pr.Product_Count;
                             DBConnection.Context.SaveChanges();
+                        }
+                        // Save changes to the database
                             MessageBox.Show("Row marked as deleted successfully.");
                         getbills();
 
@@ -84,12 +91,19 @@ namespace Cafffe_Sytem.Pages
                     MessageBox.Show("Please select a row to delete.");
                 }
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
        
         
         private void buttonsearch_Click(object sender, EventArgs e)
         {
-
+            try { 
             if (!string.IsNullOrWhiteSpace( Bill_idtextBox1.Text))
             {
                 int selectedBillID = int.Parse(Bill_idtextBox1.Text.ToString());
@@ -150,7 +164,13 @@ namespace Cafffe_Sytem.Pages
                
                 LoadData();
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
       
@@ -160,27 +180,43 @@ namespace Cafffe_Sytem.Pages
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try { 
             if(Is_ExsitedcomboBox2.SelectedItem != "Existed")
                  buttondelete.Enabled = false;
             else
                 buttondelete.Enabled = true;
             getbills();
 
+            
+           }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-        }
+    }
+
+}
 
       
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            try { 
             if(e.RowIndex>-1)
             selected = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-          
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         public void getbills()
         {
+            try { 
             if (Is_ExsitedcomboBox2.SelectedItem == "Existed")
             {
                 var query = DBConnection.Context.Bills.Where(b => b.B_IsDeleted_ == false).ToList()
@@ -215,10 +251,18 @@ namespace Cafffe_Sytem.Pages
                 dataGridView1.DataSource = query;
 
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void buttondetails_Click(object sender, EventArgs e)
         {
+            try { 
             if (selected != 0)
             {
                 int selectedBillID = selected;
@@ -239,23 +283,46 @@ namespace Cafffe_Sytem.Pages
             {
                 MessageBox.Show("Please select a bill first.");
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 selected = int.Parse(row.Cells["ID"].Value.ToString());
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void Bill_idtextBox1_TextChanged(object sender, EventArgs e)
         {
+            try {
             if (Regex.IsMatch(Bill_idtextBox1.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 Bill_idtextBox1.Text = Bill_idtextBox1.Text.Remove(Bill_idtextBox1.Text.Length - 1);
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -263,10 +330,19 @@ namespace Cafffe_Sytem.Pages
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-           
-            Detalis_Bill detailsForm = new Detalis_Bill(DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selected));
-          
-            detailsForm.Show();
+            try {  if (e.RowIndex >= 0)
+                {
+                    Detalis_Bill detailsForm = new Detalis_Bill(DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selected));
+
+                    detailsForm.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
     }

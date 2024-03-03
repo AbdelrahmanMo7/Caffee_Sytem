@@ -23,6 +23,7 @@ namespace Cafffe_Sytem.Pages
 
         public void LoadData()
         {
+            try{ 
             var query = (from e in DBConnection.Context.Categories
                          select new
                          {
@@ -34,16 +35,25 @@ namespace Cafffe_Sytem.Pages
 
             // Set the DataSource to the list of products
             dataGridView1.DataSource = query;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            
             AddCategoryPage add = new AddCategoryPage(this);
             add.ShowDialog();
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            try { 
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 // Get the selected product
@@ -64,11 +74,19 @@ namespace Cafffe_Sytem.Pages
             {
                 MessageBox.Show("Please select from row header just one Category to update.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         //============================== Delete Functionality =======================//
         public void DeleteData()
         {
+            try { 
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 // Get the selected category
@@ -118,7 +136,13 @@ namespace Cafffe_Sytem.Pages
             {
                 MessageBox.Show("Please select from row header just one category to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void DeleteBtn_Click_1(object sender, EventArgs e)
@@ -131,6 +155,7 @@ namespace Cafffe_Sytem.Pages
 
         public void LoadFilterComboOffer()
         {
+            try { 
             List<string> Q3 = new List<string>();
             Q3.Add("All");
             Q3.AddRange((from e in DBConnection.Context.Offers
@@ -139,12 +164,20 @@ namespace Cafffe_Sytem.Pages
 
             // Set the DataSource to the list of categories
             comboBox1.DataSource = Q3;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         //======================== Offer Filter ====================//
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            try { 
             // Get the selected offer from the combo box
             string selectedOffer = comboBox1.Text;
 
@@ -188,12 +221,20 @@ namespace Cafffe_Sytem.Pages
                     dataGridView1.DataSource = filteredData;
                 }
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         //================= Search Stuff ===================//
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
+            try { 
             // Get the search keyword from the search textbox
             string searchKeyword = SearchTxt.Text.ToLower(); // Assuming you have a textbox named SearchTextBox
 
@@ -219,6 +260,13 @@ namespace Cafffe_Sytem.Pages
                 LoadData();
                 // If no search keyword is provided, load all data
                 MessageBox.Show("Please enter the name of product to search.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 

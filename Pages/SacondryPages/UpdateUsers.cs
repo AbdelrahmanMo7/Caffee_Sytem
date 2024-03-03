@@ -28,6 +28,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         private void UpdateUsers_Load(object sender, EventArgs e)
         {
+            try { 
             nametxt.Text = name;
             usernametxt.Text = UserName;
             passwordtxt.Text = password;
@@ -35,10 +36,18 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 checkBox1.Checked = true;
             else
                 checkBox1.Checked = false;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try { 
             if (nametxt.Text == "")
                 MessageBox.Show("Name is required");
             else if (usernametxt.Text == "")
@@ -65,6 +74,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 managment.Update();
                 managment.Refresh();
                 this.Close();
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
     }

@@ -71,29 +71,33 @@
             // 
             // nametxt
             // 
-            this.nametxt.Location = new System.Drawing.Point(194, 58);
+            this.nametxt.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nametxt.Location = new System.Drawing.Point(134, 49);
             this.nametxt.Name = "nametxt";
-            this.nametxt.Size = new System.Drawing.Size(125, 20);
+            this.nametxt.Size = new System.Drawing.Size(215, 34);
             this.nametxt.TabIndex = 3;
             // 
             // usernametxt
             // 
-            this.usernametxt.Location = new System.Drawing.Point(194, 127);
+            this.usernametxt.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernametxt.Location = new System.Drawing.Point(134, 118);
             this.usernametxt.Name = "usernametxt";
-            this.usernametxt.Size = new System.Drawing.Size(125, 20);
+            this.usernametxt.Size = new System.Drawing.Size(215, 34);
             this.usernametxt.TabIndex = 4;
             // 
             // passwordtxt
             // 
-            this.passwordtxt.Location = new System.Drawing.Point(194, 205);
+            this.passwordtxt.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordtxt.Location = new System.Drawing.Point(134, 197);
             this.passwordtxt.Name = "passwordtxt";
-            this.passwordtxt.Size = new System.Drawing.Size(0, 20);
-            this.passwordtxt.TabIndex = 5;
+            this.passwordtxt.Size = new System.Drawing.Size(215, 34);
+            this.passwordtxt.TabIndex = 16;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(194, 283);
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(149, 275);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 6;
@@ -103,7 +107,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 283);
+            this.label4.Location = new System.Drawing.Point(29, 267);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 26);
             this.label4.TabIndex = 7;
@@ -112,10 +116,12 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Green;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(65, 357);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(115, 355);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 39);
+            this.button1.Size = new System.Drawing.Size(148, 39);
             this.button1.TabIndex = 8;
             this.button1.Text = "Add User";
             this.button1.UseVisualStyleBackColor = false;
@@ -136,8 +142,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(391, 489);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(391, 489);
             this.Name = "AddNewUser";
-            this.Text = "AddNewUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Add New User";
             this.ResumeLayout(false);
             this.PerformLayout();
 

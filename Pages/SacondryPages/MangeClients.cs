@@ -25,7 +25,8 @@ namespace Cafffe_Sytem.Pages.SacondryPages
         public MangeClients(string pagetype)
         {
             InitializeComponent();
-            if (pagetype == "Add")
+          try{
+                if (pagetype == "Add")
             {
                 update_btn.Visible = false;
                 button1.Visible=true;
@@ -37,7 +38,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 button1.Visible = false;
                 pagetitle_labl.Text = "Update Client ";
             }
-          
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
        
@@ -46,18 +53,23 @@ namespace Cafffe_Sytem.Pages.SacondryPages
         public void InitializeForUpdate(int clintID, string clintName, string clintAddress, string clintPhone)
         {
             // Update the form controls with the provided client information
-            
-
+            try { 
             selectedId = clintID;
             name_txt.Text = clintName;
             phone_txt.Text = clintPhone;
             address_txt.Text = clintAddress;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void update_btn_Click(object sender, EventArgs e)
         {
-            
-
+            try { 
             if (string.IsNullOrWhiteSpace(name_txt.Text))
             {
                 MessageBox.Show("Please enter client name.");
@@ -104,11 +116,19 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
             eva?.Invoke(this,e);
             this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try { 
 
          if (string.IsNullOrWhiteSpace(name_txt.Text))
             {
@@ -144,6 +164,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
             MessageBox.Show("add Successfull");
             eva?.Invoke(this, e);
             this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

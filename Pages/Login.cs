@@ -42,7 +42,7 @@ namespace Cafffe_Sytem.Pages
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-         
+            try { 
             string use=username_txt.Text.ToString();
             string pass = passward_txt.Text.ToString();
            
@@ -81,6 +81,13 @@ namespace Cafffe_Sytem.Pages
             {
                 MessageBox.Show("Invalid UserName ");
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -90,6 +97,7 @@ namespace Cafffe_Sytem.Pages
 
         private void show_passward_checkBox_CheckedChanged(object sender, EventArgs e)
         {
+            try { 
             // Check if the CheckBox is checked
             if (show_passward_checkBox.Checked)
             {
@@ -101,7 +109,15 @@ namespace Cafffe_Sytem.Pages
                 // If not checked, set the PasswordChar property of the TextBox back to '*'
                 passward_txt.PasswordChar = '*';
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
+
 
         
     }

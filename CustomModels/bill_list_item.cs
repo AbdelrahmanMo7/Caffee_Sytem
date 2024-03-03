@@ -14,6 +14,10 @@ namespace Cafffe_Sytem.CustomModels
         public Product Item { get; set; }
         public int Count { get; set; }
         public double Total { get; set; }
+        public bill_list_item()
+        {
+           
+        }
         public bill_list_item(Product Item, int count, double total)
         {
             this.Item = Item;

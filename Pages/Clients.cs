@@ -27,6 +27,7 @@ namespace Cafffe_Sytem.Pages
         }
         private void PopulateComboBox()
         {
+            try { 
             comboBox1.Items.Clear(); // Clear existing items in the ComboBox
 
             // Add "All Users" option as the first item in the ComboBox
@@ -37,9 +38,17 @@ namespace Cafffe_Sytem.Pages
 
             // Add unique usernames to the ComboBox
             comboBox1.Items.AddRange(uniqueUsernames.ToArray());
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try {
             // Get the selected username from ComboBox
             string selectedUsername = comboBox1.SelectedItem.ToString();
 
@@ -55,10 +64,18 @@ namespace Cafffe_Sytem.Pages
             // Update DataGridView with filtered results
             var filteredClientList = filteredClients.Select(c => new { ID= c.C_ID, Name= c.C_Name, Address= c.C_Address,Phone= c.C_Phone_Number }).ToList();
             dataGridView1.DataSource = filteredClientList;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         // Event handler for ComboBox's TextChanged event
         private void combobox_textchange(object sender, EventArgs e)
         {
+           
             string enteredText = comboBox1.Text.Trim().ToLower(); // Get the entered text and convert to lowercase
 
             try
@@ -88,13 +105,22 @@ namespace Cafffe_Sytem.Pages
 
         private void init()
         {
+            try { 
             var x = DBConnection.Context.Clients.Select(c => new { ID = c.C_ID, Name = c.C_Name, Address = c.C_Address, Phone = c.C_Phone_Number }).ToList();
             dataGridView1.DataSource = x;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
 
-        {// Show the message box asking the user to confirm deletion
+        {
+            try { // Show the message box asking the user to confirm deletion
             DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.OKCancel);
 
             // Check if the user clicked OK to confirm deletion
@@ -130,7 +156,13 @@ namespace Cafffe_Sytem.Pages
                     MessageBox.Show("Please select a row to delete.");
                 }
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     
         public void refresh(object obj,EventArgs e)
@@ -139,6 +171,7 @@ namespace Cafffe_Sytem.Pages
         }
         private void update_btn_Click(object sender, EventArgs e)
         {
+            try { 
             MangeClients mangeClients = new MangeClients(update_btn.Text);
 
             if (dataGridView1.SelectedRows.Count > 0)
@@ -165,52 +198,27 @@ namespace Cafffe_Sytem.Pages
             {
                 MessageBox.Show("Please select a row to update.");
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
            MangeClients mangeClients = new MangeClients("Add");
-            mangeClients.Show();
-            mangeClients.eva += this.refresh;
+                    mangeClients.eva += this.refresh;
+              mangeClients.Show();
         }
 
-        //private void search_btn_Click(object sender, EventArgs e)
-        //{
-        //    // Get the search keyword from the search box
-        //    string keyword = textBox1.Text.Trim();
-
-        //    // Ensure the keyword is not empty
-        //    if (!string.IsNullOrWhiteSpace(keyword))
-        //    {
-        //        // Iterate through each row in the DataGridView
-        //        foreach (DataGridViewRow row in dataGridView1.Rows)
-        //        {
-        //            // Iterate through each cell in the current row
-        //            foreach (DataGridViewCell cell in row.Cells)
-        //            {
-        //                // Check if the cell value contains the keyword
-        //                if (cell.Value != null && cell.Value.ToString().Contains(keyword))
-        //                {
-        //                    // Highlight the row and scroll to it
-        //                    dataGridView1.CurrentCell = cell;
-        //                    dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
-        //                    return; // Exit the method after finding the first match
-        //                }
-        //            }
-        //        }
-
-        //        // If the keyword is not found in any cell, show a message to the user
-        //        MessageBox.Show("No matching record found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    else
-        //    {
-        //        // Display a message to the user if the search keyword is empty
-        //        MessageBox.Show("Please enter a search keyword.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
+     
 
         private void search_btn_Click(object sender, EventArgs e)
         {
+            try { 
             // Clear previous highlights
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -254,6 +262,13 @@ namespace Cafffe_Sytem.Pages
             {
                 // Display a message to the user if the search keyword is empty
                 MessageBox.Show("Please enter a search keyword.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
         private void phone_comboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -330,6 +345,7 @@ namespace Cafffe_Sytem.Pages
 
         private void PopulateComboBoxphone()
         {
+            try { 
             phone_comboBox.Items.Clear(); // Clear existing items in the ComboBox
 
             // Add "All Users" option as the first item in the ComboBox
@@ -340,16 +356,15 @@ namespace Cafffe_Sytem.Pages
 
             // Add unique phone numbers to the ComboBox
             phone_comboBox.Items.AddRange(uniquePhoneNumbers.Select(p => p.ToString()).ToArray());
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

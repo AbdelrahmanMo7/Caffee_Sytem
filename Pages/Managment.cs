@@ -26,14 +26,24 @@ namespace Cafffe_Sytem.Pages
 
         private void Reports_conteinar_dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            try { 
+            if (e.RowIndex <= -1)
+                return;
             DataGridViewRow row = Users_dataGridView.Rows[e.RowIndex];
             selectedUserNametxt.Text = row.Cells[1].Value.ToString();
             Selected_ID = int.Parse( row.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void Managment_Load(object sender, EventArgs e)
         {
+            try { 
             string admin;
             List<User> users = DBConnection.Context.Users.Select(p => p).ToList();
             foreach (User item in users)
@@ -52,17 +62,34 @@ namespace Cafffe_Sytem.Pages
             apointmenttxt.Text = info.Coffee_Apointment;
             facebooktxt.Text = info.Coffee_FaceBook_Link;
             instatxt.Text = info.Coffee_Insta_Link;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void addbtn_Click(object sender, EventArgs e)
         {
+            try { 
             AddNewUser addNewUser = new AddNewUser();
             addNewUser.ShowDialog();
+            Users_dataGridView.Rows.Clear();
+            Managment_Load(this, e);
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void Updatebtn_Click(object sender, EventArgs e)
         {
-            if (selectedUserNametxt.Text == "")
+           try{if (selectedUserNametxt.Text == "")
                 MessageBox.Show("Must Select User To Update");
             else
             {
@@ -81,10 +108,18 @@ namespace Cafffe_Sytem.Pages
                 Users_dataGridView.Rows.Clear();
                 Managment_Load(this,e);
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
+            try { 
             if (selectedUserNametxt.Text == "")
                 MessageBox.Show("Must Select User To Remove");
             else
@@ -103,33 +138,19 @@ namespace Cafffe_Sytem.Pages
                 }
                
             }
-        }
-
-        private void Searchbtn_Click(object sender, EventArgs e)
-        {
-            string admin;
-            if (searchtxt.Text == "")
-                MessageBox.Show("write user name to search for");
-            else
+            }
+            catch (Exception ex)
             {
-                User user = DBConnection.Context.Users.FirstOrDefault(u => u.U_UserName == searchtxt.Text);
-                if (user == null)
-                    MessageBox.Show("Not Found");
-                else
-                {
-                    if (user.U_IsAdmin_ == true)
-                        admin = "Admin";
-                    else
-                        admin = "Cacher";
-                    Users_dataGridView.Rows.Clear();
-                    Users_dataGridView.Rows.Add(user.U_ID, user.U_Name, user.U_UserName, user.U_PassWord, admin);
-                }
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
 
+       
         private void editInfobtn_Click(object sender, EventArgs e)
         {
+            try { 
             editInfobtn.Visible = false;
             Savebtn.Visible = true;
             Nametxt.ReadOnly = false;
@@ -138,10 +159,18 @@ namespace Cafffe_Sytem.Pages
             apointmenttxt.ReadOnly = false;
             facebooktxt.ReadOnly = false;
             instatxt.ReadOnly = false;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void Savebtn_Click(object sender, EventArgs e)
         {
+            try { 
             if (Nametxt.Text == "")
                 MessageBox.Show("Name is required");
             else if (phonetxt.Text == "")
@@ -167,6 +196,62 @@ namespace Cafffe_Sytem.Pages
                 apointmenttxt.ReadOnly = true;
                 facebooktxt.ReadOnly = true;
                 instatxt.ReadOnly = true;
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void searchtxt_TextChanged(object sender, EventArgs e)
+        {
+           try{ string admin;
+            if (string.IsNullOrWhiteSpace(searchtxt.Text))
+            {
+                List<User> users = DBConnection.Context.Users.Select(u => u).ToList();
+               
+                    Users_dataGridView.Rows.Clear();
+                    foreach (User user in users)
+                    {
+                        if (user.U_IsAdmin_ == true)
+                            admin = "Admin";
+                        else
+                            admin = "Cacher";
+
+                        Users_dataGridView.Rows.Add(user.U_ID, user.U_Name, user.U_UserName, user.U_PassWord, admin);
+                    }
+                
+            }
+               
+            else
+            {
+               List< User> users = DBConnection.Context.Users.Where(u => u.U_UserName.Contains( searchtxt.Text)).ToList();
+                if (users == null)
+                    MessageBox.Show("Not Found");
+                else
+                {
+                    Users_dataGridView.Rows.Clear();
+                    foreach (User user in users)
+                    {
+                        if (user.U_IsAdmin_ == true)
+                            admin = "Admin";
+                        else
+                            admin = "Cacher";
+                        
+                        Users_dataGridView.Rows.Add(user.U_ID, user.U_Name, user.U_UserName, user.U_PassWord, admin);
+                    }
+                }
+
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
     }

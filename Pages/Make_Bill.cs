@@ -27,12 +27,14 @@ namespace Cafffe_Sytem.Pages
         double selected_Item_total, selected_Item_price, Bill_Total_Amount;
         Client selected_Client;
         List<bill_list_item> bill_Item_list;
+        Bill selectedBill_edit;
+        List<Bill_has_Products> oldProducts;
 
 
         // constractor
         public Make_Bill()
         {
-            // this.sys_user = user;
+            
             InitializeComponent();
             start();
             UserName_label1.Text = Login.Current_User.U_Name;
@@ -47,7 +49,10 @@ namespace Cafffe_Sytem.Pages
         }
         void start()
         {
+            try
+            {
             Bill_timer1.Start();
+            oldProducts = new List<Bill_has_Products>();
             selected_Client = null;
             Bill_selected_Item = null;
             selectedTable_Number = 0;
@@ -57,7 +62,6 @@ namespace Cafffe_Sytem.Pages
             ClientPhone_label14.Text = "-----------------";
             Table_textBox1.Text = "";
 
-
             All_Cat_comboBox1.Items.Add("All");
             All_Cat_comboBox1.Items.AddRange(DBConnection.Context.Categories.Select(c => c.Cat_Name).ToArray());
             var p1 = DBConnection.Context.Products.Select(p => new { p.P_ID, Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
@@ -65,7 +69,15 @@ namespace Cafffe_Sytem.Pages
             Show_Products_dataGridView1.Columns[0].Visible = false;
             var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
             Show_Bills_Items_dataGridView1.DataSource = show_list;
-            Show_Bills_dataGridView2.DataSource = DBConnection.Context.Bills.Where(b => b.User1.U_ID == Login.Current_User.U_ID && b.B_Date == (DateTime.Today.Date)).Select(b => new { ID=b.B_ID ,Total=b.B_Total_Amount,Client=b.Client.C_Name  }).ToList();
+            //Where(b => b.User1.U_ID == Login.Current_User.U_ID && b.B_Date == (DateTime.Today.Date)).
+            DateTime newdate = DateTime.Today.Date.AddDays(-7);
+            Show_Bills_dataGridView2.DataSource = DBConnection.Context.Bills.Where(b => b.B_Date >= newdate && b.B_IsDeleted_==false).ToList().Select(b => new { ID=b.B_ID ,Total=b.B_Total_Amount,Client=b.Client?.C_Name  }).OrderByDescending(b=>b.ID).ToList();
+            }catch(Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+             }
         }
 
         //---------------------------------------------------------
@@ -75,7 +87,7 @@ namespace Cafffe_Sytem.Pages
         // fillter Product by category
         private void All_Cat_comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
+            try { 
             string selected_Cat = All_Cat_comboBox1.SelectedItem.ToString();
             if (selected_Cat == "All")
 
@@ -90,12 +102,20 @@ namespace Cafffe_Sytem.Pages
                 Show_Products_dataGridView1.DataSource = DBConnection.Context.Products.Where(p => p.Category.Cat_Name == selected_Cat).Select(p => new { p.P_ID, Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
                 Show_Products_dataGridView1.Columns[0].Visible = false;
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         // search in product name
         private void Item_search_Txt_TextChanged_1(object sender, EventArgs e)
         {
+            try
+            { 
             string selected_product = Item_search_Txt.Text.ToString();
             if (selected_product != null || selected_product == " ")
             {
@@ -107,7 +127,13 @@ namespace Cafffe_Sytem.Pages
                 Show_Products_dataGridView1.DataSource = DBConnection.Context.Products.Select(p => new { p.P_ID, Name = p.P_Name, Category = p.Category.Cat_Name, Price = p.P_Price, Offer = p.Offer.Off_Name }).ToList();
                 Show_Products_dataGridView1.Columns[0].Visible = false;
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         #endregion
@@ -117,7 +143,7 @@ namespace Cafffe_Sytem.Pages
 
         private void Show_Products_dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            try { 
             if (e.RowIndex >= 0)
             {
                 Add_Item_ToBill_Btn.Text = "Add Item";
@@ -140,7 +166,13 @@ namespace Cafffe_Sytem.Pages
                 }
                 calc_item_total();
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
@@ -157,16 +189,25 @@ namespace Cafffe_Sytem.Pages
         // check cient phone
         private void ClientPhone_Txt_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (Regex.IsMatch(ClientPhone_Txt.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 ClientPhone_Txt.Text = ClientPhone_Txt.Text.Remove(ClientPhone_Txt.Text.Length - 1);
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
         // check client Name
         private void ClientName_Txt_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (ClientName_Txt.Text != null && ClientName_Txt.Text != "  " && ClientName_Txt.Text != " ")
             {
                 Add_Client_Btn.Enabled = true;
@@ -175,9 +216,17 @@ namespace Cafffe_Sytem.Pages
             {
                 Add_Client_Btn.Enabled = false;
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         private void Table_textBox1_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (Regex.IsMatch(Table_textBox1.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers.");
@@ -189,12 +238,19 @@ namespace Cafffe_Sytem.Pages
             {
                 Table_textBox1.Text = "100";
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         // add client  button
         private void Add_Client_Btn_Click(object sender, EventArgs e)
         {
+            try { 
             if (string.IsNullOrEmpty(ClientName_Txt.Text))
             {
                 MessageBox.Show("Please client name .");
@@ -246,11 +302,18 @@ namespace Cafffe_Sytem.Pages
                     selected_Client = null;
                 }
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         void get_client()
         {
+            try { 
             ClientName_label15.Text = selected_Client.C_Name;
             ClientAddress_label13.Text = selected_Client.C_Address;
             ClientPhone_label14.Text = selected_Client.C_Phone_Number.ToString();
@@ -268,7 +331,13 @@ namespace Cafffe_Sytem.Pages
             ClientAddress_Txt.Text = "";
             ClientPhone_Txt.Text= "";
             Add_Client_Btn.Enabled = false;
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         #endregion
         //---------------------------------------------------------
@@ -281,7 +350,8 @@ namespace Cafffe_Sytem.Pages
         // check if there are any item in  Veiw_Item TextBoxt and (enable - disable) Add_Item_ToBill button
         private void Veiw_Item_Txt_TextChanged(object sender, EventArgs e)
         {
-
+            try { 
+           
             if (Veiw_Item_Txt.Text != null && Veiw_Item_Txt.Text != "")
             {
                 Add_Item_ToBill_Btn.Enabled = true;
@@ -289,6 +359,13 @@ namespace Cafffe_Sytem.Pages
             else
             {
                 Add_Item_ToBill_Btn.Enabled = false;
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -307,6 +384,7 @@ namespace Cafffe_Sytem.Pages
         // Add_Item_ToBill button
         private void Add_Item_ToBill_Btn_Click(object sender, EventArgs e)
         {
+            try { 
             if (Add_Item_ToBill_Btn.Text == "Edit Item")
             {
 
@@ -357,7 +435,13 @@ namespace Cafffe_Sytem.Pages
                     MessageBox.Show($" Item {selected_Item.P_Name} is already existed in the Bill ");
                 }
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message   , "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         #endregion
@@ -373,16 +457,25 @@ namespace Cafffe_Sytem.Pages
 
         private void Show_Bills_Items_dataGridView1_DataSourceChanged(object sender, EventArgs e)
         {
+            try { 
             calc_Bill_Amount();
             Bill_selected_Item = null;
             selected_Item_total = 0;
             selected_Item_price = 0;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
 
         private void Show_Bills_Items_dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            try { 
             if (e.RowIndex >= 0)
             {
 
@@ -391,6 +484,13 @@ namespace Cafffe_Sytem.Pages
                 Edit_Bill_Item_Btn.Enabled = true;
 
                 //
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
         }
@@ -404,20 +504,59 @@ namespace Cafffe_Sytem.Pages
 
         private void PrintBill_Btn_Click(object sender, EventArgs e)
         {
-            calc_Bill_Amount();
-            Bill_Templete bill_Templete1 = new Bill_Templete(bill_Item_list, selected_Client, Bill_Total_Amount,selectedTable_Number);
-            bill_Templete1.BillCompleted += (obj2, e2) =>
+            try { 
+            if (PrintBill_Btn.Text == "Edit Bill")
             {
-                this.start();
-                Show_Bills_dataGridView2.DataSource = DBConnection.Context.Bills.Where(b => b.User1.U_ID == Login.Current_User.U_ID && b.B_Date == (DateTime.Today.Date)).Select(b => new { ID = b.B_ID, Total = b.B_Total_Amount, Client = b.Client.C_Name }).ToList();
-            };
+                calc_Bill_Amount();
+                Bill newB = DBConnection.Context.Bills.Find(selectedBill_edit.B_ID);
+                if(newB != null)
+                {
+                    newB.Client = selected_Client;
+                    newB.B_Table_Num = selectedTable_Number;
+                    newB.B_IsDeleted_ = false;
+                    newB.B_Date = DateTime.Now.Date;
+                    newB.B_Time = DateTime.Now.ToString("HH:mm:ss tt");
+                    newB.B_Total_Amount = Bill_Total_Amount;
+                     newB.Creater_Id = Login.Current_User.U_ID;
+                    
+                    newB.Bill_has_Products= bill_Item_list.Select(i => new Bill_has_Products { Bill_ID = newB.B_ID, Product = i.Item, Product_Count = i.Count }).ToList();
+                    foreach (var pr in bill_Item_list)
+                    {
+                        Product p = DBConnection.Context.Products.Select(a=>a).Where(s=>s.P_ID==pr.Item.P_ID).FirstOrDefault();
+                        if(p != null)
+                        p.P_Quantity -= pr.Count;
+                        DBConnection.Context.SaveChanges();
+                    }
+                    PrintBill_Btn.Text = "Print Bill";
+                    this.start();
 
-            bill_Templete1.ShowDialog();
+                }
+            }
+            else
+            {
+                calc_Bill_Amount();
+                Bill_Templete bill_Templete1 = new Bill_Templete(bill_Item_list, selected_Client, Bill_Total_Amount, selectedTable_Number);
+                bill_Templete1.BillCompleted += (obj2, e2) =>
+                {
+                    this.start();
+
+                };
+
+                bill_Templete1.ShowDialog();
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         // edit button to edit selected bill item
         private void Edit_Bill_Item_Btn_Click(object sender, EventArgs e)
         {
+            try { 
             if (Bill_selected_Item != null)
             {
                 Veiw_Item_Txt.Text = Bill_selected_Item.Item.P_Name;
@@ -452,10 +591,18 @@ namespace Cafffe_Sytem.Pages
                 MessageBox.Show("No Item Selected to be edited !!!");
 
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         // Delete button to delete selected bill item
         private void Delete_Bill_Item_Btn_Click(object sender, EventArgs e)
         {
+            try { 
             if (Bill_selected_Item != null)
             {
                 string deleted_itemName = Bill_selected_Item.Item.P_Name;
@@ -468,6 +615,13 @@ namespace Cafffe_Sytem.Pages
             else
             {
                 MessageBox.Show("No Item Selected to be deleted !!!");
+
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -488,11 +642,7 @@ namespace Cafffe_Sytem.Pages
             ApplyOffer_checkBox1.Visible = false;
         }
 
-        private void Show_Products_dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+      
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -502,12 +652,42 @@ namespace Cafffe_Sytem.Pages
 
         private void Show_Bills_dataGridView2_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-             
+            try { 
+             if(e.RowIndex<0) return;
             int selectedBillID = int.Parse(Show_Bills_dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString());
-            var selectedBill = DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selectedBillID);
-            Detalis_Bill detailsForm = new Detalis_Bill(selectedBill);
-            
+             var selectedBill = DBConnection.Context.Bills.FirstOrDefault(b => b.B_ID == selectedBillID);
+            Detalis_Bill detailsForm = new Detalis_Bill(selectedBill,1);
+            detailsForm.editing+= (obj2, e2) =>
+            {
+                selectedBill_edit = detailsForm.selected_bill;
+                Show_Bills_Items_dataGridView1.DataSource = null;
+                bill_Item_list=selectedBill_edit.Bill_has_Products.Select(b=> new bill_list_item {Item=b.Product,Count= b.Product_Count,Total=(b.Product_Count*b.Product.P_Price)  }).ToList();
+                var show_list = bill_Item_list.Select(b => new { Item = b.Item.P_Name, Count = b.Count, Total = b.Total }).ToList();
+                Show_Bills_Items_dataGridView1.DataSource = show_list;
+                selected_Client= selectedBill_edit.Client;
+                selectedTable_Number= selectedBill_edit.B_Table_Num;
+                oldProducts = selectedBill_edit.Bill_has_Products.ToList();
+                foreach (var pr in oldProducts)
+                {
+                    var p = DBConnection.Context.Products.Find(pr.Product_ID);
+                    if (p != null)
+                        p.P_Quantity += pr.Product_Count;
+                    DBConnection.Context.SaveChanges();
+                }
+                refresh();
+                calc_Bill_Amount();
+                PrintBill_Btn.Text = "Edit Bill";
+
+            };
             detailsForm.Show();
+            start();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
@@ -515,6 +695,7 @@ namespace Cafffe_Sytem.Pages
         //
         void calc_item_total()
         {
+            try {
             if (Add_Item_ToBill_Btn.Text == "Edit Item")
             {
                 if (Bill_selected_Item != null && Add_Item_ToBill_Btn.Enabled)
@@ -541,10 +722,18 @@ namespace Cafffe_Sytem.Pages
                     Veiw_Item_TotalPrice_Txt.Text = (selected_Item_total).ToString();
                 }
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         //      
         void calc_Bill_Amount()
         {
+            try { 
             if (bill_Item_list.Count > 0)
             {
                 double amount = 0;
@@ -572,7 +761,13 @@ namespace Cafffe_Sytem.Pages
                 Bill_TotalAmount_label15.Text = Bill_Total_Amount.ToString();
                 PrintBill_Btn.Enabled = false;
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
     }

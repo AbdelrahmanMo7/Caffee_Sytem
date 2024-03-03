@@ -17,45 +17,34 @@ namespace Cafffe_Sytem.Pages.SacondryPages
         public Templete()
         {
             InitializeComponent();
-            //UserName_label1.Text=Login.Current_User.U_Name;
-            //if(Login.Current_User.U_IsAdmin_==true )
-            //{
-            //    Is_Admin_label2.Text = "Admin" ;
-            //}else
-            //{
-            //    Is_Admin_label2.Text = "Cashier";
-            //}
-            
+            try { 
+            UserName_label1.Text = Login.Current_User.U_Name;
+            if (Login.Current_User.U_IsAdmin_ == true)
+            {
+                Is_Admin_label2.Text = "Admin";
+            }
+            else
+            {
+                Is_Admin_label2.Text = "Cashier";
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         #region SideBar
         protected bool isexpend =true;
 
-       // protected void SideBar_timer_Tick(object sender, EventArgs e)
-       // {
-            //if (isexpend)
-            //{
-            //    sidebar_layout.Width -= 40;
-            //    if (sidebar_layout.Width == sidebar_layout.MinimumSize.Width)
-            //    {
-            //        isexpend = false;
-            //        SideBar_timer.Stop();
-            //    }
-            //}
-            //else
-            //{
-            //    sidebar_layout.Width += 40;
-            //    if (sidebar_layout.Width == sidebar_layout.MaximumSize.Width)
-            //    {
-            //        isexpend = true;
-            //        SideBar_timer.Stop();
-            //    }
-            //}
-       // }
+      
 
         protected void SideBar_btn_Click(object sender, EventArgs e)
         {
+            try { 
             //SideBar_timer.Start();
             if (isexpend)
             {
@@ -70,6 +59,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 isexpend = true;
                 SideBar_btn.Image = Cafffe_Sytem.Properties.Resources.icons8_activity_feed_33;
                 SideBar_btn.Refresh();
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 

@@ -26,7 +26,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-
+            try {
             if (string.IsNullOrEmpty(textname.Text))
             {
                 MessageBox.Show("Please enter Employee name.");
@@ -93,10 +93,18 @@ namespace Cafffe_Sytem.Pages.SacondryPages
             DataUpdated?.Invoke(this, EventArgs.Empty);
 
             this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void updateEmployee_Load(object sender, EventArgs e)
         {
+            try { 
            
             textname.Text = employeeToUpdate.Emp_Name;
             textage.Text = employeeToUpdate.Emp_Age.ToString();
@@ -108,6 +116,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
             Position_comboBox1.SelectedItem=employeeToUpdate.Posistion.Pos_Name;
             numericUpDownstart.Value = employeeToUpdate.Emp_ShiftStart.Value;
             numericUpDownend.Value = employeeToUpdate.Emp_ShiftEnd.Value;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
      
@@ -115,28 +130,53 @@ namespace Cafffe_Sytem.Pages.SacondryPages
       
         private void textage_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (Regex.IsMatch(textage.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 textage.Text = textage.Text.Remove(textage.Text.Length - 1);
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void textphone_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textphone.Text, "[^0-9]"))
+            try
             {
-                MessageBox.Show("Please enter only numbers.");
-                textphone.Text = textphone.Text.Remove(textphone.Text.Length - 1);
+                if (Regex.IsMatch(textphone.Text, "[^0-9]"))
+                {
+                    MessageBox.Show("Please enter only numbers.");
+                    textphone.Text = textphone.Text.Remove(textphone.Text.Length - 1);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
         private void textsalary_TextChanged(object sender, EventArgs e)
         {
+            try {
             if (Regex.IsMatch(textsalary.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 textsalary.Text = textsalary.Text.Remove(textsalary.Text.Length - 1);
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
     }

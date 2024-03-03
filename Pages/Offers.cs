@@ -29,6 +29,7 @@ namespace Cafffe_Sytem.Pages
 
         private void search_btn_Click(object sender, EventArgs e)
         {
+            try { 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -81,6 +82,13 @@ namespace Cafffe_Sytem.Pages
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = DBConnection.Context.Offers.Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End }).ToList();
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         public void refresh(object obj,EventArgs e)
         {
@@ -88,6 +96,7 @@ namespace Cafffe_Sytem.Pages
         }
         private void update_btn_Click(object sender, EventArgs e)
         {
+            try { 
             MangeOffer mangeOffer = new MangeOffer("update");
 
             if (dataGridView1.SelectedRows.Count > 0)
@@ -115,17 +124,33 @@ namespace Cafffe_Sytem.Pages
             {
                 MessageBox.Show("Please select a row to update.");
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         private void add_btn_Click(object sender, EventArgs e)
         {
+            try { 
             MangeOffer mangeOffer = new MangeOffer("Add");
             mangeOffer.Show();
             mangeOffer.eva += this.refresh;
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void delet_btn_Click(object sender, EventArgs e)
 
-        {// Show the message box asking the user to confirm deletion
+        {
+            try { // Show the message box asking the user to confirm deletion
             DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.OKCancel);
 
             // Check if the user clicked OK to confirm deletion
@@ -161,19 +186,33 @@ namespace Cafffe_Sytem.Pages
                     MessageBox.Show("Please select a row to delete.");
                 }
             }
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void init()
         {
+            try { 
             var x = DBConnection.Context.Offers.Select(c => new { ID = c.Off_ID, Name = c.Off_Name, Limit = c.Off_Limit, c.Off_Start, c.Off_End }).ToList();
             dataGridView1.DataSource = x;
             PopulateComboBoxofferend();
             PopulateComboBoxphone();
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         private void offer_start_filter_comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             try
             {
                 // Get the selected shift start date from ComboBox
@@ -257,6 +296,7 @@ namespace Cafffe_Sytem.Pages
 
         private void PopulateComboBoxphone()
         {
+            try {
             offer_start_filter_comboBox1.Items.Clear(); // Clear existing items in the ComboBox
 
             // Add "All Users" option as the first item in the ComboBox
@@ -267,12 +307,20 @@ namespace Cafffe_Sytem.Pages
 
             // Add unique phone numbers to the ComboBox
             offer_start_filter_comboBox1.Items.AddRange(uniquePhoneNumbers.Select(p => p.ToString()).ToArray());
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
 
         private void Offer_end_filter_comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             try
             {
                 // Get the selected shift start date from ComboBox

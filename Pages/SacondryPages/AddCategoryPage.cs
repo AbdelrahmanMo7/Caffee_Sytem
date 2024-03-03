@@ -60,6 +60,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         public void LoadOfferCombo()
         {
+            try {
             List<string> Q4 = new List<string>();
 
             Q4.AddRange((from e in DBConnection.Context.Offers
@@ -68,7 +69,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
             // Set the DataSource to the list of offers
             OfferComBox.DataSource = Q4;
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         //============================== Events =========================//
@@ -79,6 +86,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            try { 
             // Hide the OfferComBox
             OfferComBox.Visible = false;
 
@@ -196,29 +204,20 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 // Close the form or perform any additional actions
                 this.Close();
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
 
-        //    if (updatedProduct != null)
-        //    {
-        //        string selectedCategoryName = CategoryComBox.Text;
-
-        //        // Update the properties of the existing product with the values from the form
-        //        updatedProduct.Cat_Name = CategoryComBox.Text;
-        //        updatedProduct.Offer = selectedOfferObject;
-
-        //        // Save changes to the database
-        //        DBConnection.Context.SaveChanges();
-        //        // Refresh DataGridView after editing the product
-        //        C.LoadData();
-        //        // Close the form or perform any additional actions
-        //        this.Close();
-        //    }
-        //    return;
-        //}
         // Method to update products of the specified category
         private void UpdateProductsForCategory(Category category)
         {
+            try { 
             var productsToUpdate = DBConnection.Context.Products
                 .Where(p => p.Category.Cat_ID == category.Cat_ID /*&& p.Offer != null*/)
                 .ToList();
@@ -231,6 +230,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
             // Save changes to the database
             DBConnection.Context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
 }

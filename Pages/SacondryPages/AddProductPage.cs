@@ -38,7 +38,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
             LoadOfferCombo();
             this.selectedProduct = selectedProduct;
 
-
+            try { 
             // Populate the form with existing product details
             ProductNameTxt.Text = selectedProduct.Name;
             ProductQuantityTxt.Text = selectedProduct.Quantity.ToString();
@@ -53,7 +53,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 OfferComBox.SelectedItem = "No Offer assigned";
             else
                 OfferComBox.SelectedItem = selectedProduct.Offer;
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
             //ProductNameTxt.Text = selectedProduct.P_Name;
             //ProductQuantityTxt.Text = selectedProduct.P_Quantity.ToString();
@@ -64,6 +70,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         public void LoadCategoryCombo()
         {
+            try { 
             //using (Coffee_SystemEntities Context = new Coffee_SystemEntities())
 
             var Q3 = (from e in DBConnection.Context.Categories
@@ -72,10 +79,17 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
             // Set the DataSource to the list of categories
             CategoryComBox.DataSource = Q3;
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         public void LoadOfferCombo()
         {
+            try { 
             List<string> Q4 = new List<string>();
             
             Q4.AddRange((from e in DBConnection.Context.Offers
@@ -84,13 +98,20 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
             // Set the DataSource to the list of offers
             OfferComBox.DataSource = Q4;
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         //============================== Events =========================//
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            try { 
             //using (Coffee_SystemEntities Context = DBConnection.Context)
 
             if (AddBtn.Text == "Add")
@@ -315,6 +336,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                     this.Close();
                 }
                 return;
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 

@@ -33,6 +33,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            try {
 
             if (string.IsNullOrEmpty(textname.Text))
             {
@@ -99,7 +100,13 @@ namespace Cafffe_Sytem.Pages.SacondryPages
             DataUpdated?.Invoke(this, EventArgs.Empty);
             DialogResult = DialogResult.OK;
             MessageBox.Show("Add Successful");
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -113,19 +120,35 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         private void textage_TextChanged(object sender, EventArgs e)
         {
+            try { 
             if (Regex.IsMatch(textage.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 textage.Text = textage.Text.Remove(textage.Text.Length - 1);
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void textphone_TextChanged(object sender, EventArgs e)
         {
+            try {
             if (Regex.IsMatch(textphone.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers.");
                 textphone.Text = textphone.Text.Remove(textphone.Text.Length - 1);
+            }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : "+ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 

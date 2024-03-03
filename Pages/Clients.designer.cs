@@ -82,7 +82,6 @@
             this.panel3.Location = new System.Drawing.Point(0, 98);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Size = new System.Drawing.Size(1158, 150);
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // Page_Name
             // 
@@ -215,7 +214,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 34);
             this.textBox1.TabIndex = 20;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dataGridView1
             // 
@@ -393,13 +391,9 @@
      
         private System.Windows.Forms.Button update_btn;
         private System.Windows.Forms.Button button1;
-      
-       
         private System.Windows.Forms.Button search_btn;
-     
         private System.Windows.Forms.TextBox searchvalue_txt;
         private System.Windows.Forms.Button delete_btn;
-  
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;

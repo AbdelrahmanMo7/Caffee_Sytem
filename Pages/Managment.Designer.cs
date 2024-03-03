@@ -33,7 +33,6 @@
             this.Users = new System.Windows.Forms.TabPage();
             this.searchtxt = new System.Windows.Forms.TextBox();
             this.selectedUserNametxt = new System.Windows.Forms.TextBox();
-            this.Searchbtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Users_dataGridView = new System.Windows.Forms.DataGridView();
@@ -86,8 +85,6 @@
             // 
             // panel2
             // 
-            this.panel2.AutoSize = false;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Size = new System.Drawing.Size(1726, 353);
             // 
             // panel3
@@ -110,7 +107,7 @@
             this.panel4.Controls.Add(this.Reports_Tab_controls);
             this.panel4.Size = new System.Drawing.Size(1156, 611);
             // 
-            // pictureBox2
+            // LogOut_pictureBox
             // 
             this.LogOut_pictureBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // 
@@ -132,7 +129,6 @@
             this.Users.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Users.Controls.Add(this.searchtxt);
             this.Users.Controls.Add(this.selectedUserNametxt);
-            this.Users.Controls.Add(this.Searchbtn);
             this.Users.Controls.Add(this.label3);
             this.Users.Controls.Add(this.label2);
             this.Users.Controls.Add(this.Users_dataGridView);
@@ -145,11 +141,12 @@
             // 
             // searchtxt
             // 
-            this.searchtxt.Location = new System.Drawing.Point(626, 23);
+            this.searchtxt.Location = new System.Drawing.Point(853, 23);
             this.searchtxt.Name = "searchtxt";
             this.searchtxt.Size = new System.Drawing.Size(200, 34);
             this.searchtxt.TabIndex = 26;
             this.searchtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchtxt.TextChanged += new System.EventHandler(this.searchtxt_TextChanged);
             // 
             // selectedUserNametxt
             // 
@@ -160,26 +157,15 @@
             this.selectedUserNametxt.TabIndex = 25;
             this.selectedUserNametxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Searchbtn
-            // 
-            this.Searchbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Searchbtn.Location = new System.Drawing.Point(967, 20);
-            this.Searchbtn.Name = "Searchbtn";
-            this.Searchbtn.Size = new System.Drawing.Size(100, 40);
-            this.Searchbtn.TabIndex = 7;
-            this.Searchbtn.Text = "Search";
-            this.Searchbtn.UseVisualStyleBackColor = true;
-            this.Searchbtn.Click += new System.EventHandler(this.Searchbtn_Click);
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(548, 26);
+            this.label3.Location = new System.Drawing.Point(632, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 26);
+            this.label3.Size = new System.Drawing.Size(215, 26);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Search";
+            this.label3.Text = "Search in Users Name";
             // 
             // label2
             // 
@@ -192,6 +178,8 @@
             // 
             // Users_dataGridView
             // 
+            this.Users_dataGridView.AllowUserToAddRows = false;
+            this.Users_dataGridView.AllowUserToDeleteRows = false;
             this.Users_dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -216,8 +204,11 @@
             this.Position});
             this.Users_dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(206)))), ((int)(((byte)(176)))));
             this.Users_dataGridView.Location = new System.Drawing.Point(79, 85);
+            this.Users_dataGridView.MultiSelect = false;
             this.Users_dataGridView.Name = "Users_dataGridView";
+            this.Users_dataGridView.ReadOnly = true;
             this.Users_dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Users_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Users_dataGridView.Size = new System.Drawing.Size(1000, 321);
             this.Users_dataGridView.TabIndex = 1;
             this.Users_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Reports_conteinar_dataGridView1_CellContentClick);
@@ -226,26 +217,31 @@
             // 
             this.ID.HeaderText = "User ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // Namee
             // 
             this.Namee.HeaderText = "Name";
             this.Namee.Name = "Namee";
+            this.Namee.ReadOnly = true;
             // 
             // UserName
             // 
             this.UserName.HeaderText = "User Name";
             this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
             // 
             // Password
             // 
             this.Password.HeaderText = "Password";
             this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
             // 
             // Position
             // 
             this.Position.HeaderText = "Position";
             this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
             // 
             // system
             // 
@@ -471,7 +467,7 @@
             this.Updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Updatebtn.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Updatebtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Updatebtn.Location = new System.Drawing.Point(712, 32);
+            this.Updatebtn.Location = new System.Drawing.Point(915, 32);
             this.Updatebtn.Name = "Updatebtn";
             this.Updatebtn.Size = new System.Drawing.Size(120, 40);
             this.Updatebtn.TabIndex = 9;
@@ -486,7 +482,7 @@
             this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deletebtn.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletebtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.deletebtn.Location = new System.Drawing.Point(875, 32);
+            this.deletebtn.Location = new System.Drawing.Point(1006, 93);
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(120, 40);
             this.deletebtn.TabIndex = 10;
@@ -501,6 +497,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Location = new System.Drawing.Point(0, 0);
+            this.MaximumSize = new System.Drawing.Size(1386, 788);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "Managment";
             this.Text = "Managment";
             this.Load += new System.EventHandler(this.Managment_Load);
@@ -530,7 +528,6 @@
 
         private System.Windows.Forms.TabControl Reports_Tab_controls;
         private System.Windows.Forms.TabPage Users;
-        private System.Windows.Forms.Button Searchbtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView Users_dataGridView;

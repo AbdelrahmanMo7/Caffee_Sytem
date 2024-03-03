@@ -677,6 +677,8 @@ namespace Cafffe_Sytem.Pages
             this.ClientSize = new System.Drawing.Size(284, 680);
             this.Controls.Add(this.Bill_Temp_panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(300, 726);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 535);

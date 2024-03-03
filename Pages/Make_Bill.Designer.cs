@@ -463,7 +463,6 @@ namespace Cafffe_Sytem.Pages
             this.Show_Products_dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Show_Products_dataGridView1.Size = new System.Drawing.Size(524, 460);
             this.Show_Products_dataGridView1.TabIndex = 0;
-            this.Show_Products_dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Show_Products_dataGridView1_CellContentClick);
             this.Show_Products_dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Show_Products_dataGridView1_RowHeaderMouseClick);
             this.Show_Products_dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Show_Products_dataGridView1_RowHeaderMouseClick);
             this.Show_Products_dataGridView1.SelectionChanged += new System.EventHandler(this.Show_Products_dataGridView1_SelectionChanged);

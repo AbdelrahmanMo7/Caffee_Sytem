@@ -22,6 +22,7 @@ namespace Cafffe_Sytem.Pages.SacondryPages
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try { 
             if (nametxt.Text == "")
                 MessageBox.Show("Name is required");
             else if (usernametxt.Text == "")
@@ -45,8 +46,15 @@ namespace Cafffe_Sytem.Pages.SacondryPages
                 MessageBox.Show("User added");
                 this.Close();
             }
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
-        
+       
     }
 }

@@ -32,11 +32,12 @@ namespace Cafffe_Sytem.Pages
             this.selected_Client = _selected_Client;
             this.Bill_Total_Amount = _Bill_Total_Amount;
             this.Table_Num = Table_Num;
-            Login.Current_User = DBConnection.Context.Users.OrderByDescending(U => U.U_ID).FirstOrDefault();
+            
         }
 
         private void Bill_Templete_Load(object sender, EventArgs e)
         {
+            try {
             // time = DateTime.Now.ToString("HH:mm:ss tt");
             // date = DateTime.Now.ToString("dd/M/yyyy");
             Bill_DateTime = DateTime.Now.ToString();
@@ -74,8 +75,14 @@ namespace Cafffe_Sytem.Pages
             Client_Address_label4.Text = selected_Client.C_Address;
             Client_Phone_label9.Text = selected_Client.C_Phone_Number.ToString();
 
+            }
+            catch (Exception ex)
+            {
 
-           
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
         }
 
 
@@ -86,13 +93,20 @@ namespace Cafffe_Sytem.Pages
         }
         private void print(Panel p)
         {
+            try {
             PrinterSettings ps = new PrinterSettings();
             Bill_Temp_panel2 = p;
             getPrintArea(p);
             printPreviewDialog1.Document = printDocument1;
             printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_printPage);
             printPreviewDialog1.ShowDialog();
+            }
+            catch (Exception ex)
+            {
 
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         void printDocument1_printPage(object obj , PrintPageEventArgs e)
         {
@@ -111,6 +125,7 @@ namespace Cafffe_Sytem.Pages
         // print image that save dill data to server and print bill
         private void pictureBox1_Click( object obj , EventArgs e)
         {
+            try { 
             DBConnection.Context.Bills.Add(new Bill { B_Date= (DateTime.Now.Date),B_Time= (DateTime.Now.ToString("HH:mm:ss tt")),B_IsDeleted_=false,B_Table_Num=Table_Num,B_Total_Amount=Bill_Total_Amount,Client_Id= selected_Client.C_ID, Creater_Id=Login.Current_User.U_ID });
             DBConnection.Context.SaveChanges();
 
@@ -119,12 +134,25 @@ namespace Cafffe_Sytem.Pages
             BillNumber22_label14.Text = "Bill.No: " + last_Bill.B_ID;
             Bill_Number_label15.Text = "Bill.No: " + last_Bill.B_ID;
             last_Bill.Bill_has_Products= bill_Item_list.Select(i=> new Bill_has_Products { Bill_ID=last_Bill.B_ID,Product=i.Item,Product_Count=i.Count }).ToList();
-            DBConnection.Context.SaveChanges();
+            foreach (var pr in bill_Item_list)
+            {
+                Product p = DBConnection.Context.Products.Select(a => a).Where(s => s.P_ID == pr.Item.P_ID).FirstOrDefault();
+                if (p != null)
+                    p.P_Quantity -= pr.Count;
+                DBConnection.Context.SaveChanges();
+            }
             BillCompleted?.Invoke(this, e);
 
             print(this.Bill_Temp_panel2);
 
             this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                DialogResult result = MessageBox.Show("System Error : " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
        
